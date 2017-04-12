@@ -201,13 +201,17 @@ Sia $R$ un insieme quasiasi. Una \emph{variabile aleatoria\/} è una funzione $X
 
 Una variabile aleatoria $X$ si dice di bernulli se \emph{Bernoulli\/} se $\range X=\{0,1\}$.
 
-Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme $X^{-1}[\,1\,]$ così definito
+Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme che chiameremo \emph{successo\/} così definito
 
 \ceq{\hfill X^{-1}[\,1\,]}{=}{\{\omega:X(\omega)=1\}}
 
-Viceversa, la variabile di Bernoulli associata ad un evento $E$ è spesso denotata con $1_E$
+Chiameremo \emph{$p$}\ $ = P(X=1)$ la \emph{propbabilità di successo}.
+
+Viceversa, la v.a.\@ di Bernoulli associata ad un evento $E$ è spesso denotata con $1_E$
 
 \ceq{\hfill 1_E(x)}{=}{\left\{\begin{array}{ll}1&\textrm{ se }\ x\in E\\0&\textrm{ se }\ x\notin E\end{array}\right.}
+
+Per dire che $X$ è una variabile aleatoria di Bernoulli con probabilità di successo $p$ scriveremo \emph{$X\sim B(1,p)$}.
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -488,7 +492,7 @@ $P(T_-| D)=\emph{$\beta$}$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{(Pobabilità totali: maschi e femmine}
+\clearpage\section{Pobabilità totali: maschi e femmine}
 \label{MF_totali}
 
 
@@ -599,25 +603,25 @@ P(D ~|~ +)& = & 0.943\\
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli (una coda)}\label{Bernoulli_test}
+\clearpage\section{Bernoulli test (una coda)}\label{Bernoulli_test}
 
-Un'urna contiene monete equilibrate e monete difettose. Le monete equilibrate hanno probabilità di successo $1/2$ le monete difettose hanno probabilità di successo ignota $p>1/2$. Non conosciamo la frazione di monete difettose. Questi dati vengono riassunti scivendo
+Un'urna contiene monete equilibrate e monete difettose. Le monete equilibrate hanno probabilità di successo $p=1/2$ le monete difettose hanno probabilità di successo ignota $p>1/2$. Non conosciamo la frazione di monete difettose. Questi dati vengono riassunti scivendo
 
 $\H0:$ $p=1/2$
 
 $\HA:$ $p>1/2$
  
-Estraiamo una moneta dall'urna e per decidere tra equilibrata o difettosa facciamo il seguente test: la lanciamo $n$ volte e se il numero dei successi è $\ \ge k$ la dichiariamo difettosa. Stamo descivendo una famiglia di test, uno per ogni scelta dei parametri $n$ e $k$. Vogliamo vedere come variano gli errori del I e del II tipo al variare di questi parametri. 
+Estraiamo una moneta dall'urna e, per decidere tra equilibrata o difettosa, facciamo il seguente test: la lanciamo $n$ volte e se il numero dei successi è $\ \ge k$ la dichiariamo difettosa. Stoamo descivendo una famiglia di test, uno per ogni scelta dei parametri $n$ e $k$. Vogliamo vedere come variano gli errori del I e del II tipo al variare di questi parametri. 
 
 Il test è una variabile aleatoria $X$ a valori in $\{0,\dots,n\}$. Lo spazio campionario $\Omega$ è diviso in due parti: $D$ e $\neg D$.  L'insieme $D$ contiene quegli $\omega$ che corrispondono a $n$ lanci fatti con una moneta difettosa mentre $\neg D$ contiene quegli $\omega$ che corrispondono a lanci con una moneta equilibrata. 
 
-Se condizioniamo a $\neg D$ otteniamo $X\sim {\rm B}(n,1/2)$ se condizioniamo a $D$ otteniamo $X\sim {\rm B}(n,p)$ con $p$ ignota.
+Condizionando a $\neg D$ otteniamo $X\sim {\rm B}(n,1/2)$. Invece condizionando a $D$ otteniamo $X\sim {\rm B}(n,p)$ con $p>1/2$ ignota.
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli (test a una coda). Errore I tipo.}
+\clearpage\section{Bernoulli test (a una coda). Errore I tipo.}
 
 Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il risultato del test positivo. N.B. dipende da $n$ e da $k$.
 
@@ -638,7 +642,7 @@ from matplotlib import rc
 from seaborn import barplot
 
 rc('text', usetex=True)
-rc('font', family='serif', serif='Times', size=10)
+rc('font', family='serif', serif='Times', size=20)
 
 
 n=20; k=13; p=0.5
@@ -649,10 +653,11 @@ q = sum(y[y.index>=k])
 f = figure(figsize=(10,5))
 ylim(0, 0.25)
 palette = ['red' if (i >= k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), fontsize=20, linespacing=2)
-gca().text(13.3, .085, '$T_+=\{13,\dots,20\}$', fontsize=20, color='red')
-gca().text(13.8, .055, r'$P(T_+|\neg D)$\ =\ {:.2f}'.format(q), fontsize=20, color='red')
-plot([12.5,12.5],[0,1], color='white')
+gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
+gca().text(13.2, 0.23, 'Rifiuto', color='red')
+gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
+gca().text(20, 0.07, r'$P(T_+|\neg D)$\ =\ {:.2f}'.format(q), color='red', horizontalalignment='right')
+plot([12.5,12.5],[0,1], linestyle='--', color='black')
 barplot(x=y.index, y=y, palette=palette)
 
 savefig( 'p001.pdf', bbox_inches='tight' )
@@ -663,7 +668,7 @@ savefig( 'p001.pdf', bbox_inches='tight' )
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli (test a  una coda). Errore II tipo.}
+\clearpage\section{Bernoulli test (a  una coda). Errore II tipo.}
 
 La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $>1/2$)
 
@@ -686,21 +691,22 @@ from matplotlib import rc
 from seaborn import barplot
 
 rc('text', usetex=True)
-rc('font', family='serif', serif='Times', size=10)
+rc('font', family='serif', serif='Times', size=20)
 
 
 n=20; k=13; p=0.75
 
-y = Series( binom.pmf(range(n+1),20,p) )
-q = sum(y[y.index<k])
-
 f = figure(figsize=(10,5))
 ylim(0, 0.25)
 palette = ['blue' if (i < k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), fontsize=20, linespacing=2)
-gca().text(4, .06, '$T_-=\{0,\dots,12\}$', fontsize=20, color='blue')
-gca().text(4, .025, '$P(T_-|D)$\ =\ {:.2f}'.format(q), fontsize=20, color='blue')
-plot([12.5,12.5],[0,1], color='white')
+y = Series( binom.pmf(range(n+1),20,p) )
+q = sum(y[y.index<k])
+gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
+gca().text(13.2, 0.23, 'Rifiuto', color='red')
+gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
+gca().text(0.5, .07, '$P(T_-|D)$\ =\ {:.2f}'.format(q), fontsize=20, color='blue')
+
+plot([12.5,12.5],[0,1], linestyle='--', color='black')
 barplot(x=y.index, y=y, palette=palette)
 
 savefig('p002.pdf',bbox_inches='tight')
@@ -717,7 +723,7 @@ Al crescere di $p$ la distribuzione si sposta verso destra quindi gli errori del
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli (test a due code).}
+\clearpage\section{Bernoulli test (a due code).}
 
 Nell'esempio precedente avevamo un'informazione certa sul tipo di difetto delle monete: sapevamo che $p>1/2$. Supponiamo questa manchi. Avremo quindi
 
@@ -741,8 +747,7 @@ from matplotlib import rc
 from seaborn import barplot
 
 rc('text', usetex=True)
-rc('font', family='serif', serif='Times', size=10)
-
+rc('font', family='serif', serif='Times', size=20)
 
 n=20; k=13; p=0.25
 
@@ -752,10 +757,11 @@ q = sum(y[y.index<k])
 f = figure(figsize=(10,5))
 ylim(0, 0.25)
 palette = ['blue' if (i < k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), fontsize=20, linespacing=2)
-gca().text(13.3, .11, '$T_-=\{0,\dots,12\}$', fontsize=20, color='blue')
-gca().text(13.3, .075, r'$P(T_-|D_1 _/ _4)$\ =\ {:.4f}'.format(q), fontsize=20, color='blue')
-plot([12.5,12.5],[0,1], color='white')
+gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
+gca().text(13.2, 0.23, 'Rifiuto', color='red')
+gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
+gca().text(6.7, .12, '$P(T_-|D)$\ =\ {:.4f}'.format(q), fontsize=20, color='blue')
+plot([12.5,12.5],[0,1], linestyle='--', color='black')
 barplot(x=y.index, y=y, palette=palette)
 
 savefig('p003.pdf',bbox_inches='tight')
@@ -766,7 +772,7 @@ savefig('p003.pdf',bbox_inches='tight')
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli (test a due code). Errori I e II tipo.}
+\clearpage\section{Bernoulli test (a due code). Errori I e II tipo.}
 
 Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,20\}$
 
@@ -779,7 +785,7 @@ from matplotlib import rc
 from seaborn import barplot
 
 rc('text', usetex=True)
-rc('font', family='serif', serif='Times', size=10)
+rc('font', family='serif', serif='Times', size=20)
 
 
 n=20; k=13; p=0.5
@@ -790,12 +796,14 @@ q = 2 * sum(y[y.index>=k])
 f4 = figure(figsize=(10,5))
 ylim(0, 0.25)
 palette = ['red' if (i >= k) or (i <= n-k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), fontsize=20, linespacing=2)
-gca().text(13.3, .105, '$T_+=\{13,\dots,20\}$', fontsize=20, color='red')
-gca().text(15.5, .085, '$\cup\ \{0,\dots,7\}$', fontsize=20, color='red')
-gca().text(13.8, .055, r'$P(T_+|\neg D)$\ =\ {:.2f}'.format(q), fontsize=20, color='red')
-plot([12.5,12.5],[0,1], color='white')
-plot([7.5,7.5],[0,1], color='white')
+gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
+gca().text(13.2, 0.23, 'Rifiuto', color='red')
+gca().text(6.9, 0.23, 'Rifiuto', color='red', horizontalalignment='right')
+gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
+gca().text(20, 0.07, r'$P(T_+|\neg D)$\ =\ {:.2f}'.format(q), color='red', horizontalalignment='right')
+
+plot([12.5,12.5],[0,1], linestyle='--', color='black')
+plot([7.5,7.5],[0,1], linestyle='--', color='black')
 barplot(x=y.index, y=y, palette=palette)
 
 savefig( 'p004.pdf', bbox_inches='tight' )
@@ -808,17 +816,17 @@ q = sum( y[y.index<k] ) -  sum( y[y.index<=n-k] )
 f5 = figure(figsize=(10,5))
 ylim(0, 0.25)
 palette = ['blue' if (i < k) and (i >= n-k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), fontsize=20, linespacing=2)
-gca().text(4, .06, '$T_-=\{8,\dots,12\}$', fontsize=20, color='blue')
-gca().text(4, .025, r'$P(T_-|D_3 _/ _4)$\ =\ {:.2f}'.format(q), fontsize=20, color='blue')
-plot([12.5,12.5],[0,1], color='white')
-plot([7.5,7.5],[0,1], color='white')
+gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
+gca().text(13.2, 0.23, 'Rifiuto', color='red')
+gca().text(6.9, 0.23, 'Rifiuto', color='red', horizontalalignment='right')
+gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
+gca().text(0.5, .07, '$P(T_-|D)$\ =\ {:.2f}'.format(q), fontsize=20, color='blue')
+
+plot([12.5,12.5],[0,1],  linestyle='--', color='black')
+plot([7.5,7.5],[0,1],  linestyle='--', color='black')
 barplot(x=y.index, y=y, palette=palette)
 
-
 savefig( 'p005.pdf', bbox_inches='tight' )
-
-
 p=0.25
 
 y = Series( binom.pmf(range(n+1),20,p) )
@@ -827,13 +835,15 @@ q = sum( y[y.index<k] ) -  sum( y[y.index<=n-k] )
 f6 = figure(figsize=(10,5))
 ylim(0, 0.25)
 palette = ['blue' if (i < k) and (i > n-k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), fontsize=20, linespacing=2)
-gca().text(13.3, .06, '$T_-=\{8,\dots,12\}$', fontsize=20, color='blue')
-gca().text(13.3, .035, r'$P(T_-|D_1 _/ _4)$\ =\ {:.2f}'.format(q), fontsize=20, color='blue')
-plot([12.5,12.5],[0,1], color='white')
-plot([7.5,7.5],[0,1], color='white')
-barplot(x=y.index, y=y, palette=palette)
+gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
+gca().text(13.2, 0.23, 'Rifiuto', color='red')
+gca().text(6.9, 0.23, 'Rifiuto', color='red', horizontalalignment='right')
+gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
+gca().text(20, 0.07, '$P(T_-|D)$\ =\ {:.2f}'.format(q), color='blue', horizontalalignment='right')
 
+plot([12.5,12.5],[0,1],  linestyle='--', color='black')
+plot([7.5,7.5],[0,1], linestyle='--', color='black')
+barplot(x=y.index, y=y, palette=palette)
 
 savefig( 'p006.pdf', bbox_inches='tight' )
 
@@ -844,6 +854,28 @@ savefig( 'p006.pdf', bbox_inches='tight' )
 \hfil\includegraphics[width=0.75\textwidth]{p005.pdf}
 
 \hfil\includegraphics[width=0.75\textwidth]{p006.pdf}
+
+
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Bernoulli test (a due code) campione più ampio.}
+
+Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$):  $T_+=\{0,\dots,14\}\cup \{26,\dots,40\}$
+
+Entrambi gli errori diminuiscono.
+
+
+\hfil\includegraphics[width=0.75\textwidth]{p007.pdf}
+
+\hfil\includegraphics[width=0.75\textwidth]{p008.pdf}
+
+\hfil\includegraphics[width=0.75\textwidth]{p009.pdf}
+
+
 
 
 \end{document}
