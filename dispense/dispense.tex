@@ -621,7 +621,7 @@ Condizionando a $\neg D$ otteniamo $X\sim {\rm B}(n,1/2)$. Invece condizionando 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (a una coda). Errore I tipo.}
+\clearpage\section{Bernoulli test (una coda). Errore I tipo.}
 
 Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il risultato del test positivo. N.B. dipende da $n$ e da $k$.
 
@@ -633,36 +633,7 @@ Per quanto osservato sulla distribuzione di $X$, possiamo calcolare la specifici
 Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13,\dots,20\}$} è la regione di rifiuto. Otteniamo %$P(T_+|\neg D) = \py{sum(y[y.index<=k]}$
 
 
-
-\begin{pycode}
-from scipy.stats import binom
-from pandas import Series
-from matplotlib.pyplot import figure, savefig, ylim, legend, gca, plot
-from matplotlib import rc
-from seaborn import barplot
-
-rc('text', usetex=True)
-rc('font', family='serif', serif='Times', size=20)
-
-
-n=20; k=13; p=0.5
-
-y = Series( binom.pmf(range(n+1),20,p) )
-q = sum(y[y.index>=k])
-
-f = figure(figsize=(10,5))
-ylim(0, 0.25)
-palette = ['red' if (i >= k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
-gca().text(13.2, 0.23, 'Rifiuto', color='red')
-gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
-gca().text(20, 0.07, r'$P(T_+|\neg D)$\ =\ {:.2f}'.format(q), color='red', horizontalalignment='right')
-plot([12.5,12.5],[0,1], linestyle='--', color='black')
-barplot(x=y.index, y=y, palette=palette)
-
-savefig( 'p001.pdf', bbox_inches='tight' )
-\end{pycode}
-\hfil\includegraphics[width=0.75\textwidth]{p001.pdf}
+\hfil\includegraphics[width=0.75\textwidth]{figure/p001.pdf}
 
 
 %%%%%%%%%%%%
@@ -683,37 +654,9 @@ $\HA:$ $p=3/4$
 Rappresentiamo la distribuzione di $X$ nel caso in cui l'ipotesi alterntiva è vera. Per confronto lo accostiamo al grafico del paragrafo precedente. 
 
 
-\begin{pycode}
-from scipy.stats import binom
-from pandas import Series
-from matplotlib.pyplot import figure, savefig, ylim, legend, gca, plot
-from matplotlib import rc
-from seaborn import barplot
+\hfil\includegraphics[width=0.75\textwidth]{figure/p002.pdf}
 
-rc('text', usetex=True)
-rc('font', family='serif', serif='Times', size=20)
-
-
-n=20; k=13; p=0.75
-
-f = figure(figsize=(10,5))
-ylim(0, 0.25)
-palette = ['blue' if (i < k) else 'gray' for i in range(n+1) ]
-y = Series( binom.pmf(range(n+1),20,p) )
-q = sum(y[y.index<k])
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
-gca().text(13.2, 0.23, 'Rifiuto', color='red')
-gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
-gca().text(0.5, .07, '$P(T_-|D)$\ =\ {:.2f}'.format(q), fontsize=20, color='blue')
-
-plot([12.5,12.5],[0,1], linestyle='--', color='black')
-barplot(x=y.index, y=y, palette=palette)
-
-savefig('p002.pdf',bbox_inches='tight')
-\end{pycode}
-\hfil\includegraphics[width=0.75\textwidth]{p002.pdf}
-
-\hfil\includegraphics[width=0.75\textwidth]{p001.pdf}
+\hfil\includegraphics[width=0.75\textwidth]{figure/p001.pdf}
 
 Cosa possiamo dire sul caso generale $\HA:$ $p>1/2$~?
 
@@ -723,7 +666,7 @@ Al crescere di $p$ la distribuzione si sposta verso destra quindi gli errori del
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (a due code).}
+\clearpage\section{Bernoulli test (due code).}
 
 Nell'esempio precedente avevamo un'informazione certa sul tipo di difetto delle monete: sapevamo che $p>1/2$. Supponiamo questa manchi. Avremo quindi
 
@@ -739,121 +682,21 @@ $\HA:$ $p=3/4$\quad o\quad $p=1/4$
 
 Possiamo immaginare $D=D_{1/4}\cup D_{3/4}$. Il grafico del paragrafo precedente è valido ora se sostituiamo $D$ con $D_{3/4}$. Ora però dobbiamo considerare il caso il cui la moneta appartenga all'insieme $D_{1/4}$
 
-\begin{pycode}
-from scipy.stats import binom
-from pandas import Series
-from matplotlib.pyplot import figure, savefig, ylim, legend, gca, plot
-from matplotlib import rc
-from seaborn import barplot
-
-rc('text', usetex=True)
-rc('font', family='serif', serif='Times', size=20)
-
-n=20; k=13; p=0.25
-
-y = Series( binom.pmf(range(n+1),20,p) )
-q = sum(y[y.index<k])
-
-f = figure(figsize=(10,5))
-ylim(0, 0.25)
-palette = ['blue' if (i < k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
-gca().text(13.2, 0.23, 'Rifiuto', color='red')
-gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
-gca().text(6.7, .12, '$P(T_-|D)$\ =\ {:.4f}'.format(q), fontsize=20, color='blue')
-plot([12.5,12.5],[0,1], linestyle='--', color='black')
-barplot(x=y.index, y=y, palette=palette)
-
-savefig('p003.pdf',bbox_inches='tight')
-\end{pycode}
-\hfil\includegraphics[width=0.75\textwidth]{p003.pdf}
+\hfil\includegraphics[width=0.75\textwidth]{figure/p003.pdf}
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (a due code). Errori I e II tipo.}
+\clearpage\section{Bernoulli test (due code). Errori I e II tipo.}
 
 Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,20\}$
 
+\hfil\includegraphics[width=0.75\textwidth]{figure/p004.pdf}
 
-\begin{pycode}
-from scipy.stats import binom
-from pandas import Series
-from matplotlib.pyplot import figure, savefig, ylim, legend, gca, plot
-from matplotlib import rc
-from seaborn import barplot
+\hfil\includegraphics[width=0.75\textwidth]{figure/p005.pdf}
 
-rc('text', usetex=True)
-rc('font', family='serif', serif='Times', size=20)
-
-
-n=20; k=13; p=0.5
-
-y = Series( binom.pmf(range(n+1),20,p) )
-q = 2 * sum(y[y.index>=k])
-
-f4 = figure(figsize=(10,5))
-ylim(0, 0.25)
-palette = ['red' if (i >= k) or (i <= n-k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
-gca().text(13.2, 0.23, 'Rifiuto', color='red')
-gca().text(6.9, 0.23, 'Rifiuto', color='red', horizontalalignment='right')
-gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
-gca().text(20, 0.07, r'$P(T_+|\neg D)$\ =\ {:.2f}'.format(q), color='red', horizontalalignment='right')
-
-plot([12.5,12.5],[0,1], linestyle='--', color='black')
-plot([7.5,7.5],[0,1], linestyle='--', color='black')
-barplot(x=y.index, y=y, palette=palette)
-
-savefig( 'p004.pdf', bbox_inches='tight' )
-
-p=0.75
-
-y = Series( binom.pmf(range(n+1),20,p) )
-q = sum( y[y.index<k] ) -  sum( y[y.index<=n-k] )
-
-f5 = figure(figsize=(10,5))
-ylim(0, 0.25)
-palette = ['blue' if (i < k) and (i >= n-k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
-gca().text(13.2, 0.23, 'Rifiuto', color='red')
-gca().text(6.9, 0.23, 'Rifiuto', color='red', horizontalalignment='right')
-gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
-gca().text(0.5, .07, '$P(T_-|D)$\ =\ {:.2f}'.format(q), fontsize=20, color='blue')
-
-plot([12.5,12.5],[0,1],  linestyle='--', color='black')
-plot([7.5,7.5],[0,1],  linestyle='--', color='black')
-barplot(x=y.index, y=y, palette=palette)
-
-savefig( 'p005.pdf', bbox_inches='tight' )
-p=0.25
-
-y = Series( binom.pmf(range(n+1),20,p) )
-q = sum( y[y.index<k] ) -  sum( y[y.index<=n-k] )
-
-f6 = figure(figsize=(10,5))
-ylim(0, 0.25)
-palette = ['blue' if (i < k) and (i > n-k) else 'gray' for i in range(n+1) ]
-gca().text(0.5, .18, '$n=20$\n' '$p={}$'.format(p), linespacing=1.8)
-gca().text(13.2, 0.23, 'Rifiuto', color='red')
-gca().text(6.9, 0.23, 'Rifiuto', color='red', horizontalalignment='right')
-gca().text(10, 0.23, 'Non Rifiuto', color='black', horizontalalignment='center')
-gca().text(20, 0.07, '$P(T_-|D)$\ =\ {:.2f}'.format(q), color='blue', horizontalalignment='right')
-
-plot([12.5,12.5],[0,1],  linestyle='--', color='black')
-plot([7.5,7.5],[0,1], linestyle='--', color='black')
-barplot(x=y.index, y=y, palette=palette)
-
-savefig( 'p006.pdf', bbox_inches='tight' )
-
-
-\end{pycode}
-\hfil\includegraphics[width=0.75\textwidth]{p004.pdf}
-
-\hfil\includegraphics[width=0.75\textwidth]{p005.pdf}
-
-\hfil\includegraphics[width=0.75\textwidth]{p006.pdf}
+\hfil\includegraphics[width=0.75\textwidth]{figure/p006.pdf}
 
 
 
@@ -862,18 +705,45 @@ savefig( 'p006.pdf', bbox_inches='tight' )
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (a due code) campione più ampio.}
+\clearpage\section{Bernoulli test (due code) campione più ampio.}
 
 Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$):  $T_+=\{0,\dots,14\}\cup \{26,\dots,40\}$
 
 Entrambi gli errori diminuiscono.
 
 
-\hfil\includegraphics[width=0.75\textwidth]{p007.pdf}
+\hfil\includegraphics[width=0.75\textwidth]{figure/p007.pdf}
 
-\hfil\includegraphics[width=0.75\textwidth]{p008.pdf}
+\hfil\includegraphics[width=0.75\textwidth]{figure/p008.pdf}
 
-\hfil\includegraphics[width=0.75\textwidth]{p009.pdf}
+\hfil\includegraphics[width=0.75\textwidth]{figure/p009.pdf}
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Z-test (una coda).}
+
+(N.B. Il seguente non descrive una corretta procedura per un test clinico, cfr.\@ \hyperref[Z-test differenze (una coda)]{Z-test differenze \faShare}.) Si sospetta che una certo farmaco faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica nella popolazione adulta ha distribuzione $N(\mu_0,\sigma^2)$ con $\mu_0=75$ e $\sigma=9.5$. 
+
+Assumiamo che tra i pazienti che prendono il farmaco la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale.
+
+Vogliamo testare le seguenti ipotesi:
+
+$\H0:$ $\mu_0=\mu$
+
+$\HA:$ $\mu_0>\mu$
+
+Misurando la pressione ad un gruppo di $n$ pazienti che assumono il farmaco otteniamo un valore di $\bar x=81$ e vogliamo sapere se questo è sufficiente per rigettare $H0$.
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Z-test (una coda).}
+
+
 
 
 
