@@ -2,4 +2,4 @@
 
 ### Matematica e Biostatistica con Applicazioni Informatiche [ INT 0824 ]
 
-Il file principale è `dispense.pdf`. Il sorgente è `dispense.tex`. Le figure sono prodotte con i file `*.ipynb` (Jupyter notebooks). 
+Il file principale,`dispense.pdf` è stato ottenuto dal sorgente `dispense.tex` e le figure nella cartella `figure`. Le figure sono state prodotte con i file `*.ipynb` (Jupyter notebooks) contenuti nella stessa cartella.
