@@ -245,7 +245,7 @@ Per dire che $X$ è una variabile aleatoria di Bernoulli con probabilità di suc
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Probabilità condizionata}
+\clearpage\section{Probabilità condizionata} 
 
 {\color{brown}Esempi:} \hyperref[MF_totali]{Popolazione maschile e femminile (probabilità totali) \faShare}
 \\
@@ -416,7 +416,8 @@ Introduciamo la terminologia dei test d'ipotesi basandoci sulla notazione usata 
 \begin{itemize}
 \item L'\emph{ipotesi nulla\/} denotata con \emph{$\H0$} definisce l'insieme dei \textit{sani\/} (qui denotato $\neg D$). 
 \item L'\emph{ipotesi alternativa\/} denotata con \emph{$\HA$}  descrive la \textit{patologia}, ovvero definisce l'insieme dei \textit{malati\/} (qui denotato  $D$).
-\item $\HA$ non è semplicemente la negazione di $\H0$ nel caso in cui alcuni risultati vengono esclusi perché ritenuti impossibili.
+
+\item $\HA$ non è semplicemente la negazione di $\H0$. Alcune possibilità potrebbero non occorrere né in $\H0$ né in $\HA$ perché ritenute impossibili.
 
 \item L'espressione: \emph{$\H0$ può essere rifiutata\/} è sinonima di \textit{l'esito del test è positivo}. 
 Noi denotiamo l'evento con $T_+$.
@@ -444,7 +445,7 @@ Evidenziamo in questa tavola la terminologia usata nei test statistici (che diff
 
 
 \fbox{\parbox[t]{34ex}{%
-$T_+\cap \neg D$ \ falso pos.\hfill \emph{errore del I tipo\/}\\
+$T_+\cap \neg D$ \ falso pos.\hfill \emph{errore I tipo\/}\\
 
 $P(T_+|\neg D)=\emph{$\alpha$}$\hfill \emph{significatività\/}
 }}
@@ -463,7 +464,7 @@ $P(T_-|\neg D)=1-\emph{$\alpha$}$\hfill \emph{sepecificità\/}
 }}
 \kern2ex
 \fbox{\parbox[t]{36ex}{%
-$T_-\cap D$ \ falso neg.\hfill \emph{errore del II tipo\/}\\
+$T_-\cap D$ \ falso neg.\hfill \emph{errore II tipo\/}\\
 
 $P(T_-| D)=\emph{$\beta$}$
 }}
@@ -629,7 +630,7 @@ Per quanto osservato sulla distribuzione di $X$, possiamo calcolare la specifici
 Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13,\dots,20\}$} è la regione di rifiuto. Otteniamo %$P(T_+|\neg D) = \py{sum(y[y.index<=k]}$
 
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p001.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_01.pdf}
 
 
 %%%%%%%%%%%%
@@ -650,9 +651,9 @@ $\HA:$ $p=3/4$
 Rappresentiamo la distribuzione di $X$ nel caso in cui l'ipotesi alterntiva è vera. Per confronto lo accostiamo al grafico del paragrafo precedente. 
 
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p002.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_02.pdf}
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p001.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_01.pdf}
 
 Cosa possiamo dire sul caso generale $\HA:$ $p>1/2$~?
 
@@ -678,7 +679,7 @@ $\HA:$ $p=3/4$\quad o\quad $p=1/4$
 
 Possiamo immaginare $D=D_{1/4}\cup D_{3/4}$. Il grafico del paragrafo precedente è valido ora se sostituiamo $D$ con $D_{3/4}$. Ora però dobbiamo considerare il caso il cui la moneta appartenga all'insieme $D_{1/4}$
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p003.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_03.pdf}
 
 
 %%%%%%%%%%%%
@@ -688,11 +689,11 @@ Possiamo immaginare $D=D_{1/4}\cup D_{3/4}$. Il grafico del paragrafo precedente
 
 Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,20\}$
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p004.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_04.pdf}
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p005.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_05.pdf}
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p006.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_06.pdf}
 
 
 
@@ -708,11 +709,11 @@ Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zo
 Entrambi gli errori diminuiscono.
 
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p007.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_07.pdf}
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p008.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_08.pdf}
 
-\hfil\includegraphics[width=0.75\textwidth]{figure/p009.pdf}
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_09.pdf}
 
 
 
