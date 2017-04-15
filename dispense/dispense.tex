@@ -33,9 +33,6 @@ diagrams={>=latex}
 \def\E{{\rm E}}
 \def\Var{{\rm Var}}
 \def\range{\mathop{\rm img}}
-\def\H0{{\rm H_0}}
-\def\HA{{\rm H_A}}
-
 \linespread{1.2}
 \setlength{\parindent}{0ex}
 \setlength{\parskip}{.5\baselineskip}
@@ -390,7 +387,7 @@ Tipicamente la specificità e la sensitività del test sono note. I poteri predi
 %%%%%%%%%%%%
 \clearpage\section{Campioni e statistiche}
 
-Un campione $\{X_1,\dots,X_n\}$ è un insieme di $n$ v.a.\@ indipendenti e identicamente distribuite. Diremo che il campione ha \emph{rango\/} (o \emph{dimensione\/}) $n$. 
+Un campione $\{X_1,\dots,X_n\}$ è un insieme di v.a.\@ indipendenti e identicamente distribuite. Il numero $n$ si chiama \emph{rango\/} (o \emph{dimensione\/}) del campione. 
 
 Una \emph{statistica\/} è una variabile aleatoria a valori in $\RR$ ottenuta come funzione delle variabili aleatorie di un campione. Gli esempi più noti sono $\bar X$, la \emph{media campionaria\/} ed $S$, lo \emph{stimatore della deviazione standard\/} 
 
@@ -407,76 +404,97 @@ Una \emph{statistica\/} è una variabile aleatoria a valori in $\RR$ ottenuta co
 %%%%%%%%%%%%
 \clearpage\section{Test d'ipotesi}
 
-Esempi: \hyperref[Bernoulli_test]{Bernoulli test (il più elementare test di ipotesi) \faShare}
+Esempi: \hyperref[Bernoulli_test]{Binomial test (il più elementare test di ipotesi) \faShare}
 
 Nei test di ipotesi la scelta tra risultato positivo/negativo viene fatta in base al valore di una statistica. Si sceglie un intervallo detto \emph{regione di rifiuto\/}. Se il valore è in questo intervallo l'esito si considera positivo (N.B.\@ rifiuto$\,\sim\,$positivo).
 
 Introduciamo la terminologia dei test d'ipotesi basandoci sulla notazione usata per i test diagnostici.
 
 \begin{itemize}
-\item L'\emph{ipotesi nulla\/} denotata con \emph{$\H0$} definisce l'insieme dei \textit{sani\/} (qui denotato $\neg D$). 
-\item L'\emph{ipotesi alternativa\/} denotata con \emph{$\HA$}  descrive la \textit{patologia}, ovvero definisce l'insieme dei \textit{malati\/} (qui denotato  $D$).
+\item L'\emph{ipotesi nulla\/} denotata con \emph{$H_0$} definisce l'insieme dei \textit{sani\/} (qui $H_0$ è anche l'evento corrispondente, quello denotavamo $\neg D$). 
 
-\item $\HA$ non è semplicemente la negazione di $\H0$. Alcune possibilità potrebbero non occorrere né in $\H0$ né in $\HA$ perché ritenute impossibili.
+\item L'\emph{ipotesi alternativa\/} denotata con \emph{$H_A$}  descrive la \textit{patologia}, ovvero definisce l'insieme dei \textit{malati\/} (qui $H_A$ è anche l'evento corrispondente, era $D$).
 
-\item L'espressione: \emph{$\H0$ può essere rifiutata\/} è sinonima di \textit{l'esito del test è positivo}. 
-Noi denotiamo l'evento con $T_+$.
+\item $H_A$ non è semplicemente la negazione di $H_0$. Alcune risulttati, se ritenuti impossibili, non occorrono né in $H_0$ né in $H_A$.
+
+\item L'espressione: \emph{$H_0$ può essere rifiutata\/} è sinonima di \textit{l'esito del test è positivo}. Noi denotiamo l'evento con \emph{$T_+$}.
 
 
-\item L'espressione: \emph{$\H0$ NON può essere rifiutata\/} è sinonima di \textit{l'esito del test è negativo}. 
-Noi denotiamo l'evento con $T_-$.
+\item L'espressione: \emph{$H_0$ NON può essere rifiutata\/} è sinonima di \textit{l'esito del test è negativo}. Noi denotiamo l'evento con \emph{$T_-$}.
 
-\item Nel progettare il test si decide come definire $T_+$ e $T_-$ a seconda di quanti falsi positivi/negativi si vuole o può tollerare (in base ai costi/rischi che questi due errori comportano). Ci si calcola quindi $P(T_+|\neg D)$ e $P(T_-| D)$.
+\item Nel progettare il test si decide come definire $T_+$ e $T_-$ a seconda di quanti falsi positivi/negativi si vuole o può tollerare (in base ai costi/rischi che questi due errori comportano). Ci si calcola quindi $P(T_+|H_0)$ e $P(T_-|H_A)$.
 \end{itemize}
-
-N.B. È vacile progettare un test che minimizza solo una tra $P(T_+|\neg D)$ o $P(T_-| D)$. In un caso estremo: un test che a prescindere dai dati rifiuta sempre $\H0$ avrà banalmente $P(T_-| D)=0$; invece un test che non rifiuta mai $\H0$ avrà  $P(T_+|\neg D)=0$.
-
-La difficoltà nel progettare il test è trovare il giusto equilibrio tra $P(T_+|\neg D)$ e $P(T_-| D)$.
-
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \clearpage\section{Test d'ipotesi (tavola riassuntiva)}
-\setlength{\fboxsep}{1.2ex}
+\setlength{\fboxsep}{1ex}
 
-Evidenziamo in questa tavola la terminologia usata nei test statistici (che differisce da quella usata per i test diagnostici). Molto comune sono i simboli $\emph{$\alpha$\/}=P(T_+|\neg D)$ e $\emph{$\beta$\/}=P(T_-| D)$.\bigskip   
+In questa tavola contrapponiamo la terminologia usata nei \emph{test statistici\/}  a quella dei \textit{test diagnostici}. Molto comuni sono anche i simboli \emph{$\alpha$\/} e \emph{$\beta$\/}.\bigskip   
 
 
-\fbox{\parbox[t]{34ex}{%
-$T_+\cap \neg D$ \ falso pos.\hfill \emph{errore I tipo\/}\\
+\fbox{\parbox[t]{35ex}{%
+\emph{$T_+\cap H_0$} \ \textit{falso positivo}\hfill \emph{errore I tipo\/}\\
 
-$P(T_+|\neg D)=\emph{$\alpha$}$\hfill \emph{significatività\/}
+\emph{$P(T_+|H_0)=\emph{$\alpha$}$}\hfill \emph{significatività\/}
 }}
-\kern2ex
-\fbox{\parbox[t]{36ex}{%
-$T_+\cap D$ \ corretto pos.\\
+\kern1ex
+\fbox{\parbox[t]{38ex}{%
+\emph{$T_+\cap H_A$} \ \textit{corretto positivo}\\
 
-$P(T_+| D)=1-\emph{$\beta$}$ \ sensibilità\hfill \emph{potenza\/}
+\emph{$P(T_+|H_A)=1-\emph{$\beta$}$} \ \textit{sensibilità}\hfill \emph{potenza\/}
 }}
 
 
-\fbox{\parbox[t]{34ex}{%
-$T_-\cap\neg D$ \ corretto neg.\\
+\fbox{\parbox[t]{35ex}{%
+\emph{$T_-\cap H_0$} \ \textit{corretto negativo}\\
 
-$P(T_-|\neg D)=1-\emph{$\alpha$}$\hfill \emph{sepecificità\/}
+\emph{$P(T_-|H_0)=1-\emph{$\alpha$}$} \ \textit{sepecificità}
 }}
-\kern2ex
-\fbox{\parbox[t]{36ex}{%
-$T_-\cap D$ \ falso neg.\hfill \emph{errore II tipo\/}\\
+\kern1ex
+\fbox{\parbox[t]{38ex}{%
+\emph{$T_-\cap H_A$} \ \textit{falso negativo}\hfill \emph{errore II tipo\/}\\
 
-$P(T_-| D)=\emph{$\beta$}$
+\emph{$P(T_-|H_A)=\emph{$\beta$}$}
 }}
+
+
+\bigskip
+N.B. È vacile progettare un test che minimizza una tra $P(T_+|H_0)$ o $P(T_-|H_A)$. In un caso estremo: se a prescindere dai dati rifiuta sempre $H_0$ avrà banalmente $P(T_-| H_0)=0$; invece un test che non rifiuta mai $H_0$ avrà  $P(T_+|H_0)=0$. La difficoltà nel progettare il test è trovare il giusto equilibrio tra i due errori.
+
+
+
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Il p-valore}
+\clearpage\section{Il p-valore??}
+
+Sia $W$ una statistica e sia $w$ il valore osservato. Diamo due definizioni equivalenti di \emph{p-valore\/} 
 
 
+\begin{itemize}
+\item Il p-value di $w$ è il minimo $\alpha$ che permentte di rigettare $H_0$.
+
+\item Il p-value di $w$ è la probabilità di osservare un risultato tanto estremo quanto $w$, nel caso $H_0$ sia vera. 
+\end{itemize}
+
+La seconda definizione suona più semplice ma richiede alcune precisazioni. 
 
 
+% Tipicamente $H_0$ prevede un certo valore $w_0$ per la statistica. Il p-valore è la probabilità 
+% 
+% \ceq{\hfill \emph{p-valore}}{=}{P\big(|W-w_0|>|w-w_0|\big)}
+% 
+% \ceq{}{=}{P\big(W<w_0-|w_0-w|\big) + P\big(W>w_0+|w-w_0|\big)}. 
+% 
+% Spesso si effettua una trasformazione di coordinate in modo tale da avere $w_0=0$. quindi l'espressione si semplifica in 
+% 
+% \ceq{}{=}{P\big(W<w\big) + P\big(W>w\big)}.
+% 
+% Inoltre a volte la 
 
 
 \chapter{Esempi ed esercizi}
@@ -596,29 +614,29 @@ P(D ~|~ +)& = & 0.943\\
 \end{eqnarray*}
 
 
-
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (una coda)}\label{Bernoulli_test}
+\clearpage\section{Binomial test}
+\subsection{Test (una coda)}\label{Bernoulli_test}
 
 Un'urna contiene monete equilibrate e monete difettose. Le monete equilibrate hanno probabilità di successo $p=1/2$ le monete difettose hanno probabilità di successo ignota $p>1/2$. Non conosciamo la frazione di monete difettose. Questi dati vengono riassunti scivendo
 
-$\H0:$ $p=1/2$
+$H_0:$\kern3.5ex $p=1/2$
 
-$\HA:$ $p>1/2$
+$H_A:$\kern3ex $p>1/2$
  
 Estraiamo una moneta dall'urna e, per decidere tra equilibrata o difettosa, facciamo il seguente test: la lanciamo $n$ volte e se il numero dei successi è $\ \ge k$ la dichiariamo difettosa. Stoamo descivendo una famiglia di test, uno per ogni scelta dei parametri $n$ e $k$. Vogliamo vedere come variano gli errori del I e del II tipo al variare di questi parametri. 
 
-Il test è una variabile aleatoria $X$ a valori in $\{0,\dots,n\}$. Lo spazio campionario $\Omega$ è diviso in due parti: $D$ e $\neg D$.  L'insieme $D$ contiene quegli $\omega$ che corrispondono a $n$ lanci fatti con una moneta difettosa mentre $\neg D$ contiene quegli $\omega$ che corrispondono a lanci con una moneta equilibrata. 
+Il test è una variabile aleatoria $X$ a valori in $\{0,\dots,n\}$. Lo spazio campionario $\Omega$ è diviso in due parti: $H_A$ e $H_0$.  L'insieme $H_A$ contiene quegli $\omega$ che corrispondono a $n$ lanci fatti con una moneta difettosa mentre $H_0$ contiene quegli $\omega$ che corrispondono a lanci con una moneta equilibrata. 
 
-Condizionando a $\neg D$ otteniamo $X\sim {\rm B}(n,1/2)$. Invece condizionando a $D$ otteniamo $X\sim {\rm B}(n,p)$ con $p>1/2$ ignota.
+Condizionando a $H_0$ otteniamo $X\sim {\rm B}(n,1/2)$. Invece condizionando a $H_A$ otteniamo $X\sim {\rm B}(n,p)$ con $p>1/2$ ignota.
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (una coda). Errore I tipo.}
+\clearpage\subsection{Test (una coda). Errore I tipo.}
 
 Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il risultato del test positivo. N.B. dipende da $n$ e da $k$.
 
@@ -636,7 +654,7 @@ Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (a  una coda). Errore II tipo.}
+\clearpage\subsection{Test (a  una coda). Errore II tipo.}
 
 La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $>1/2$)
 
@@ -646,7 +664,7 @@ La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbi
 Se segliamo come prima $n=20$, $k=13$ abbiamo {\color{blue}\boldmath\ $T_-=\{0,\dots,12\}$} è la \emph{zona di NON rifiuto}.
 Ora, per semplificare la discussione supponiamo di conoscere non solo il tipo ma anche la gravità del difetto. Quindi l'ipotesi alternativa diventa
 
-$\HA:$ $p=3/4$
+$H_A:$\kern3ex $p=3/4$
 
 Rappresentiamo la distribuzione di $X$ nel caso in cui l'ipotesi alterntiva è vera. Per confronto lo accostiamo al grafico del paragrafo precedente. 
 
@@ -655,29 +673,29 @@ Rappresentiamo la distribuzione di $X$ nel caso in cui l'ipotesi alterntiva è v
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test_01.pdf}
 
-Cosa possiamo dire sul caso generale $\HA:$ $p>1/2$~?
+Cosa possiamo dire sul caso generale $H_A:$ $p>1/2$~?
 
-Al crescere di $p$ la distribuzione si sposta verso destra quindi gli errori del II tipo diminuiscono. Di converso, se $p$ si avvicina a $1/2$ l'errore aumenta al limite quando $p\approx 1/2$ avremo $\alpha+\beta\approx 1$.  
+Al crescere di $p$ la distribuzione si sposta verso destra quindi gli errori del II tipo diminuiscono. Di converso, se $p$ si avvicina a $1/2$ l'errore aumenta al limite quando $p\approx 1/2$ avremo $\alpha+\beta\approx 1$. Dobbiamo quindi fissare il minima differenza che riteniamo significativa e calcolare $\beta$ a paritire da quello.
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (due code).}
+\clearpage\subsection{Test (due code).}
 
-Nell'esempio precedente avevamo un'informazione certa sul tipo di difetto delle monete: sapevamo che $p>1/2$. Supponiamo questa manchi. Avremo quindi
+Nell'esempio precedente avevamo un'informazione certa sul tipo di difetto delle monete: sapevamo che $p>1/2$. proviamo a fare senza, avremo quindi
 
-$\H0:$ $p=1/2$
+$H_0:$\kern3.5ex $p=1/2$
 
-$\HA:$ $p\neq1/2$
+$H_A:$\kern3ex $p\neq1/2$
 
-Verifichiamo prima che il test discusso nei paragrafi precedenti \textbf{NON è adatto\/} alla nuova situazione. L'analisi di $P(T_+|\neg D)$ rimane invariata (inaftti l'insieme $\neg D$ non è cambiato).
+Verifichiamo prima che il test discusso nei paragrafi precedenti \textbf{NON è adatto\/} alla nuova situazione. L'analisi di $P(T_+|H_0)$ rimane invariata (inaftti l'insieme $H_0$ non è cambiato).
 
 Per semplificare la discussione dell'errore dell'secondo supponiamo per il momento che 
 
-$\HA:$ $p=3/4$\quad o\quad $p=1/4$ 
+$H_A:$\kern3ex $p=3/4$\quad o\quad $p=1/4$ 
 
-Possiamo immaginare $D=D_{1/4}\cup D_{3/4}$. Il grafico del paragrafo precedente è valido ora se sostituiamo $D$ con $D_{3/4}$. Ora però dobbiamo considerare il caso il cui la moneta appartenga all'insieme $D_{1/4}$
+Possiamo immaginare $H_A=H_{{1/4}}\cup H_{{3/4}}$. Il grafico del paragrafo precedente è valido ora se sostituiamo $H_A$ con $H_{{3/4}}$. Ora però dobbiamo considerare il caso il cui la moneta appartenga all'insieme $H_{{1/4}}$
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test_03.pdf}
 
@@ -685,7 +703,7 @@ Possiamo immaginare $D=D_{1/4}\cup D_{3/4}$. Il grafico del paragrafo precedente
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (due code). Errori I e II tipo.}
+\clearpage\subsection{Test (due code). Errori I e II tipo.}
 
 Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,20\}$
 
@@ -702,7 +720,7 @@ Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,2
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bernoulli test (due code) campione più ampio.}
+\clearpage\subsection{Test (due code) campione più ampio.}
 
 Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$):  $T_+=\{0,\dots,14\}\cup \{26,\dots,40\}$
 
@@ -722,17 +740,41 @@ Entrambi gli errori diminuiscono.
 %%%%%%%%%%%%
 \clearpage\section{Z-test (una coda).}
 
-(N.B. Il seguente non descrive una corretta procedura per un test clinico, cfr.\@ \hyperref[Z-test differenze (una coda)]{Z-test differenze \faShare}.) Si sospetta che una certo farmaco faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica nella popolazione adulta ha distribuzione $N(\mu_0,\sigma^2)$ con $\mu_0=75$ e $\sigma=9.5$. 
+Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma_0^2)$ con $\mu_0=75$ e $\sigma_0=9.5$. 
 
-Assumiamo che tra i pazienti che prendono il farmaco la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale.
+Assumiamo che tra i pazionti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale. Vogliamo testare le seguenti ipotesi:
 
-Vogliamo testare le seguenti ipotesi:
+$H_0:$ $\mu=\mu_0$
 
-$\H0:$ $\mu_0=\mu$
+$H_A:$ $\mu>\mu_0$
 
-$\HA:$ $\mu_0>\mu$
+Il test consiste nel misurare la pressione ad un campione di $n$ pazienti. 
 
-Misurando la pressione ad un gruppo di $n$ pazienti che assumono il farmaco otteniamo un valore di $\bar x=81$ e vogliamo sapere se questo è sufficiente per rigettare $H0$.
+
+di e di calcolare la media capionaria
+
+\ceq{\hfill \bar X}{=}{\frac1n\sum_{i=1}^nX_i}
+
+Dome $X_i$ è la v.a.\@ che mi dà la pressione dell'$i$-esimo pazione del campione. Rigetteremo $H_0$ se il valore ottenuto è suporiore ad un certo $x_\alpha$ che vogliamo fissarein modo che l'errore I tipo uguale ad $\alpha$ (supposto noto). Serve quindi uno $x_\alpha$ tale che $P(\bar X>x_\alpha)=\alpha$.
+
+Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma_0^2}{n}\bigg)$. 
+
+% Non è necessario, ma conviene sempre ridursi alla normale standard: $\dfrac{\bar X-\mu_0}{\sigma/\sqrt{n}}$ ha distribuzione normale standard $Z$.
+% 
+% Vogliamo $x_\alpha$ tale che $P(Z>\dfrac{x_\alpha-\mu_0}{\sigma/\sqrt{n}})=\alpha$
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Z-test (una coda).}
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%
