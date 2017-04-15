@@ -617,8 +617,8 @@ P(D ~|~ +)& = & 0.943\\
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Binomial test}
-\subsection{Test (una coda)}\label{Bernoulli_test}
+\clearpage\section{Test Binomiale}
+\subsection{Una coda}\label{Bernoulli_test}
 
 Un'urna contiene monete equilibrate e monete difettose. Le monete equilibrate hanno probabilità di successo $p=1/2$ le monete difettose hanno probabilità di successo ignota $p>1/2$. Non conosciamo la frazione di monete difettose. Questi dati vengono riassunti scivendo
 
@@ -636,7 +636,7 @@ Condizionando a $H_0$ otteniamo $X\sim {\rm B}(n,1/2)$. Invece condizionando a $
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Test (una coda). Errore I tipo.}
+\clearpage\subsection{Una coda. Errore I tipo.\hfill Test Binomiale}
 
 Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il risultato del test positivo. N.B. dipende da $n$ e da $k$.
 
@@ -654,7 +654,7 @@ Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Test (a  una coda). Errore II tipo.}
+\clearpage\subsection{Una coda. Errore II tipo.\hfill Test Binomiale}
 
 La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $>1/2$)
 
@@ -681,7 +681,7 @@ Al crescere di $p$ la distribuzione si sposta verso destra quindi gli errori del
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Test (due code).}
+\clearpage\subsection{Due code.\hfill Test Binomiale}
 
 Nell'esempio precedente avevamo un'informazione certa sul tipo di difetto delle monete: sapevamo che $p>1/2$. proviamo a fare senza, avremo quindi
 
@@ -703,7 +703,7 @@ Possiamo immaginare $H_A=H_{{1/4}}\cup H_{{3/4}}$. Il grafico del paragrafo prec
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Test (due code). Errori I e II tipo.}
+\clearpage\subsection{Due code. Errori I e II tipo.\hfill Test Binomiale}
 
 Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,20\}$
 
@@ -720,7 +720,7 @@ Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,2
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Test (due code) campione più ampio.}
+\clearpage\subsection{Due code, con campione più ampio.\hfill Test Binomiale}
 
 Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$):  $T_+=\{0,\dots,14\}\cup \{26,\dots,40\}$
 
@@ -738,24 +738,23 @@ Entrambi gli errori diminuiscono.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Z-test (una coda).}
+\clearpage
+\section{Z-test}
+\subsection{Una coda.}
 
 Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma_0^2)$ con $\mu_0=75$ e $\sigma_0=9.5$. 
 
 Assumiamo che tra i pazionti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale. Vogliamo testare le seguenti ipotesi:
 
-$H_0:$ $\mu=\mu_0$
+$H_0:$\kern3.5ex $\mu=\mu_0$
 
-$H_A:$ $\mu>\mu_0$
+$H_A:$\kern3ex $\mu>\mu_0$
 
-Il test consiste nel misurare la pressione ad un campione di $n$ pazienti. 
-
-
-di e di calcolare la media capionaria
+Il test consiste nel misurare la pressione ad un campione di $n$ pazienti e di questi dati calcolare la media. Abbiamo quindi la seguente statistica
 
 \ceq{\hfill \bar X}{=}{\frac1n\sum_{i=1}^nX_i}
 
-Dome $X_i$ è la v.a.\@ che mi dà la pressione dell'$i$-esimo pazione del campione. Rigetteremo $H_0$ se il valore ottenuto è suporiore ad un certo $x_\alpha$ che vogliamo fissarein modo che l'errore I tipo uguale ad $\alpha$ (supposto noto). Serve quindi uno $x_\alpha$ tale che $P(\bar X>x_\alpha)=\alpha$.
+Dove $X_i$ è la v.a.\@ che dà la pressione dell'$i$-esimo pazione del campione. Rigetteremo $H_0$ se il valore ottenuto è suporiore ad un certo $x_\alpha$ che vogliamo fissare in modo che l'errore I tipo risulti uguale ad $\alpha$. Quindi $x_\alpha$ dev'essere tale che $x_\alpha$ tale che $P(\bar X>x_\alpha)=\alpha$.
 
 Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma_0^2}{n}\bigg)$. 
 
