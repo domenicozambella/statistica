@@ -1,7 +1,7 @@
-\documentclass[10pt,openany]{book}
+\documentclass[12pt,openany]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[dvips,a4paper,hmargin={4cm,4cm},vmargin={3.5cm,3.5cm}]{geometry}
+\usepackage[dvips,a4paper,hmargin={2cm,2cm},vmargin={2cm,2cm}]{geometry}
 \usepackage[a4paper,colorlinks=true,bookmarksopen=false,linkcolor=brown,citecolor=red]{hyperref}
 \usepackage{pythontex}
 \usepackage{calc}
@@ -85,6 +85,7 @@ diagrams={>=latex}
 {} % before-code
 [] % after-code
 \titleformat{\section}[block]{\Large\bfseries}{\makebox[5ex][r]{\textbf{\thesection}}}{1.5ex}{}
+\titlespacing{\subsection}{0ex}{.5ex plus .5ex minus .5ex}{1ex plus .2ex minus .2ex}
 \titlespacing*{\chapter}{0em}{.5ex plus .2ex minus .2ex}{2.3ex plus .2ex}
 \titlespacing*{\section}{-9.7ex}{3ex plus .5ex minus .5ex}{1ex plus .2ex minus .2ex}
 
@@ -204,18 +205,18 @@ Come sopra $X:\Omega\to R$ è una variabile aleatoria. Dato $x\in R$ e $A\subset
 
 \ceq{\hfill \emph{$P(X \le x$)}}{=}{P\big(\{\omega\in\Omega\ :\ X(\omega)\le x)\}\big)}\hfill  se $X$ \`e numerica.
 
-La funzione $P(X=x)$ si chiama \emph{distribuzione di probabilità discreta (probability mass function)}. La funzione $P(X \le x)$ si chiama  \emph{funzione di ripartizione (cumulative distribution function)}.
+La funzione $P(X=x)$ si chiama \emph{distribuzione di probabilità (probability mass function)}. La funzione $P(X \le x)$ si chiama  \emph{funzione di ripartizione (cumulative distribution function)}.
 
 Le variabili numeriche possono dirsi \emph{discrete\/} o \emph{continue}. Una v.a.\@ $X$ è discreta se per ogni sottoinsieme $A\subseteq R$
 
 \ceq{\hfill P\big(X\in A\big)}{=}{\sum_{x\in A}P(X=x)}
 
-Ovvero la probabilità è concentrata nei punti di $R$. Invece una variabile continua se $P(X=x)=0$ per ogni $x\in R$. Per le variabili continue tutta l'informazione è contenuta nella funzione di ripartizione possiamo solo scrivere
+Ovvero la probabilità è concentrata nei punti di $R$. Invece una variabile continua se $P(X{=}x)=0$ per ogni $x\in R$. Per le variabili continue è significativa solo la probabilità in intervalli di diametro positivo
 
 
 \ceq{\hfill P\big(X\in [a,b]\big)}{=}{P(a \le X \le b)\medrel{=}P(X\le b)-P(X\le a)}
 
-Si noti che la seconda uguaglianza non sarebbe corretta se $P(X=a)\neq0$.
+Si noti che la seconda uguaglianza non sarebbe corretta se $P(X{=}a)\neq0$.
 
 N.B. Esistono variabili aleatorie (anche in esempi concreti) che sono intermedie tra il continuo e il discreto ma per il momento non le considereremo.
 
@@ -228,7 +229,7 @@ N.B. Esistono variabili aleatorie (anche in esempi concreti) che sono intermedie
 
 Una variabile aleatoria $X$ si dice di bernulli se \emph{Bernoulli\/} se $\range X=\{0,1\}$.
 
-Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme $\{\omega:X(\omega)=1\}$ che chiameremo \emph{successo}. Chiameremo \emph{$p$}\ $ = P(X=1)$ la \emph{propbabilità di successo}.
+Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme $\{\omega:X(\omega)=1\}$ che chiameremo \emph{successo}. Chiameremo \emph{$p$}\ $ = P(X{=}1)$ la \emph{probabilità di successo}.
 
 Viceversa, la v.a.\@ di Bernoulli associata ad un evento $E$ è spesso denotata con $1_E$
 
@@ -257,17 +258,17 @@ Dato $A, \Phi\subseteq\Omega$ tali che $P(\Phi)\neq 0$ definiamo
 
 Questo si legge \emph{probabilità di $A$ dato $\Phi$}. Si verifica facilmente che $P(\,\cdot\,|\Phi)$ soddisfa a tutte le propriet\`a di $P(\,\cdot\,$) se rimpiazziamo $\Omega$ con $\Phi$.
 
-Il fatto seguente si chiama \emph{Teorema delle Probabilità Totali}. Siano $A_1,\dots,A_n$ eventi \emph{mutuamente esclusivi\/} ed \emph{esaustivi} di probabilità $\neq0$. Sia $C$ \`e un qualsiasi altro evento, allora
+Il fatto seguente si chiama \emph{Teorema delle Probabilità Totali}: siano $A_1,\dots,A_n$ eventi \emph{mutuamente esclusivi\/} ed \emph{esaustivi} di probabilità $\neq0$. Sia $C$ \`e un qualsiasi altro evento, allora
 
 \ceq{\hfill P(C)}{=}{\sum^n_{i=1} P(A_i)\cdot P\big(C| A_i).}
 
-Il seguente di chiama \emph{Teorema (o regola) di Bayes}. Per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
+Il seguente di chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
 
-\ceq{\hfill P(A|B)}{=}{\frac{P(B|A)\cdot P(A)}{P(B)\vphantom{\Big[}}}
+\ceq{\hfill P(A|B)}{=}{\frac{P(B|A)\cdot P(A)}{P(B)\vphantom{\Big[}}.}
 
 In molte applicazioni $P(B)$ viene calcolato usanto il teorema delle probabilità totali.
 
-\ceq{}{=}{\frac{P(B|A)\cdot P(A)}{P(B|A)P(A)+P(B|\neg A)P(\neg A)\vphantom{\Big[}}}
+\ceq{}{=}{\frac{P(B|A)\cdot P(A)}{P(B|A)P(A)+P(B|\neg A)P(\neg A)\vphantom{\Big[}}.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -299,11 +300,11 @@ Nel caso di variabili aleatorie continue la condizione diventa
 %%%%%%%%%%%%%%%%%%%%%%%
 \clearpage\section{Esperimenti ripetuti: prodotto di spazi di probabilità}
 
-Sia $X:\Omega\to\{0,1\}$ una variabile aleatoria di Bernoulli (per avere un esempio semplice). Immaginiamo che $X$ modelli il lancio di una moneta. Per brevità scriviamo $A$ per $X^{-1}[\,1\,]$.
+Sia $X:\Omega\to\{0,1\}$ una variabile aleatoria di Bernoulli (per avere un esempio semplice). Immaginiamo che $X$ modelli il lancio di una moneta. Per brevità definiamo $A=X^{-1}[\,1\,]$.
 
-Il lancio ripetuto di una monetina è modellato con lo spazio campionario $\Omega^2$. L'insieme  $A\times\Omega$ è l'evento dello spazio $\Omega^2$ che corrisponde  ad ottenere $1$ nel primo lancio. L'insieme $\Omega\times\neg A$ corrisponde ad ottenere $0$ nel secondo lancio.
+Il lancio ripetuto di una monetina è modellato con lo spazio campionario $\Omega^2$. L'insieme  $A\times\Omega$ è l'evento dello spazio $\Omega^2$ che corrisponde  ad ottenere $1$ nel primo lancio. L'insieme $\Omega\times\!\neg A$ corrisponde ad ottenere $0$ nel secondo lancio.
 
-L'intersezione di questi eventi è $A\times\neg A$. Questo corrisponde ad ottenere nei due lanci la sequenza $1\,0$. 
+L'intersezione di questi eventi è $A\times\!\neg A$. Questo corrisponde ad ottenere nei due lanci la sequenza $1\,0$. 
 
 La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $P(A)\cdot P(B)$. Gli eventi $A\times\Omega$ e $\Omega\times B$ sono quindi indipendenti.
 
@@ -342,6 +343,22 @@ La \emph{deviazione standard\/} è la radice della varianza
 \ceq{\hfill \emph{$\sigma$}}{=}{\sqrt{\Var(X)\vphantom{\big[]}}}
 
 Le lettere $\mu$ e $\sigma$ vengono usate quando è chiaro a quale variabile ci si riferisce. per evitare ambiguità a volte si scrive $\mu_X$ e $\sigma_X$.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage\section{Standardizzazione}
+
+Sia $X$ una v.a.\@ con media $\mu$ e deviazione standaed $\sigma$. La variabile aleatoria $Z$ così definita
+
+\ceq{\hfill Z}{=}{\frac{X-\mu}{\sigma}}
+
+si dice ottenuta da $X$ per \emph{standardizzazione}. La variabile $Z$ ha media nulla e deviazione standaed $1$ ed è sempre adimensionale. Un valore ottenuto da $Z$ si dice \emph{punteggio $Z$\/} o \emph{punteggio standard\/} (\emph{$Z$-score}).
+
 
 
 
@@ -404,7 +421,7 @@ Una \emph{statistica\/} è una variabile aleatoria a valori in $\RR$ ottenuta co
 %%%%%%%%%%%%
 \clearpage\section{Test d'ipotesi}
 
-Esempi: \hyperref[Bernoulli_test]{Binomial test (il più elementare test di ipotesi) \faShare}
+Esempi: \hyperref[Bernoulli_test]{Test binomiale (il più elementare test di ipotesi) \faShare}
 
 Nei test di ipotesi la scelta tra risultato positivo/negativo viene fatta in base al valore di una statistica. Si sceglie un intervallo detto \emph{regione di rifiuto\/}. Se il valore è in questo intervallo l'esito si considera positivo (N.B.\@ rifiuto$\,\sim\,$positivo).
 
@@ -470,31 +487,28 @@ N.B. È vacile progettare un test che minimizza una tra $P(T_+|H_0)$ o $P(T_-|H_
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Il p-valore??}
+\clearpage\section{Il p-valore}
 
-Sia $W$ una statistica e sia $w$ il valore osservato. Diamo due definizioni equivalenti di \emph{p-valore\/} 
+Diamo due definizioni equivalenti di \emph{p-valore}. Sia $W$ una statistica e sia $w$ il valore osservato. 
 
 
 \begin{itemize}
-\item Il p-value di $w$ è il minimo $\alpha$ che permentte di rigettare $H_0$.
+\item Il p-value di $w$ è il minimo $\alpha$ che permette di rigettare $H_0$.
 
-\item Il p-value di $w$ è la probabilità di osservare un risultato tanto estremo quanto $w$, nel caso $H_0$ sia vera. 
+\item Il p-value di $w$ è la probabilità di osservare un risultato almeno tanto estremo quanto $w$, nel caso $H_0$ sia vera. 
 \end{itemize}
 
-La seconda definizione suona più semplice ma richiede alcune precisazioni. 
+La seconda definizione suona più semplice ma bisogna precisare cosa si intende per estremo. Tipicamente $H_0$ prevede un certo valore $w_0$ per la statistica. Il p-valore è la probabilità 
 
+\ceq{\hfill \emph{p-valore}}{=}{P\big(|W-w_0|\ge |w-w_0|\big)}
 
-% Tipicamente $H_0$ prevede un certo valore $w_0$ per la statistica. Il p-valore è la probabilità 
-% 
-% \ceq{\hfill \emph{p-valore}}{=}{P\big(|W-w_0|>|w-w_0|\big)}
-% 
-% \ceq{}{=}{P\big(W<w_0-|w_0-w|\big) + P\big(W>w_0+|w-w_0|\big)}. 
-% 
-% Spesso si effettua una trasformazione di coordinate in modo tale da avere $w_0=0$. quindi l'espressione si semplifica in 
-% 
-% \ceq{}{=}{P\big(W<w\big) + P\big(W>w\big)}.
-% 
-% Inoltre a volte la 
+\ceq{}{=}{P\big(W\le w_0-|w_0-w|\big) + P\big(W\ge w_0+|w-w_0|\big)}. 
+
+Quando possibile si effettua una trasformazione di coordinate in modo tale da avere $w_0=0$. Questo semplifica l'espressione del p-valore che diventa 
+
+\ceq{}{=}{P\big(W\le w\big) + P\big(W\ge w\big)}.
+
+Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{per esempio \faShare}\ ) una tra possibilità quindi il p-valore si riduce a $P\big(W\le w\big)$ o $P\big(W\ge w\big)$.
 
 
 \chapter{Esempi ed esercizi}
@@ -504,27 +518,64 @@ La seconda definizione suona più semplice ma richiede alcune precisazioni.
 
 
 
+
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Pobabilità totali: maschi e femmine}
+\clearpage\section{Pobabilità totali}
 \label{MF_totali}
 
 
 
-
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Regola di Bayes: fumatori e non fumatori}
+\clearpage\hfill\textbf{Pobabilità totali}
+\subsection{Maschi e femmine}
 \label{Fumatori_Bayes}
 
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Regola di Bayes}
+\label{Bayes}
+
+\subsection{Fumatori e non fumatori}
+\label{Fumatori_Bayes}
+
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Bayes rule: Rain forcasts}
+\clearpage\hfill\textbf{Regola di Bayes}\subsection{Hemophilia}
+\label{Hemophilia}
+
+Hemophilia is a disease that exhibits X-chromosome-linked recessive inheritance, meaning that a male who inherits the gene that causes the disease on the X-chromosome is affected, whereas a
+female carrying the gene on only one of her two X-chromosomes is not affected. The disease is generally fatal for women who inherit two such genes.
+
+Consider a woman who has an affected brother, which implies that her mother must be a carrier of the hemophilia gene. We are also told that her father is not affected; thus the woman herself has a fifty-fifty chance of having the gene.
+
+Suppose she has a son (from a man who is not affected) that is affected. What is the probability that she is a carrier?
+
+$\Omega$\hfill  set of women with mother carrier, father and husband unaffected, one son
+
+$C$\hfill set of women that are carrier
+
+$S_{na}$\hfill set of women whose son is not affected
+
+$P(C)\ =\ 1/2$\hfill 
+
+$P(S_{na}|C)\ =\ 1/2$\hfill 
+
+$P(C|S_{na})\ =\ \dfrac{P(S_{na}|C)\cdot P(C)}{P(S_{na})}\ =\ \dfrac{P(S_{na}|C)\cdot P(C)}{P(S_{na}|C)\cdot P(C)+P(S_{na}|\neg C)\cdot P(C)}\ =\ \dfrac{1/4}{1/4+1/2}\ =\ 1/3$
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\hfill\textbf{Regola di Bayes}
+\subsection{Rain forcasts}
 \label{rain_desert}
 
 Marie is getting married tomorrow at an outdoor ceremony in the desert. In recent years it has rained only $5$ days each year. But the weatherman has predicted rain for tomorrow. When it actually rains, the weatherman correctly forecasts rain $90\%$ of the time. When it doesn’t rain, he incorrectly forecasts rain $10\%$ of the times. What is the probability that it will rain on the day of Marie’s wedding?
@@ -562,7 +613,7 @@ Lanciamo una moneta $2n$ volte. Modelliamo l'esperimento con una sequenza $X_0,\
 \item[1.] $\displaystyle X=\sum_{i=0}^{n-1}X_i$\qquad $\displaystyle Y=\sum_{i=n}^{2n-1}X_i$.
 
 
-\item[2.] $\displaystyle X=\sum_{i=0}^{n}X_{2i}$\qquad $\displaystyle Y=\sum_{i=0}^{i} X_{2i-1}$.\bigskip
+\item[2.] $\displaystyle X=\sum_{i=0}^{n-1}X_{2i}$\qquad $\displaystyle Y=\sum_{i=0}^{n} X_{2i-1}$.\bigskip
 
 \item[3.] $X= \#\big\{i<n\ |\ X_{2i}\neq X_{2i+1}\big\}$;\\
 $Y= \#\big\{i<n\ |\ X_{2i+1}\neq X_{2i}\big\}$.\bigskip
@@ -582,15 +633,15 @@ $Y=0$ se $X_1\neq X_2$, altrimenti $=1$.
 
 A study comparing the efficacy of HIV tests, reports on an
 experiment which concluded that HIV antibody tests have a
-{\color{brown}sensitivity of 99.7\%} and a {\color{brown}specificity of 98.5\%}
+{\color{violet}sensitivity of 99.7\%} and a {\color{violet}specificity of 98.5\%}
 
-Suppose that a subject, from a population with a {\color{brown} 0.1\% prevalence}
+Suppose that a subject, from a population with a {\color{violet} 0.1\% prevalence}
 of HIV, receives a positive test result. What is the probability
 that this subject has HIV?
 
-Mathematically, we want $P(D | T_+)$ given the sensitivity, {\color{brown}$P(T_+
-| D) = .997$}, the specificity, {\color{brown}$P(T_- | \neg D) =.985$}, and the
-prevalence {\color{brown}$P(D) = .001$}
+Mathematically, we want $P(D | T_+)$ given the sensitivity, {\color{violet}$P(T_+
+| D) = .997$}, the specificity, {\color{violet}$P(T_- | \neg D) =.985$}, and the
+prevalence {\color{violet}$P(D) = .001$}
 
 \begin{eqnarray*}
 P(D ~|~ +)& = &\frac{P(T_+|D)P(D)}{P(T_+)\vphantom{\Big[}}\\ \\
@@ -600,7 +651,7 @@ P(D ~|~ +)& = &\frac{P(T_+|D)P(D)}{P(T_+)\vphantom{\Big[}}\\ \\
 & = & 0.062
 \end{eqnarray*}
 
-The {\color{brown}positive predictive value is 6\%} for this test. In this population a positive test result only suggests a 6\% probability that the subject has the disease. 
+The {\color{violet}positive predictive value is 6\%} for this test. In this population a positive test result only suggests a 6\% probability that the subject has the disease. 
 
 
 The low positive predictive value is due to low prevalence of disease and the
@@ -618,32 +669,40 @@ P(D ~|~ +)& = & 0.943\\
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \clearpage\section{Test Binomiale}
+
+
+\def\medrel#1{\parbox[t]{6ex}{$\displaystyle\hfil #1$}}
+\def\ceq#1#2#3{\parbox{15ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+
+
+Nella pratica questo test è sempre sostituito da un test sulle proporzioni. Comunque in questa versione è concettualmente più semplice. 
+
 \subsection{Una coda}\label{Bernoulli_test}
 
-Un'urna contiene monete equilibrate e monete difettose. Le monete equilibrate hanno probabilità di successo $p=1/2$ le monete difettose hanno probabilità di successo ignota $p>1/2$. Non conosciamo la frazione di monete difettose. Questi dati vengono riassunti scivendo
+Un'urna contiene monete equilibrate e monete difettose. Le monete equilibrate hanno probabilità di successo $p=1/2$ le monete difettose hanno probabilità di successo ignota $p>1/2$. Non conosciamo la frazione di monete difettose. Questi dati vengono riassunti scrivendo
 
 $H_0:$\kern3.5ex $p=1/2$
 
 $H_A:$\kern3ex $p>1/2$
  
-Estraiamo una moneta dall'urna e, per decidere tra equilibrata o difettosa, facciamo il seguente test: la lanciamo $n$ volte e se il numero dei successi è $\ \ge k$ la dichiariamo difettosa. Stoamo descivendo una famiglia di test, uno per ogni scelta dei parametri $n$ e $k$. Vogliamo vedere come variano gli errori del I e del II tipo al variare di questi parametri. 
+Estraiamo una moneta dall'urna e, per decidere tra equilibrata o difettosa, facciamo il seguente test: la lanciamo $n$ volte e se il numero dei successi è $\ \ge k$ la dichiariamo difettosa. Stiamo descivendo una famiglia di test, uno per ogni scelta dei parametri $n$ e $k$. Vogliamo vedere come variano gli errori del I e del II tipo al variare di questi parametri. 
 
 Il test è una variabile aleatoria $X$ a valori in $\{0,\dots,n\}$. Lo spazio campionario $\Omega$ è diviso in due parti: $H_A$ e $H_0$.  L'insieme $H_A$ contiene quegli $\omega$ che corrispondono a $n$ lanci fatti con una moneta difettosa mentre $H_0$ contiene quegli $\omega$ che corrispondono a lanci con una moneta equilibrata. 
 
-Condizionando a $H_0$ otteniamo $X\sim {\rm B}(n,1/2)$. Invece condizionando a $H_A$ otteniamo $X\sim {\rm B}(n,p)$ con $p>1/2$ ignota.
+Condizionando a $H_0$ otteniamo $X\sim {\rm B}(n,1/2)$. Condizionando a $H_A$ otteniamo $X\sim {\rm B}(n,p)$ con $p>1/2$ ignota.
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Una coda. Errore I tipo.\hfill Test Binomiale}
+\clearpage\hfill\textbf{Test Binomiale}\subsection{Una coda, errore I tipo}
 
 Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il risultato del test positivo. N.B. dipende da $n$ e da $k$.
 
 Per quanto osservato sulla distribuzione di $X$, possiamo calcolare la specificità del test (probabilità di falsi positivi)
 
 
-\ceq{\hfill P(T_+|\neg D)}{=}{\sum^n_{i=k} {n\choose i}\bigg(\frac12\bigg)^i\bigg(1-\frac12\bigg)^{n-i}=\quad\frac1{2^n}\sum^n_{i=k+1} {n\choose i}}
+\ceq{\hfill P(T_+\mathrel|H_0)}{=}{P(X\ge k\mathrel|H_0)\quad=\quad\sum^n_{i=k} {n\choose i}\bigg(\frac12\bigg)^i\bigg(1-\frac12\bigg)^{n-i}=\quad\frac1{2^n}\sum^n_{i=k+1} {n\choose i}}
 
 Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13,\dots,20\}$} è la regione di rifiuto. Otteniamo %$P(T_+|\neg D) = \py{sum(y[y.index<=k]}$
 
@@ -654,48 +713,66 @@ Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Una coda. Errore II tipo.\hfill Test Binomiale}
+%%%%%%%%%%%%
+\clearpage\hfill\textbf{Test Binomiale}\subsection{Testa una coda, errore II tipo}
 
 La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $>1/2$)
 
 
-\ceq{\hfill P(T_-|D)}{=}{\sum^{k-1}_{i=1} {n\choose i}p^i(1-p)^{n-i}}
+\ceq{\hfill P(T_-\mathrel|H_A)}{=}{P(X< k\mathrel|H_A)\quad=\quad\sum^{k-1}_{i=1} {n\choose i}p^i(1-p)^{n-i}}
 
 Se segliamo come prima $n=20$, $k=13$ abbiamo {\color{blue}\boldmath\ $T_-=\{0,\dots,12\}$} è la \emph{zona di NON rifiuto}.
 Ora, per semplificare la discussione supponiamo di conoscere non solo il tipo ma anche la gravità del difetto. Quindi l'ipotesi alternativa diventa
 
-$H_A:$\kern3ex $p=3/4$
+$H_{3/4}:$\kern3ex $p=3/4$
 
-Rappresentiamo la distribuzione di $X$ nel caso in cui l'ipotesi alterntiva è vera. Per confronto lo accostiamo al grafico del paragrafo precedente. 
+Rappresentiamo la distribuzione di $X$ nel caso in cui vale $H_{3/4}$. Per confronto lo accostiamo al grafico del paragrafo precedente. 
 
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test_02.pdf}
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test_01.pdf}
 
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\hfill\textbf{Test Binomiale}\subsection{Effect size: \boldmath{$\delta$}}
+
+
 Cosa possiamo dire sul caso generale $H_A:$ $p>1/2$~?
 
-Al crescere di $p$ la distribuzione si sposta verso destra quindi gli errori del II tipo diminuiscono. Di converso, se $p$ si avvicina a $1/2$ l'errore aumenta al limite quando $p\approx 1/2$ avremo $\alpha+\beta\approx 1$. Dobbiamo quindi fissare il minima differenza che riteniamo significativa e calcolare $\beta$ a paritire da quello.
+Al crescere di $p$ la distribuzione si sposta verso destra quindi la probabilità di errori del II tipo diminuisce. Di converso, se $p$ si avvicina a $1/2$  la probabilità d'errore aumenta. Al limite quando $p\approx 1/2$ avremo $\alpha+\beta\approx 1$. Dobbiamo quindi fissare il minima differenza $\delta$ che riteniamo significativa e calcolare $\beta$ a paritire da quello.
+
+
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_02.pdf}
+
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_01.pdf}
+
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Due code.\hfill Test Binomiale}
+\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a due code}
 
-Nell'esempio precedente avevamo un'informazione certa sul tipo di difetto delle monete: sapevamo che $p>1/2$. proviamo a fare senza, avremo quindi
+Nell'esempio precedente avevamo un'informazione certa sul tipo di difetto delle monete: sapevamo che $p>1/2$. Proviamo a fare senza, avremo quindi
 
 $H_0:$\kern3.5ex $p=1/2$
 
 $H_A:$\kern3ex $p\neq1/2$
 
-Verifichiamo prima che il test discusso nei paragrafi precedenti \textbf{NON è adatto\/} alla nuova situazione. L'analisi di $P(T_+|H_0)$ rimane invariata (inaftti l'insieme $H_0$ non è cambiato).
+Verifichiamo prima che  \textbf{la zona di rifiuto dei paragrafi precedenti NON è adatta\/} alla nuova situazione. L'analisi di $P(T_+|H_0)$ rimane invariata (inaftti l'insieme $H_0$ non è cambiato).
 
-Per semplificare la discussione dell'errore dell'secondo supponiamo per il momento che 
+Per semplificare la discussione dell'errore del II tipo supponiamo per il momento che 
 
 $H_A:$\kern3ex $p=3/4$\quad o\quad $p=1/4$ 
 
-Possiamo immaginare $H_A=H_{{1/4}}\cup H_{{3/4}}$. Il grafico del paragrafo precedente è valido ora se sostituiamo $H_A$ con $H_{{3/4}}$. Ora però dobbiamo considerare il caso il cui la moneta appartenga all'insieme $H_{{1/4}}$
+Possiamo immaginare $H_A=H_{{1/4}}\cup H_{{3/4}}$. Se sostituiamo $H_A$ con $H_{{3/4}}$ il grafico rimane come quello già discusso. Ora però dobbiamo considerare il caso il cui la moneta appartenga all'insieme $H_{{1/4}}$
+
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test_02.pdf}
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test_03.pdf}
 
@@ -703,9 +780,9 @@ Possiamo immaginare $H_A=H_{{1/4}}\cup H_{{3/4}}$. Il grafico del paragrafo prec
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Due code. Errori I e II tipo.\hfill Test Binomiale}
+\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a due code, errori I e II tipo}
 
-Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,20\}$
+Per riparare il problema discusso al paragrafo precedente. prendiamo come zona di rifiuto $T_+=\{0,\dots,7=n-k\}\cup \{k=13,\dots,20=n\}$
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test_04.pdf}
 
@@ -716,13 +793,13 @@ Supponiamo di scegliere come zona di rifiuto $T_+=\{0,\dots,7\}\cup \{13,\dots,2
 
 
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\hfill\textbf{Test Binomiale}
+\subsection{Test a due code, con campione più ampio}
 
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-\clearpage\subsection{Due code, con campione più ampio.\hfill Test Binomiale}
-
-Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$):  $T_+=\{0,\dots,14\}\cup \{26,\dots,40\}$
+Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$):  $T_+=\{0,\dots,14=n-k\}\cup \{k=26,\dots,40=n\}$
 
 Entrambi gli errori diminuiscono.
 
@@ -735,6 +812,54 @@ Entrambi gli errori diminuiscono.
 
 
 
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\hfill\textbf{Test Binomiale}
+\subsection{Standardizzazione (1)}
+
+Il confronto tra i test con $n=20, 40$ non é immediato (vedi la trasformazione della zona di rifiuto). Per facilitare il confronto tipicamente la variabile viene standardizzata. 
+
+Se $X\sim B(n,p)$ allora, ricordando che la media è $\mu=np$ e la varianza è $\sigma^2=np(1-p)$, la variabile standardizzata diventa
+
+\ceq{\hfill Z}{=}{\frac{X-\mu}{\sigma}}
+
+\ceq{\hfill }{=}{\frac{X-np}{\rule{0ex}{3ex}\sqrt{np\big(1-p\big)}}}
+
+
+Gli esempi considerati (con $n=20,40$ e $k=13,26$) diventano: 
+
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test-standard_01.pdf}
+
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test-standard_02.pdf}
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\hfill\textbf{Test Binomiale}
+\subsection{Standardizzazione (2)}
+
+Si noti che le regioni di rifiuto non sono le stesse. in effetti
+
+
+\ceq{\hfill\frac{k-np}{\rule{0ex}{3ex}\sqrt{np\big(1-p\big)}}}{=}{1.34}\qquad se $n=20$, \ $k=13$, \ $p=05$
+
+
+\ceq{}{=}{1.90}\qquad se $n=40$, \ $k=26$, \ $p=05$
+
+
+Se per entriambi i casi prendiamo la stessa regione di rifiuto misurata in punteggio $Z$, diciamo $(-\infty, -1.34]\ \cup\ [1.34, +\infty)]$ avremmo ottenuto praticamente lo stesso $\alpha$. Infatti una volta standardizzate le due distribuzioni diventano estremamente simili. Lo scopo dela standardizzazione è rendere evidenti queste similitudini.  
+
+
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test-standard2_01.pdf}
+
+\hfil\includegraphics[width=0.9\textwidth]{figure/B-test-standard2_02.pdf}
+
+
+
+
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -742,7 +867,7 @@ Entrambi gli errori diminuiscono.
 \section{Z-test}
 \subsection{Una coda.}
 
-Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma_0^2)$ con $\mu_0=75$ e $\sigma_0=9.5$. 
+Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma^2)$ con $\mu_0=75$ e $\sigma=9.5$. 
 
 Assumiamo che tra i pazionti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale. Vogliamo testare le seguenti ipotesi:
 
@@ -756,7 +881,7 @@ Il test consiste nel misurare la pressione ad un campione di $n$ pazienti e di q
 
 Dove $X_i$ è la v.a.\@ che dà la pressione dell'$i$-esimo pazione del campione. Rigetteremo $H_0$ se il valore ottenuto è suporiore ad un certo $x_\alpha$ che vogliamo fissare in modo che l'errore I tipo risulti uguale ad $\alpha$. Quindi $x_\alpha$ dev'essere tale che $x_\alpha$ tale che $P(\bar X>x_\alpha)=\alpha$.
 
-Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma_0^2}{n}\bigg)$. 
+Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma^2}{n}\bigg)$.
 
 % Non è necessario, ma conviene sempre ridursi alla normale standard: $\dfrac{\bar X-\mu_0}{\sigma/\sqrt{n}}$ ha distribuzione normale standard $Z$.
 % 
@@ -767,10 +892,18 @@ Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma_0^2}{n}\bigg)$.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Z-test (una coda).}
+\clearpage\subsection{Una coda, errore I e II tipo\hfill Z-test}
 
 
+Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20, 40$. Per gli errori del II tipo prendiamo $\delta=5$.
 
+\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test_01.pdf}
+
+\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test_02.pdf}
+
+\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test_03.pdf}
+
+\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test_04.pdf}
 
 
 
@@ -779,10 +912,26 @@ Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma_0^2}{n}\bigg)$.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Z-test (una coda).}
+\clearpage\subsection{Una coda, p valore.\hfill Z-test}
+
+
+Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=40$. Il p-valore di questa misura è $P(\bar X>78)=1-P(\bar X\le 78)$.
 
 
 
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Esercizi vari}
+\subsection{Placebo\hfill Esercizi}
+
+
+Ad un gruppo di persone vengono misurati 50 diversi parametri fisiologici (che assumiamo indipendenti) prima e dopo l'assunzione di un placebo. Per ognuno di questi parametri l'ipotesi nulla è che non ci sia differenza. Qual'è la probabilità che per almeno uno di questi parametri si ottenga p-valore $<0.02$~?
+
+
+Risposta:\kern3ex $1-(0.98)^{50}=64\%$
 
 
 
