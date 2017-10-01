@@ -168,6 +168,45 @@ diagrams={>=latex}
 
 Per esempi e esercizi seguire i \hyperref[ch2]{link \faShare}
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Spazio di probabilità}
+
+{\color{brown}Esempi: \hyperref[tetraedro]{Dado a $4$ facce \faShare}
+\\
+\hphantom{Esempi:} \hyperref[doppo_lancio_moneta]{Doppio lancio moneta \faShare}
+\\
+\hphantom{Esempi:} \hyperref[urna_3_colori]{Urna con biglie di 3 colori \faShare}}
+
+
+
+
+
+\def\medrel#1{\parbox[t]{6ex}{$\displaystyle\hfil #1$}}
+\def\ceq#1#2#3{\parbox{25ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+
+
+Fisssiamo un insieme non vuoto \emph{$\Omega$\/} che chiameremo \emph{spazio campionario\/}  (\emph{sample space\/}) o \emph{popolazione}. Immagimiamo gli elementi \emph{$\omega$\ }$\in\Omega$ come i possibili \emph{risultati\/} di un rilevamento, un esperimento, un sorteggio, ecc. I sottoinsiemi $E\subseteq\Omega$ verranno chiamati \emph{eventi\/} e, intuitivamente, rapresentano proprietà osservabili.
+
+Una \emph{misura di probabilità\/} è una funzione $\Pr:\P(\Omega)\to\RR$ tale che 
+
+\begin{itemize}
+\item $\Pr(\Omega)=1$
+\item $\Pr(E)\ge0$ per ogni $E\in\P(\Omega)$
+\item $\Pr(E_1\cup E_2)=\Pr(E_1)+\Pr(E_2)$ per ogni coppia $E_1,E_2\in\P(\Omega)$ di insiemi \emph{disgiunti}, ovvero $E_1\cap E_2=\0$. Si dice anche che $E_1$ e $E_2$ sono \emph{eventi mutualmente esclusivi}.
+\end{itemize}
+
+Conseguenze:
+
+
+\begin{itemize}
+\item $\Pr(\0)=0$
+\item $\Pr(\neg E)=1-\Pr(E)$
+%\item $\Pr(E_1\cup E_2\cup E_3)=\Pr(E_1)+\Pr(E_2)+\Pr(E_3)$ per ogni $E_1,E_2,E_3$ mutualmente esclusivi.
+\item $\Pr(E_1\smallsetminus E_2)=\Pr(E_1)-\Pr(E_2)$ se $E_2\subseteq E_1$
+\item $\Pr(E_1\cup E_2)=\Pr(E_1)+\Pr(E_2)-\Pr(E_1\cap\E_2)$ per ogni coppia $E_1,E_2\in\P(\Omega)$.
+\end{itemize}
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -179,16 +218,6 @@ Per esempi e esercizi seguire i \hyperref[ch2]{link \faShare}
 \def\ceq#1#2#3{\parbox{25ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
 
-Fisssiamo un insieme non vuoto \emph{$\Omega$\/} che chiameremo \emph{spazio campionario\/}  (\emph{sample space\/}) o \emph{popolazione}. Immagimiamo gli elementi \emph{$\omega$\ }$\in\Omega$ come i possibili \emph{risultati\/} di un rilevamento, un esperimento, un sorteggio, ecc. I sottoinsiemi $E\subseteq\Omega$ verranno chiamati \emph{eventi\/} e rapresentano proprietà osservabili.
-
-Una \emph{misura di probabilità\/} è una funzione $P:\P(\Omega)\to\RR$ tale che 
-
-\begin{itemize}
-\item $P(\Omega)=1$
-\item $P(A)\ge0$ per ogni $A\in\P(\Omega)$
-\item $P(A\cup B)=P(A)+P(B)$ per ogni coppia $A,B\in\P(\Omega)$ di insiemi \emph{disgiunti}, ovvero $A\cap B=\0$. Si dice anche che $A$ e $B$ sono \emph{mutualmente esclusivi}.
-\end{itemize}
-
 Sia $R$ un insieme quasiasi. Una \emph{variabile aleatoria\/} è una funzione $X:\Omega\to R$. Se $R$ è un insieme numerico (un sottoinsieme di $\NN$, $\ZZ$, $\QQ$, $\RR$, $\RR^2$, ecc.) diremo che $X$ è una \emph{variabile aleatoria numerica}. Una variabile aleatoria non numerica è detta \emph{qualitativa\/} o \emph{categorica}.
 
 
@@ -199,24 +228,24 @@ Sia $R$ un insieme quasiasi. Una \emph{variabile aleatoria\/} è una funzione $X
 
 Come sopra $X:\Omega\to R$ è una variabile aleatoria. Dato $x\in R$ e $A\subseteq R$ scriveremo
 
-\ceq{\hfill \emph{$p_x$}\medrel{=}\emph{$P(X=x)$}}{=}{P\big(\{\omega\in\Omega\ :\ X(\omega)=x)\}\big)}
+\ceq{\hfill \emph{$p_x$}\medrel{=}\emph{$\Pr(X=x)$}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)=x)\}\big)}
 
-\ceq{\hfill \emph{$P(X\in A)$}}{=}{P\big(\{\omega\in\Omega\ :\ X(\omega)\in A)\}\big)}
+\ceq{\hfill \emph{$\Pr(X\in A)$}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\in A)\}\big)}
 
-\ceq{\hfill \emph{$P(X \le x$)}}{=}{P\big(\{\omega\in\Omega\ :\ X(\omega)\le x)\}\big)}\hfill  se $X$ \`e numerica.
+\ceq{\hfill \emph{$\Pr(X \le x$)}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\le x)\}\big)}\hfill  se $X$ \`e numerica.
 
-La funzione $P(X=x)$ si chiama \emph{distribuzione di probabilità (probability mass function)}. La funzione $P(X \le x)$ si chiama  \emph{funzione di ripartizione (cumulative distribution function)}.
+La funzione $\Pr(X=x)$ si chiama \emph{distribuzione di probabilità (probability mass function)}. La funzione $\Pr(X \le x)$ si chiama  \emph{funzione di ripartizione (cumulative distribution function)}.
 
 Le variabili numeriche possono dirsi \emph{discrete\/} o \emph{continue}. Una v.a.\@ $X$ è discreta se per ogni sottoinsieme $A\subseteq R$
 
-\ceq{\hfill P\big(X\in A\big)}{=}{\sum_{x\in A}P(X=x)}
+\ceq{\hfill \Pr\big(X\in A\big)}{=}{\sum_{x\in A}\Pr(X=x)}
 
-Ovvero la probabilità è concentrata nei punti di $R$. Invece una variabile continua se $P(X{=}x)=0$ per ogni $x\in R$. Per le variabili continue è significativa solo la probabilità in intervalli di diametro positivo
+Ovvero la probabilità è concentrata nei punti di $R$. Invece una variabile continua se $\Pr(X{=}x)=0$ per ogni $x\in R$. Per le variabili continue è significativa solo la probabilità in intervalli di diametro positivo
 
 
-\ceq{\hfill P\big(X\in [a,b]\big)}{=}{P(a \le X \le b)\medrel{=}P(X\le b)-P(X\le a)}
+\ceq{\hfill \Pr\big(X\in [a,b]\big)}{=}{\Pr(a \le X \le b)\medrel{=}\Pr(X\le b)-\Pr(X\le a)}
 
-Si noti che la seconda uguaglianza non sarebbe corretta se $P(X{=}a)\neq0$.
+Si noti che la seconda uguaglianza non sarebbe corretta se $\Pr(X{=}a)\neq0$.
 
 N.B. Esistono variabili aleatorie (anche in esempi concreti) che sono intermedie tra il continuo e il discreto ma per il momento non le considereremo.
 
@@ -229,7 +258,7 @@ N.B. Esistono variabili aleatorie (anche in esempi concreti) che sono intermedie
 
 Una variabile aleatoria $X$ si dice di bernulli se \emph{Bernoulli\/} se $\range X=\{0,1\}$.
 
-Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme $\{\omega:X(\omega)=1\}$ che chiameremo \emph{successo}. Chiameremo \emph{$p$}\ $ = P(X{=}1)$ la \emph{probabilità di successo}.
+Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme $\{\omega:X(\omega)=1\}$ che chiameremo \emph{successo}. Chiameremo \emph{$p$}\ $ = \Pr(X{=}1)$ la \emph{probabilità di successo}.
 
 Viceversa, la v.a.\@ di Bernoulli associata ad un evento $E$ è spesso denotata con $1_E$
 
@@ -245,30 +274,30 @@ Per dire che $X$ è una variabile aleatoria di Bernoulli con probabilità di suc
 %%%%%%%%%%%%
 \clearpage\section{Probabilità condizionata} 
 
-{\color{brown}Esempi:} \hyperref[MF_totali]{Popolazione maschile e femminile (probabilità totali) \faShare}
+{\color{brown}Esempi: \hyperref[MF_totali]{Popolazione maschile e femminile (probabilità totali) \faShare}
 \\
 \hphantom{Esempi:} \hyperref[Fumatori_Bayes]{Fumatori (regola di Bayes) \faShare}
 \\
-\hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts (Bayes rule) \faShare}
+\hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts (Bayes rule) \faShare}}
 
 
-Dato $A, \Phi\subseteq\Omega$ tali che $P(\Phi)\neq 0$ definiamo 
+Dato $A, \Phi\subseteq\Omega$ tali che $\Pr(\Phi)\neq 0$ definiamo 
 
-\ceq{\hfill \emph{$P(A\mathbin|\Phi)$}}{=}$\displaystyle\frac{P(A\cap\Phi)}{P(\Phi)\vphantom{\Big[}}$
+\ceq{\hfill \emph{$\Pr(A\mathbin|\Phi)$}}{=}$\displaystyle\frac{\Pr(A\cap\Phi)}{\Pr(\Phi)\vphantom{\Big[}}$
 
-Questo si legge \emph{probabilità di $A$ dato $\Phi$}. Si verifica facilmente che $P(\,\cdot\,|\Phi)$ soddisfa a tutte le propriet\`a di $P(\,\cdot\,$) se rimpiazziamo $\Omega$ con $\Phi$.
+Questo si legge \emph{probabilità di $A$ dato $\Phi$}. Si verifica facilmente che $\Pr(\,\cdot\,|\Phi)$ soddisfa a tutte le propriet\`a di $\Pr(\,\cdot\,$) se rimpiazziamo $\Omega$ con $\Phi$.
 
 Il fatto seguente si chiama \emph{Teorema delle Probabilità Totali}: siano $A_1,\dots,A_n$ eventi \emph{mutuamente esclusivi\/} ed \emph{esaustivi} di probabilità $\neq0$. Sia $C$ \`e un qualsiasi altro evento, allora
 
-\ceq{\hfill P(C)}{=}{\sum^n_{i=1} P(A_i)\cdot P\big(C| A_i).}
+\ceq{\hfill \Pr(C)}{=}{\sum^n_{i=1} \Pr(A_i)\cdot \Pr\big(C| A_i).}
 
 Il seguente di chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
 
-\ceq{\hfill P(A|B)}{=}{\frac{P(B|A)\cdot P(A)}{P(B)\vphantom{\Big[}}.}
+\ceq{\hfill \Pr(A|B)}{=}{\frac{\Pr(B|A)\cdot \Pr(A)}{\Pr(B)\vphantom{\Big[}}.}
 
-In molte applicazioni $P(B)$ viene calcolato usanto il teorema delle probabilità totali.
+In molte applicazioni $\Pr(B)$ viene calcolato usanto il teorema delle probabilità totali.
 
-\ceq{}{=}{\frac{P(B|A)\cdot P(A)}{P(B|A)P(A)+P(B|\neg A)P(\neg A)\vphantom{\Big[}}.}
+\ceq{}{=}{\frac{\Pr(B|A)\cdot \Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)\vphantom{\Big[}}.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -279,18 +308,18 @@ In molte applicazioni $P(B)$ viene calcolato usanto il teorema delle probabilit�
 
 Due eventi $A$ e $B$ si dicono \emph{(stocasticamente) indipenenti\/} se 
 
-\ceq{\hfill P(A\cap B)}{=}{P(A)\cdot P(B)}. 
+\ceq{\hfill \Pr(A\cap B)}{=}{\Pr(A)\cdot \Pr(B)}. 
 
-Il seguente fatto è facile da verificare: se $A$ e $B$ sono eventi probabilità non nulla allora sono indipendenti se e solo se $P(A|B)=P(A)$ se e solo se $P(B|A)=P(B)$.
+Il seguente fatto è facile da verificare: se $A$ e $B$ sono eventi probabilità non nulla allora sono indipendenti se e solo se $\Pr(A|B)=\Pr(A)$ se e solo se $\Pr(B|A)=\Pr(B)$.
 
 Due variabili aleatorie discrete $X$ ed $Y$ si dicono \emph{(stocasticamente) indipenenti\/} se per ogni $x\in\range X$ e $y\in\range Y$
 
-\ceq{\hfill P(X, Y =x,y)}{=}{P(X=x)\cdot P(Y=y)}.
+\ceq{\hfill \Pr(X, Y =x,y)}{=}{\Pr(X=x)\cdot \Pr(Y=y)}.
 
 Nel caso di variabili aleatorie continue la condizione diventa
 
 
-\ceq{\hfill P(X\le x\ \textrm{ and }\ Y\le y)}{=}{P(X\le x)\cdot P(Y\le y)}.
+\ceq{\hfill \Pr(X\le x\ \textrm{ and }\ Y\le y)}{=}{\Pr(X\le x)\cdot \Pr(Y\le y)}.
 
 
 
@@ -306,7 +335,7 @@ Il lancio ripetuto di una monetina è modellato con lo spazio campionario $\Omeg
 
 L'intersezione di questi eventi è $A\times\!\neg A$. Questo corrisponde ad ottenere nei due lanci la sequenza $1\,0$. 
 
-La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $P(A)\cdot P(B)$. Gli eventi $A\times\Omega$ e $\Omega\times B$ sono quindi indipendenti.
+La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\Pr(A)\cdot \Pr(B)$. Gli eventi $A\times\Omega$ e $\Omega\times B$ sono quindi indipendenti.
 
 
 
@@ -330,11 +359,11 @@ La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $P(
 
 Il \emph{valore atteso\/} o \emph{media di popolazione\/} (\emph{expected value, population mean\/}) di una variabile aleatoria numerica discreta $X$ a valori in $R$ è
 
-\ceq{\hfill\emph{$\mu\medrel{=} \E(X)$}}{=}{\sum_{x\in R} x\cdot P(X=x)}
+\ceq{\hfill\emph{$\mu\medrel{=} \E(X)$}}{=}{\sum_{x\in R} x\cdot \Pr(X=x)}
 
 La \emph{varianza\/} di una variabile aleatoria numerica discreta $X$ a valori in $R$ è
 
-\ceq{\hfill\emph{$\sigma^2\medrel{=} \Var(X)$}}{=}{\sum_{x\in R} \big(x- E(X)\big)^2\cdot P(X=x)}
+\ceq{\hfill\emph{$\sigma^2\medrel{=} \Var(X)$}}{=}{\sum_{x\in R} \big(x- E(X)\big)^2\cdot \Pr(X=x)}
 
 \ceq{}{=}{E(X^2)-E(X)^2}\hfill (facile da verificare).
 
@@ -379,16 +408,16 @@ is positive or negative respectively. Let \emph{$D$\/} be the event that the sub
 Introduciamo un po di terminologia.
 
 \begin{itemize}
-\item We call $P(D)$ the \emph{prevalence\/} of the disease. Often it is very difficult to estimate: it strongly depends on the risk category the subject belongs to.
+\item We call $\Pr(D)$ the \emph{prevalence\/} of the disease. Often it is very difficult to estimate: it strongly depends on the risk category the subject belongs to.
 \item The \emph{sensitivity\/} is the probability that the test is
-positive given that the subject actually has the disease, $P(T_+ | D)$
+positive given that the subject actually has the disease, $\Pr(T_+ | D)$
 \item The \emph{specificity\/} is the probability that the test is
-negative given that the subject does not have the disease, $P(T_- | \neg D)$
+negative given that the subject does not have the disease, $\Pr(T_- | \neg D)$
 \item The \emph{positive predictive value\/} is the probability that the subject has the
-disease given that the test is positive, $P(D | T_+)$
+disease given that the test is positive, $\Pr(D | T_+)$
 \item The \emph{negative predictive value\/} is the probability that the subject does not have
-the disease given that the test is negative, $P(\neg D | T_-)$
-\item The \emph{prevalence of the disease\/} is the marginal probability of disease, $P(D)$
+the disease given that the test is negative, $\Pr(\neg D | T_-)$
+\item The \emph{prevalence of the disease\/} is the marginal probability of disease, $\Pr(D)$
 
 \end{itemize}
 
@@ -439,7 +468,7 @@ Introduciamo la terminologia dei test d'ipotesi basandoci sulla notazione usata 
 
 \item L'espressione: \emph{$H_0$ NON può essere rifiutata\/} è sinonima di \textit{l'esito del test è negativo}. Noi denotiamo l'evento con \emph{$T_-$}.
 
-\item Nel progettare il test si decide come definire $T_+$ e $T_-$ a seconda di quanti falsi positivi/negativi si vuole o può tollerare (in base ai costi/rischi che questi due errori comportano). Ci si calcola quindi $P(T_+|H_0)$ e $P(T_-|H_A)$.
+\item Nel progettare il test si decide come definire $T_+$ e $T_-$ a seconda di quanti falsi positivi/negativi si vuole o può tollerare (in base ai costi/rischi che questi due errori comportano). Ci si calcola quindi $\Pr(T_+|H_0)$ e $\Pr(T_-|H_A)$.
 \end{itemize}
 
 
@@ -455,31 +484,31 @@ In questa tavola contrapponiamo la terminologia usata nei \emph{test statistici\
 \fbox{\parbox[t]{35ex}{%
 \emph{$T_+\cap H_0$} \ \textit{falso positivo}\hfill \emph{errore I tipo\/}\\
 
-\emph{$P(T_+|H_0)=\emph{$\alpha$}$}\hfill \emph{significatività\/}
+\emph{$\Pr(T_+|H_0)=\emph{$\alpha$}$}\hfill \emph{significatività\/}
 }}
 \kern1ex
 \fbox{\parbox[t]{38ex}{%
 \emph{$T_+\cap H_A$} \ \textit{corretto positivo}\\
 
-\emph{$P(T_+|H_A)=1-\emph{$\beta$}$} \ \textit{sensibilità}\hfill \emph{potenza\/}
+\emph{$\Pr(T_+|H_A)=1-\emph{$\beta$}$} \ \textit{sensibilità}\hfill \emph{potenza\/}
 }}
 
 
 \fbox{\parbox[t]{35ex}{%
 \emph{$T_-\cap H_0$} \ \textit{corretto negativo}\\
 
-\emph{$P(T_-|H_0)=1-\emph{$\alpha$}$} \ \textit{sepecificità}
+\emph{$\Pr(T_-|H_0)=1-\emph{$\alpha$}$} \ \textit{sepecificità}
 }}
 \kern1ex
 \fbox{\parbox[t]{38ex}{%
 \emph{$T_-\cap H_A$} \ \textit{falso negativo}\hfill \emph{errore II tipo\/}\\
 
-\emph{$P(T_-|H_A)=\emph{$\beta$}$}
+\emph{$\Pr(T_-|H_A)=\emph{$\beta$}$}
 }}
 
 
 \bigskip
-N.B. È vacile progettare un test che minimizza una tra $P(T_+|H_0)$ o $P(T_-|H_A)$. In un caso estremo: se a prescindere dai dati rifiuta sempre $H_0$ avrà banalmente $P(T_-| H_0)=0$; invece un test che non rifiuta mai $H_0$ avrà  $P(T_+|H_0)=0$. La difficoltà nel progettare il test è trovare il giusto equilibrio tra i due errori.
+N.B. È vacile progettare un test che minimizza una tra $\Pr(T_+|H_0)$ o $\Pr(T_-|H_A)$. In un caso estremo: se a prescindere dai dati rifiuta sempre $H_0$ avrà banalmente $\Pr(T_-| H_0)=0$; invece un test che non rifiuta mai $H_0$ avrà  $\Pr(T_+|H_0)=0$. La difficoltà nel progettare il test è trovare il giusto equilibrio tra i due errori.
 
 
 
@@ -500,15 +529,18 @@ Diamo due definizioni equivalenti di \emph{p-valore}. Sia $W$ una statistica e s
 
 La seconda definizione suona più semplice ma bisogna precisare cosa si intende per estremo. Tipicamente $H_0$ prevede un certo valore $w_0$ per la statistica. Il p-valore è la probabilità 
 
-\ceq{\hfill \emph{p-valore}}{=}{P\big(|W-w_0|\ge |w-w_0|\big)}
+\ceq{\hfill \emph{p-valore}}{=}{\Pr\big(|W-w_0|\ge |w-w_0|\big)}
 
-\ceq{}{=}{P\big(W\le w_0-|w_0-w|\big) + P\big(W\ge w_0+|w-w_0|\big)}. 
+\ceq{}{=}{\Pr\big(W\le w_0-|w_0-w|\big) + \Pr\big(W\ge w_0+|w-w_0|\big)}. 
 
 Quando possibile si effettua una trasformazione di coordinate in modo tale da avere $w_0=0$. Questo semplifica l'espressione del p-valore che diventa 
 
-\ceq{}{=}{P\big(W\le w\big) + P\big(W\ge w\big)}.
+\ceq{}{=}{\Pr\big(W\le w\big) + \Pr\big(W\ge w\big)}.
 
-Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{per esempio \faShare}\ ) una tra possibilità quindi il p-valore si riduce a $P\big(W\le w\big)$ o $P\big(W\ge w\big)$.
+Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{per esempio \faShare}\ ) una tra possibilità quindi il p-valore si riduce a $\Pr\big(W\le w\big)$ o $\Pr\big(W\ge w\big)$.
+
+
+
 
 
 \chapter{Esempi ed esercizi}
@@ -517,7 +549,84 @@ Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{p
 \ \ 
 
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Spazio di probabilità}
 
+\subsection{Dado con quattro facce}
+\label{tetraedro}
+
+Cosideriamo un dado con $4$ faccie (un tetraedro regolare) le faccie sono etichettate con le lettere $A, C, G, T$. 
+
+Come spazio campionario è naturale usare l'insieme $\Omega=\{A,C,G,T\}$ la misura di probabilità $\Pr:\P(\Omega)\to\RR$ è univocamente determinata dalle condizioni
+
+$\Pr(\{A\})=\Pr(\{C\})=\Pr(\{G\})=\Pr(\{T\})=1/4$
+
+N.B. In futuro abbrevieremo $\Pr(\{A\})$ con $\Pr(A)$, ecc.
+
+La misura su un qualsiasi altro evento $E\subseteq\Omega$ è determinata dalla condizione 
+
+$\Pr(E_1\cup E_2)=\Pr(E_1)+\Pr(E_2)$ per ogni coppia $E_1,E_2\in\P(\Omega)$ di insiemi disgiunti.
+
+
+
+\clearpage\hfill\textbf{Spazio di probabilità}
+\subsection{Doppio lancio della monetina}
+\label{doppo_lancio_moneta}
+
+Lanciamo due volte una monetina. I possibili risultati sono $TT, CC, TC, CT$. 
+
+Come spazio campionario è naturale usare l'insieme $\Omega=\{TT, CC, TC, CT\}$ la misura di probabilità $\Pr:\P(\Omega)\to\RR$ è univocamente determinata dalle condizioni
+
+$\Pr(TT)=\Pr(CC)=\Pr(TC)=\Pr(CT)=1/4$
+
+L'evento \textit{Esce una volta $T$ ed una volta $C$\/} corrisponde all'evento $\{TC, CT\}$.
+
+L'evento \textit{Esce almeno una volta $T$\/} corrisponde all'evento $\{TC, CT, TT\}$.
+
+
+
+\clearpage\hfill\textbf{Spazio di probabilità}
+\subsection{Urna con bigle di 3 colori}
+\label{urna_3_colori}
+
+Estraimo una biglia da urna che contiene $16$ biglie che differiscono solo nel colore.
+
+Le biglie sono $8$ rosse, $6$ blu, $2$ nere.
+
+Esistono due scelte naturali per lo spazio di probabilità. Posto $\Omega=\{r,b,n\}$ stipuliamo che
+
+$\Pr(r)=1/2$\hfil $\Pr(b)=3/8$\hfil $\Pr(n)=1/8$
+
+Oppure $\Omega=\{1,\dots,16\}$ e posto $B=\{1,\dots,8\}$, $R=\{9,\dots,14\}$, $N=\{15,16\}$ stipuliamo che 
+
+
+$\Pr(i)=1/16$\hfil per ogni $i=1,\dots,16$.
+
+In questo modo diamo una misura di probabilità a molti eventiche non sono in realtà osservabili. 
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\clearpage\section{Variabili aleatorie}
+
+\subsection{Urna con biglie di dimensioni diverse}
+\label{Urna_biglie_diverse}
+
+Un urna $\Omega$ che contiene biglie che differiscono per peso diametro e colore. Possiamo immaginarci tre variabili aletorie:
+
+$X$ peso della biglia\hfill variabile quantiativa
+
+$Y$ diametro della biglia\hfill variabile quntiativa
+
+$Z$ colore della biglia\hfill variabile qualitativa
+
+Se l'urna contiene un piccolo numero di biglie $X$ ed $Y$ sono variabili discrete.
+
+L'urna potrebbe contenere un umero così grande di biglie d rendere più semplice immaginarsi che ce ne siano in numero infinito. In questo caso potrebbe essere ragionevole considerare $X$ ed $Y$ come variabili continue. Ma se le nostre minure (di peso e diametro) sono molto imprecise il numero di possibili valori potrebbe essere comunque abbastnza piccolo e potrebbe concenire interpretarle come variabili discrete.
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -541,10 +650,28 @@ Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{p
 \clearpage\section{Regola di Bayes}
 \label{Bayes}
 
+
+$\Pr(B|A)=\dfrac{\Pr(A|B)\cdot \Pr(B)}{\Pr(A)}=\dfrac{\Pr(A|B)\cdot \Pr(B)}{\Pr(A|B)\Pr(B)+\Pr(A|\neg B)\Pr(\neg B)}$
+
+
 \subsection{Fumatori e non fumatori}
 \label{Fumatori_Bayes}
 
 
+Tra le persone affette da una certa patolopgia $A$, il $20\%$ è fumatore. La prevalenza di $A$ tra i fumatori è del $10\%$ nella popolazione generale è del $2\%$. Calcolare la probabilità che un fumatore ha di essere affetto da $A$.
+
+
+$F$\hfill insieme dei fumatori
+
+$A$\hfill insieme persone affette da $A$
+
+$\Pr(A)=0.02$\hfill prevalenza di $A$ nella popolazione generale
+
+$\Pr(F)=0.1$\hfill frazione di fumatori nella popolazione generale
+
+$\Pr(F|A)=0.2$\hfill prevalenza di $A$ tra i fumatori
+
+$\Pr(A|F)=\dfrac{\Pr(F|A)\cdot \Pr(A)}{\Pr(F)}=\dfrac{0.2\cdot0.02}{0.1}=0.04$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -564,11 +691,11 @@ $C$\hfill set of women that are carrier
 
 $S_{na}$\hfill set of women whose son is not affected
 
-$P(C)\ =\ 1/2$\hfill 
+$\Pr(C)\ =\ 1/2$\hfill 
 
-$P(S_{na}|C)\ =\ 1/2$\hfill 
+$\Pr(S_{na}|C)\ =\ 1/2$\hfill 
 
-$P(C|S_{na})\ =\ \dfrac{P(S_{na}|C)\cdot P(C)}{P(S_{na})}\ =\ \dfrac{P(S_{na}|C)\cdot P(C)}{P(S_{na}|C)\cdot P(C)+P(S_{na}|\neg C)\cdot P(C)}\ =\ \dfrac{1/4}{1/4+1/2}\ =\ 1/3$
+$\Pr(C|S_{na})\ =\ \dfrac{\Pr(S_{na}|C)\cdot \Pr(C)}{\Pr(S_{na})}\ =\ \dfrac{\Pr(S_{na}|C)\cdot \Pr(C)}{\Pr(S_{na}|C)\cdot \Pr(C)+\Pr(S_{na}|\neg C)\cdot \Pr(C)}\ =\ \dfrac{1/4}{1/4+1/2}\ =\ 1/3$
 
 
 %%%%%%%%%%%%
@@ -585,20 +712,20 @@ $R$\hfill event: it rains on Marie’s wedding
 
 $T_+$\hfill event: the weatherman predicts rain
 
-$P (R) = 5/365$\hfill it rains 5 days out of the year
+$\Pr(R) = 5/365$\hfill it rains 5 days out of the year
 
-$P (\neg R) = 1-P(R)= 360/365$
+$\Pr(\neg R) = 1-\Pr(R)= 360/365$
 
-$P (T_+|R) = 0.9$\hfill when it rains, $90\%$ of the times rain is predicted
+$\Pr(T_+|R) = 0.9$\hfill when it rains, $90\%$ of the times rain is predicted
 
-$P (T_+|\neg R) = 0.1$\hfill when it does not rain, $10\%$ of the times rain is predicted
+$\Pr(T_+|\neg R) = 0.1$\hfill when it does not rain, $10\%$ of the times rain is predicted
 
 \bigskip
 We want to know
 
-$\displaystyle P(R\,| T_+)\medrel{=}\frac{P(R)\cdot P(T_+|R)}{P(T_+)\vphantom{\Big[}}$
+$\displaystyle \Pr(R\,| T_+)\medrel{=}\frac{\Pr(R)\cdot \Pr(T_+|R)}{\Pr(T_+)\vphantom{\Big[}}$
 
-$\displaystyle\hphantom{P(R | T_+)}\medrel{=}\frac{P(R)\cdot P(T_+|R)}{P(T_+|R)\cdot P(R)+ P(T_+|\neg R)\cdot P(\neg R)\vphantom{\Big[}}$
+$\displaystyle\hphantom{\Pr(R | T_+)}\medrel{=}\frac{\Pr(R)\cdot \Pr(T_+|R)}{\Pr(T_+|R)\cdot \Pr(R)+ \Pr(T_+|\neg R)\cdot \Pr(\neg R)\vphantom{\Big[}}$
 
 
 %%%%%%%%%%%%
@@ -639,14 +766,14 @@ Suppose that a subject, from a population with a {\color{violet} 0.1\% prevalenc
 of HIV, receives a positive test result. What is the probability
 that this subject has HIV?
 
-Mathematically, we want $P(D | T_+)$ given the sensitivity, {\color{violet}$P(T_+
-| D) = .997$}, the specificity, {\color{violet}$P(T_- | \neg D) =.985$}, and the
-prevalence {\color{violet}$P(D) = .001$}
+Mathematically, we want $\Pr(D | T_+)$ given the sensitivity, {\color{violet}$\Pr(T_+
+| D) = .997$}, the specificity, {\color{violet}$\Pr(T_- | \neg D) =.985$}, and the
+prevalence {\color{violet}$\Pr(D) = .001$}
 
 \begin{eqnarray*}
-P(D ~|~ +)& = &\frac{P(T_+|D)P(D)}{P(T_+)\vphantom{\Big[}}\\ \\
-& = &\frac{P(T_+|D)P(D)}{P(T_+|D)\ P(D) + P(T_+|\neg D)\ P(\neg D)\vphantom{\Big[}}\\ \\
-& = & \frac{P(T_+|D)P(D)}{P(T_+|D)P(D) + \big[1-P(T_-|\neg D)\big]\ \big[1 - P(D)\big]\vphantom{\Big[}} \\ \\
+\Pr(D ~|~ +)& = &\frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+)\vphantom{\Big[}}\\ \\
+& = &\frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+|D)\ \Pr(D) + \Pr(T_+|\neg D)\ \Pr(\neg D)\vphantom{\Big[}}\\ \\
+& = & \frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+|D)\Pr(D) + \big[1-\Pr(T_-|\neg D)\big]\ \big[1 - \Pr(D)\big]\vphantom{\Big[}} \\ \\
 %& = & \frac{.997\times .001}{.997 \times .001 + .015 \times .999}\\ \\
 & = & 0.062
 \end{eqnarray*}
@@ -660,8 +787,8 @@ somewhat modest specificity
 Suppose it was known that the subject was an intravenous drug user and routinely had intercourse with an HIV infected partner that the test was taken in South Africa where the prevalence is estimated to be around 20\%
 
 \begin{eqnarray*}
-P(D ~|~ +)& = & 0.943\\
-& \hphantom{=} & \hphantom{\frac{P(T_+|D)P(D)}{P(T_+|D)P(D) + \big[1-P(T_-|\neg D)\big]\ \big[1 - P(D)\big]\vphantom{\Big[}}}
+\Pr(D ~|~ +)& = & 0.943\\
+& \hphantom{=} & \hphantom{\frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+|D)\Pr(D) + \big[1-\Pr(T_-|\neg D)\big]\ \big[1 - \Pr(D)\big]\vphantom{\Big[}}}
 \end{eqnarray*}
 
 
@@ -702,9 +829,9 @@ Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il r
 Per quanto osservato sulla distribuzione di $X$, possiamo calcolare la specificità del test (probabilità di falsi positivi)
 
 
-\ceq{\hfill P(T_+\mathrel|H_0)}{=}{P(X\ge k\mathrel|H_0)\quad=\quad\sum^n_{i=k} {n\choose i}\bigg(\frac12\bigg)^i\bigg(1-\frac12\bigg)^{n-i}=\quad\frac1{2^n}\sum^n_{i=k+1} {n\choose i}}
+\ceq{\hfill \Pr(T_+\mathrel|H_0)}{=}{\Pr(X\ge k\mathrel|H_0)\quad=\quad\sum^n_{i=k} {n\choose i}\bigg(\frac12\bigg)^i\bigg(1-\frac12\bigg)^{n-i}=\quad\frac1{2^n}\sum^n_{i=k+1} {n\choose i}}
 
-Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13,\dots,20\}$} è la regione di rifiuto. Otteniamo %$P(T_+|\neg D) = \py{sum(y[y.index<=k]}$
+Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13,\dots,20\}$} è la regione di rifiuto. Otteniamo %$\Pr(T_+|\neg D) = \py{sum(y[y.index<=k]}$
 
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test_01.pdf}
@@ -719,7 +846,7 @@ Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13
 La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $>1/2$)
 
 
-\ceq{\hfill P(T_-\mathrel|H_A)}{=}{P(X< k\mathrel|H_A)\quad=\quad\sum^{k-1}_{i=1} {n\choose i}p^i(1-p)^{n-i}}
+\ceq{\hfill \Pr(T_-\mathrel|H_A)}{=}{\Pr(X< k\mathrel|H_A)\quad=\quad\sum^{k-1}_{i=1} {n\choose i}p^i(1-p)^{n-i}}
 
 Se segliamo come prima $n=20$, $k=13$ abbiamo {\color{blue}\boldmath\ $T_-=\{0,\dots,12\}$} è la \emph{zona di NON rifiuto}.
 Ora, per semplificare la discussione supponiamo di conoscere non solo il tipo ma anche la gravità del difetto. Quindi l'ipotesi alternativa diventa
@@ -764,7 +891,7 @@ $H_0:$\kern3.5ex $p=1/2$
 
 $H_A:$\kern3ex $p\neq1/2$
 
-Verifichiamo prima che  \textbf{la zona di rifiuto dei paragrafi precedenti NON è adatta\/} alla nuova situazione. L'analisi di $P(T_+|H_0)$ rimane invariata (inaftti l'insieme $H_0$ non è cambiato).
+Verifichiamo prima che  \textbf{la zona di rifiuto dei paragrafi precedenti NON è adatta\/} alla nuova situazione. L'analisi di $\Pr(T_+|H_0)$ rimane invariata (inaftti l'insieme $H_0$ non è cambiato).
 
 Per semplificare la discussione dell'errore del II tipo supponiamo per il momento che 
 
@@ -865,11 +992,11 @@ Se per entriambi i casi prendiamo la stessa regione di rifiuto misurata in punte
 %%%%%%%%%%%%
 \clearpage
 \section{Z-test}
-\subsection{Una coda.}
+\subsection{Una coda}
 
 Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma^2)$ con $\mu_0=75$ e $\sigma=9.5$. 
 
-Assumiamo che tra i pazionti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale. Vogliamo testare le seguenti ipotesi:
+Assumiamo che tra i pazienti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale. Vogliamo testare le seguenti ipotesi:
 
 $H_0:$\kern3.5ex $\mu=\mu_0$
 
@@ -879,13 +1006,13 @@ Il test consiste nel misurare la pressione ad un campione di $n$ pazienti e di q
 
 \ceq{\hfill \bar X}{=}{\frac1n\sum_{i=1}^nX_i}
 
-Dove $X_i$ è la v.a.\@ che dà la pressione dell'$i$-esimo pazione del campione. Rigetteremo $H_0$ se il valore ottenuto è suporiore ad un certo $x_\alpha$ che vogliamo fissare in modo che l'errore I tipo risulti uguale ad $\alpha$. Quindi $x_\alpha$ dev'essere tale che $x_\alpha$ tale che $P(\bar X>x_\alpha)=\alpha$.
+Dove $X_i$ è la v.a.\@ che dà la pressione dell'$i$-esimo pazione del campione. Rigetteremo $H_0$ se il valore ottenuto è suporiore ad un certo $x_\alpha$ che vogliamo fissare in modo che l'errore I tipo risulti uguale ad $\alpha$. Quindi $x_\alpha$ dev'essere tale che $x_\alpha$ tale che $\Pr(\bar X>x_\alpha)=\alpha$.
 
 Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma^2}{n}\bigg)$.
 
 % Non è necessario, ma conviene sempre ridursi alla normale standard: $\dfrac{\bar X-\mu_0}{\sigma/\sqrt{n}}$ ha distribuzione normale standard $Z$.
 % 
-% Vogliamo $x_\alpha$ tale che $P(Z>\dfrac{x_\alpha-\mu_0}{\sigma/\sqrt{n}})=\alpha$
+% Vogliamo $x_\alpha$ tale che $\Pr(Z>\dfrac{x_\alpha-\mu_0}{\sigma/\sqrt{n}})=\alpha$
 
 
 
@@ -915,7 +1042,7 @@ Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20, 
 \clearpage\subsection{Una coda, p valore.\hfill Z-test}
 
 
-Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=40$. Il p-valore di questa misura è $P(\bar X>78)=1-P(\bar X\le 78)$.
+Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=40$. Il p-valore di questa misura è $\Pr(\bar X>78)=1-\Pr(\bar X\le 78)$.
 
 
 
@@ -932,6 +1059,36 @@ Ad un gruppo di persone vengono misurati 50 diversi parametri fisiologici (che a
 
 
 Risposta:\kern3ex $1-(0.98)^{50}=64\%$
+
+
+\section{Inferenza Bayesiana}
+
+In un casinó si gioca a testa o croce ($1$ o $0$) con tre tipi di monete che hanno probabilità di successo $1/2$, $2/3$, e $1/3$. Il casinò sceglie la moneta e continua a giocare con la stessa moneta per tutto il giorno. Il giocatore non sa quale moneta sia scelta.
+
+Assumiamo per fissare le idee che il casinò scelga la monete a sorte e che le tre monete abbiano la stessa probabilità di essere scelte. Supponiamo osservare la sequenza $010$ e di voler puntare sul prossimo lancio. Ci interessa sapere con che probabilità possiamo assumere quale moneta.  
+
+Siano $M_{1/2}$, $M_{2/3}$ ed $M_{1/3}$ gli eventi che corrispondono alla scelta delle tre monete
+$M_{1/2}$, $M_{2/3}$ ed $M_{1/3}$
+
+$\Pr(010\mathrel|M_{1/2})\ =\ \dfrac{1}{2^3}\ =\ \dfrac{1}{8}$
+
+$\Pr(010\mathrel|M_{2/3})\ =\ \dfrac{1}{3}\cdot\dfrac{2}{3}\cdot\dfrac{1}{3}\ =\ \dfrac{2}{9}$
+
+$\Pr(010\mathrel|M_{1/3})\ =\ \dfrac{2}{3}\cdot\dfrac{1}{3}\cdot\dfrac{2}{3}\ =\ \dfrac{4}{9}$
+
+\smallskip
+Usando il teorema delle probabilità totali possiamo facilmente calcolare 
+
+$\Pr(010)\ =\ \dfrac{1}{3}\left(\dfrac{1}{8}+\dfrac{2}{9}+\dfrac{4}{9}\right)\ =\ \dfrac{19}{72}$.
+
+Quindi possiamo calcolare la probabilità di $M_{1/2}$, $M_{2/3}$ ed $M_{1/3}$ data l'informazione $010$.
+
+$\Pr(M_{1/2} \mathrel| 010)=\dfrac{\Pr(010\mathrel|M_{1/2})\cdot \Pr(M_{1/2})}{\Pr(010)}=\dfrac{1/8\cdot 1/3}{19/72}$
+
+$\Pr(M_{2/3} \mathrel| 010)=\dfrac{\Pr(010\mathrel|M_{2/3})\cdot \Pr(M_{2/3})}{\Pr(010)}=\dfrac{2/9\cdot 1/3}{19/72}$
+
+$\Pr(M_{1/3} \mathrel| 010)=\dfrac{\Pr(010\mathrel|M_{1/3})\cdot \Pr(M_{1/3})}{\Pr(010)}=\dfrac{4/9\cdot 1/3}{19/72}$
+
 
 
 
