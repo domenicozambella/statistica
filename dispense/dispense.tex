@@ -166,12 +166,12 @@ diagrams={>=latex}
 \chapter{Teoria (il minimo sindacale)}
 \raggedbottom
 
-Per esempi e esercizi seguire i \hyperref[ch2]{link \faShare}
+Per esempi ed esercizi seguire i \hyperref[ch2]{link \faShare}
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Spazio di probabilità}
+\hfill\rlap{.}\clearpage\section{Spazio di probabilità}
 
 {\color{brown}Esempi: \hyperref[tetraedro]{Dado a $4$ facce \faShare}
 \\
@@ -211,36 +211,44 @@ Conseguenze:
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Variabili aleatorie}
+\hfill\rlap{.}\clearpage\section{Variabili aleatorie}
 
 
 \def\medrel#1{\parbox[t]{6ex}{$\displaystyle\hfil #1$}}
-\def\ceq#1#2#3{\parbox{25ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+\def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
 
-Sia $R$ un insieme quasiasi. Una \emph{variabile aleatoria\/} è una funzione $X:\Omega\to R$. Se $R$ è un insieme numerico (un sottoinsieme di $\NN$, $\ZZ$, $\QQ$, $\RR$, $\RR^2$, ecc.) diremo che $X$ è una \emph{variabile aleatoria numerica}. Una variabile aleatoria non numerica è detta \emph{qualitativa\/} o \emph{categorica}.
+
+{\color{brown}Esempi: \hyperref[Urna_biglie_diverse]{Urna con biglie di dimensioni diverse \faShare}}
+
+Sia $R$ un insieme quasiasi. Una \emph{variabile aleatoria\/} è una funzione $X:\Omega\to R$. Spesso si scrive \emph{$X\in R$\/} (una notazione che può dar luogo a malintesi) omettendo il riferimento ad $\Omega$.
+
+Se $R$ è un insieme numerico (un sottoinsieme di $\NN$, $\ZZ$, $\QQ$, $\RR$, $\RR^2$, ecc.) diremo che $X$ è una \emph{variabile aleatoria numerica\/} o \emph{quantitativa}. Una variabile aleatoria non numerica è detta \emph{qualitativa\/} o \emph{categorica}.
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Distribuzione di probabilità discreta}
+\hfill\rlap{.}\clearpage\section{Distribuzione di probabilità discrete e contnue}
 
-Come sopra $X:\Omega\to R$ è una variabile aleatoria. Dato $x\in R$ e $A\subseteq R$ scriveremo
+Dato $x\in R$ e $A\subseteq R$ scriveremo
 
-\ceq{\hfill \emph{$p_x$}\medrel{=}\emph{$\Pr(X=x)$}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)=x)\}\big)}
+\ceq{\hfill \emph{$p_x$}\medrel{=}\emph{$\Pr(X=x)$}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)=x\}\big)}
 
-\ceq{\hfill \emph{$\Pr(X\in A)$}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\in A)\}\big)}
+\ceq{\hfill \emph{$\Pr(X\in A)$}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\in A\}\big)}
 
-\ceq{\hfill \emph{$\Pr(X \le x$)}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\le x)\}\big)}\hfill  se $X$ \`e numerica.
+\ceq{\hfill \emph{$\Pr(X \le x$)}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\le x\}\big)}\hfill  se $X$ \`e numerica.
 
 La funzione $\Pr(X=x)$ si chiama \emph{distribuzione di probabilità (probability mass function)}. La funzione $\Pr(X \le x)$ si chiama  \emph{funzione di ripartizione (cumulative distribution function)}.
 
+
 Le variabili numeriche possono dirsi \emph{discrete\/} o \emph{continue}. Una v.a.\@ $X$ è discreta se per ogni sottoinsieme $A\subseteq R$
 
-\ceq{\hfill \Pr\big(X\in A\big)}{=}{\sum_{x\in A}\Pr(X=x)}
+\ceq{\hfill \Pr\big(X\in A\big)}{=}{\sum_{x\in A}\Pr(X=x)}\hfill\hyperref[sommatorie_disordinate]{Per la notazione \faShare}
 
-Ovvero la probabilità è concentrata nei punti di $R$. Invece una variabile continua se $\Pr(X{=}x)=0$ per ogni $x\in R$. Per le variabili continue è significativa solo la probabilità in intervalli di diametro positivo
+Ovvero la probabilità è concentrata nei punti di $R$. 
+
+Invece $X$ è una \emph{variabile aleatoria continua\/} se $\Pr(X{=}x)=0$ per ogni $x\in R$. Per le variabili continue è significativa solo la probabilità in intervalli di diametro positivo
 
 
 \ceq{\hfill \Pr\big(X\in [a,b]\big)}{=}{\Pr(a \le X \le b)\medrel{=}\Pr(X\le b)-\Pr(X\le a)}
@@ -254,15 +262,17 @@ N.B. Esistono variabili aleatorie (anche in esempi concreti) che sono intermedie
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Variabili aleatorie di Bernoulli}
+\hfill\rlap{.}\clearpage\section{Variabili aleatorie di Bernoulli}
 
-Una variabile aleatoria $X$ si dice di bernulli se \emph{Bernoulli\/} se $\range X=\{0,1\}$.
+Una variabile aleatoria $X$ si dice di \emph{Bernoulli\/} se $\range X=\{0,1\}$, che spesso si abbrevia scrivendo \emph{$X\in\{0,1\}$}.
 
-Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme $\{\omega:X(\omega)=1\}$ che chiameremo \emph{successo}. Chiameremo \emph{$p$}\ $ = \Pr(X{=}1)$ la \emph{probabilità di successo}.
+Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme $\{\omega:X(\omega)=1\}$ che chiameremo \emph{successo}. 
 
 Viceversa, la v.a.\@ di Bernoulli associata ad un evento $E$ è spesso denotata con $1_E$
 
 \ceq{\hfill 1_E(x)}{=}{\left\{\begin{array}{ll}1&\textrm{ se }\ x\in E\\0&\textrm{ se }\ x\notin E\end{array}\right.}
+
+Chiameremo \emph{$p$}\ $ = \Pr(X{=}1)$ la \emph{probabilità di successo}.
 
 Per dire che $X$ è una variabile aleatoria di Bernoulli con probabilità di successo $p$ scriveremo \emph{$X\sim B(1,p)$}.
 
@@ -272,7 +282,7 @@ Per dire che $X$ è una variabile aleatoria di Bernoulli con probabilità di suc
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Probabilità condizionata} 
+\hfill\rlap{.}\clearpage\section{Probabilità condizionata} 
 
 {\color{brown}Esempi: \hyperref[MF_totali]{Popolazione maschile e femminile (probabilità totali) \faShare}
 \\
@@ -304,7 +314,7 @@ In molte applicazioni $\Pr(B)$ viene calcolato usanto il teorema delle probabili
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\clearpage\section{Indipensenza stocastica}
+\hfill\rlap{.}\clearpage\section{Indipensenza stocastica}
 
 Due eventi $A$ e $B$ si dicono \emph{(stocasticamente) indipenenti\/} se 
 
@@ -327,7 +337,7 @@ Nel caso di variabili aleatorie continue la condizione diventa
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\clearpage\section{Esperimenti ripetuti: prodotto di spazi di probabilità}
+\hfill\rlap{.}\clearpage\section{Esperimenti ripetuti: prodotto di spazi di probabilità}
 
 Sia $X:\Omega\to\{0,1\}$ una variabile aleatoria di Bernoulli (per avere un esempio semplice). Immaginiamo che $X$ modelli il lancio di una moneta. Per brevità definiamo $A=X^{-1}[\,1\,]$.
 
@@ -344,7 +354,7 @@ La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\P
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\clearpage\section{Variabili aleatorie binomiali}
+\hfill\rlap{.}\clearpage\section{Variabili aleatorie binomiali}
 
 
 
@@ -355,7 +365,7 @@ La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\P
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\clearpage\section{Valore atteso e varianza}
+\hfill\rlap{.}\clearpage\section{Valore atteso e varianza}
 
 Il \emph{valore atteso\/} o \emph{media di popolazione\/} (\emph{expected value, population mean\/}) di una variabile aleatoria numerica discreta $X$ a valori in $R$ è
 
@@ -380,7 +390,7 @@ Le lettere $\mu$ e $\sigma$ vengono usate quando è chiaro a quale variabile ci 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\clearpage\section{Standardizzazione}
+\hfill\rlap{.}\clearpage\section{Standardizzazione}
 
 Sia $X$ una v.a.\@ con media $\mu$ e deviazione standaed $\sigma$. La variabile aleatoria $Z$ così definita
 
@@ -395,7 +405,7 @@ si dice ottenuta da $X$ per \emph{standardizzazione}. La variabile $Z$ ha media 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Diagnostic tests}
+\hfill\rlap{.}\clearpage\section{Diagnostic tests}
 
 
 {\color{brown}Esempi:}  \hyperref[HIV_test]{HIV test (regola di Bayes) \faShare}
@@ -431,7 +441,7 @@ Tipicamente la specificità e la sensitività del test sono note. I poteri predi
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Campioni e statistiche}
+\hfill\rlap{.}\clearpage\section{Campioni e statistiche}
 
 Un campione $\{X_1,\dots,X_n\}$ è un insieme di v.a.\@ indipendenti e identicamente distribuite. Il numero $n$ si chiama \emph{rango\/} (o \emph{dimensione\/}) del campione. 
 
@@ -448,7 +458,7 @@ Una \emph{statistica\/} è una variabile aleatoria a valori in $\RR$ ottenuta co
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Test d'ipotesi}
+\hfill\rlap{.}\clearpage\section{Test d'ipotesi}
 
 Esempi: \hyperref[Bernoulli_test]{Test binomiale (il più elementare test di ipotesi) \faShare}
 
@@ -475,7 +485,7 @@ Introduciamo la terminologia dei test d'ipotesi basandoci sulla notazione usata 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Test d'ipotesi (tavola riassuntiva)}
+\hfill\rlap{.}\clearpage\section{Test d'ipotesi (tavola riassuntiva)}
 \setlength{\fboxsep}{1ex}
 
 In questa tavola contrapponiamo la terminologia usata nei \emph{test statistici\/}  a quella dei \textit{test diagnostici}. Molto comuni sono anche i simboli \emph{$\alpha$\/} e \emph{$\beta$\/}.\bigskip   
@@ -516,7 +526,7 @@ N.B. È vacile progettare un test che minimizza una tra $\Pr(T_+|H_0)$ o $\Pr(T_
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Il p-valore}
+\hfill\rlap{.}\clearpage\section{Il p-valore}
 
 Diamo due definizioni equivalenti di \emph{p-valore}. Sia $W$ una statistica e sia $w$ il valore osservato. 
 
@@ -542,7 +552,6 @@ Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{p
 
 
 
-
 \chapter{Esempi ed esercizi}
 \label{ch2}
 
@@ -552,7 +561,7 @@ Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{p
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Spazio di probabilità}
+\hfill\rlap{.}\clearpage\section{Spazio di probabilità}
 
 \subsection{Dado con quattro facce}
 \label{tetraedro}
@@ -571,7 +580,7 @@ $\Pr(E_1\cup E_2)=\Pr(E_1)+\Pr(E_2)$ per ogni coppia $E_1,E_2\in\P(\Omega)$ di i
 
 
 
-\clearpage\hfill\textbf{Spazio di probabilità}
+\hfill\rlap{.}\clearpage\hfill\textbf{Spazio di probabilità}
 \subsection{Doppio lancio della monetina}
 \label{doppo_lancio_moneta}
 
@@ -587,7 +596,7 @@ L'evento \textit{Esce almeno una volta $T$\/} corrisponde all'evento $\{TC, CT, 
 
 
 
-\clearpage\hfill\textbf{Spazio di probabilità}
+\hfill\rlap{.}\clearpage\hfill\textbf{Spazio di probabilità}
 \subsection{Urna con bigle di 3 colori}
 \label{urna_3_colori}
 
@@ -604,14 +613,14 @@ Oppure $\Omega=\{1,\dots,16\}$ e posto $B=\{1,\dots,8\}$, $R=\{9,\dots,14\}$, $N
 
 $\Pr(i)=1/16$\hfil per ogni $i=1,\dots,16$.
 
-In questo modo diamo una misura di probabilità a molti eventiche non sono in realtà osservabili. 
+In questo modo diamo una misura di probabilità a molti eventi che non sono in realtà osservabili. 
 
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Variabili aleatorie}
+\hfill\rlap{.}\clearpage\section{Variabili aleatorie}
 
 \subsection{Urna con biglie di dimensioni diverse}
 \label{Urna_biglie_diverse}
@@ -626,12 +635,12 @@ $Z$ colore della biglia\hfill variabile qualitativa
 
 Se l'urna contiene un piccolo numero di biglie $X$ ed $Y$ sono variabili discrete.
 
-L'urna potrebbe contenere un umero così grande di biglie d rendere più semplice immaginarsi che ce ne siano in numero infinito. In questo caso potrebbe essere ragionevole considerare $X$ ed $Y$ come variabili continue. Ma se le nostre minure (di peso e diametro) sono molto imprecise il numero di possibili valori potrebbe essere comunque abbastnza piccolo e potrebbe concenire interpretarle come variabili discrete.
+L'urna potrebbe contenere un umero così grande di biglie d rendere più semplice immaginarsi che ce ne siano in numero infinito. In questo caso potrebbe essere ragionevole considerare $X$ ed $Y$ come variabili continue. Ma non sempre. Se per esempio le misure non hanno grossa precisione potrebbe convenire interpretarle come variabili discrete.
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Pobabilità totali}
+\hfill\rlap{.}\clearpage\section{Pobabilità totali}
 \label{MF_totali}
 
 
@@ -639,15 +648,33 @@ L'urna potrebbe contenere un umero così grande di biglie d rendere più semplic
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Pobabilità totali}
+\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali}
 \subsection{Maschi e femmine}
 \label{Fumatori_Bayes}
 
 
+In letteratura è riportata la prevalenza di una certa patologia nella popolazione femminile ($5\%$) e nella popolazione maschile ($3\%$). Che prevalenza dovremo aspettarci in una popolazione composta dal $60\%$ di maschi e dal $40\%$ di femmine?
+
+$F$ evento: femmina
+
+$M$ evento: maschio
+
+$A$ evento: affetto dalla patologia
+
+$P(F)=0.4$
+
+$P(M)=0.6$
+
+$P(A|F)=0.05$
+
+$P(A|M)=0.03$
+
+$P(A)=P(A|F)P(F)+P(A|M)P(M)=0.05\cdot0.4+0.03\cdot0.6=0.038=3.8\%$
+
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Regola di Bayes}
+\hfill\rlap{.}\clearpage\section{Regola di Bayes}
 \label{Bayes}
 
 
@@ -675,7 +702,7 @@ $\Pr(A|F)=\dfrac{\Pr(F|A)\cdot \Pr(A)}{\Pr(F)}=\dfrac{0.2\cdot0.02}{0.1}=0.04$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Regola di Bayes}\subsection{Hemophilia}
+\hfill\rlap{.}\clearpage\hfill\textbf{Regola di Bayes}\subsection{Hemophilia}
 \label{Hemophilia}
 
 Hemophilia is a disease that exhibits X-chromosome-linked recessive inheritance, meaning that a male who inherits the gene that causes the disease on the X-chromosome is affected, whereas a
@@ -701,7 +728,7 @@ $\Pr(C|S_{na})\ =\ \dfrac{\Pr(S_{na}|C)\cdot \Pr(C)}{\Pr(S_{na})}\ =\ \dfrac{\Pr
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Regola di Bayes}
+\hfill\rlap{.}\clearpage\hfill\textbf{Regola di Bayes}
 \subsection{Rain forcasts}
 \label{rain_desert}
 
@@ -731,7 +758,7 @@ $\displaystyle\hphantom{\Pr(R | T_+)}\medrel{=}\frac{\Pr(R)\cdot \Pr(T_+|R)}{\Pr
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Indipendenza}
+\hfill\rlap{.}\clearpage\section{Indipendenza}
 \label{esercizio_indipendenza}
 
 Lanciamo una moneta $2n$ volte. Modelliamo l'esperimento con una sequenza $X_0,\dots,X_{2n-1}$ di variabili di Bernoulli. N.B.\@ cominciamo ad enumerare da $0$. Dire quali delle seguenti coppie di variabili aleatorie $X$, $Y$ sono indipendenti.\medskip
@@ -755,7 +782,7 @@ $Y=0$ se $X_1\neq X_2$, altrimenti $=1$.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Diagnostic test: HIV}
+\hfill\rlap{.}\clearpage\section{Diagnostic test: HIV}
 \label{HIV_test}
 
 A study comparing the efficacy of HIV tests, reports on an
@@ -795,11 +822,11 @@ Suppose it was known that the subject was an intravenous drug user and routinely
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Test Binomiale}
+\hfill\rlap{.}\clearpage\section{Test Binomiale}
 
 
 \def\medrel#1{\parbox[t]{6ex}{$\displaystyle\hfil #1$}}
-\def\ceq#1#2#3{\parbox{15ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+\def\ceq#1#2#3{\parbox[t]{15ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
 
 Nella pratica questo test è sempre sostituito da un test sulle proporzioni. Comunque in questa versione è concettualmente più semplice. 
@@ -822,7 +849,7 @@ Condizionando a $H_0$ otteniamo $X\sim {\rm B}(n,1/2)$. Condizionando a $H_A$ ot
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Test Binomiale}\subsection{Una coda, errore I tipo}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Una coda, errore I tipo}
 
 Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il risultato del test positivo. N.B. dipende da $n$ e da $k$.
 
@@ -841,7 +868,7 @@ Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Test Binomiale}\subsection{Testa una coda, errore II tipo}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Testa una coda, errore II tipo}
 
 La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $>1/2$)
 
@@ -866,7 +893,7 @@ Rappresentiamo la distribuzione di $X$ nel caso in cui vale $H_{3/4}$. Per confr
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Test Binomiale}\subsection{Effect size: \boldmath{$\delta$}}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Effect size: \boldmath{$\delta$}}
 
 
 Cosa possiamo dire sul caso generale $H_A:$ $p>1/2$~?
@@ -883,7 +910,7 @@ Al crescere di $p$ la distribuzione si sposta verso destra quindi la probabilit�
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a due code}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a due code}
 
 Nell'esempio precedente avevamo un'informazione certa sul tipo di difetto delle monete: sapevamo che $p>1/2$. Proviamo a fare senza, avremo quindi
 
@@ -907,7 +934,7 @@ Possiamo immaginare $H_A=H_{{1/4}}\cup H_{{3/4}}$. Se sostituiamo $H_A$ con $H_{
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a due code, errori I e II tipo}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a due code, errori I e II tipo}
 
 Per riparare il problema discusso al paragrafo precedente. prendiamo come zona di rifiuto $T_+=\{0,\dots,7=n-k\}\cup \{k=13,\dots,20=n\}$
 
@@ -923,7 +950,7 @@ Per riparare il problema discusso al paragrafo precedente. prendiamo come zona d
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Test Binomiale}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}
 \subsection{Test a due code, con campione più ampio}
 
 Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$):  $T_+=\{0,\dots,14=n-k\}\cup \{k=26,\dots,40=n\}$
@@ -943,7 +970,7 @@ Entrambi gli errori diminuiscono.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Test Binomiale}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}
 \subsection{Standardizzazione (1)}
 
 Il confronto tra i test con $n=20, 40$ non é immediato (vedi la trasformazione della zona di rifiuto). Per facilitare il confronto tipicamente la variabile viene standardizzata. 
@@ -965,7 +992,7 @@ Gli esempi considerati (con $n=20,40$ e $k=13,26$) diventano:
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\hfill\textbf{Test Binomiale}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}
 \subsection{Standardizzazione (2)}
 
 Si noti che le regioni di rifiuto non sono le stesse. in effetti
@@ -990,7 +1017,7 @@ Se per entriambi i casi prendiamo la stessa regione di rifiuto misurata in punte
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage
+\hfill\rlap{.}\clearpage\
 \section{Z-test}
 \subsection{Una coda}
 
@@ -1019,7 +1046,7 @@ Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma^2}{n}\bigg)$.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Una coda, errore I e II tipo\hfill Z-test}
+\hfill\rlap{.}\clearpage\subsection{Una coda, errore I e II tipo\hfill Z-test}
 
 
 Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20, 40$. Per gli errori del II tipo prendiamo $\delta=5$.
@@ -1039,7 +1066,7 @@ Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20, 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\subsection{Una coda, p valore.\hfill Z-test}
+\hfill\rlap{.}\clearpage\subsection{Una coda, p valore.\hfill Z-test}
 
 
 Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=40$. Il p-valore di questa misura è $\Pr(\bar X>78)=1-\Pr(\bar X\le 78)$.
@@ -1090,6 +1117,95 @@ $\Pr(M_{2/3} \mathrel| 010)=\dfrac{\Pr(010\mathrel|M_{2/3})\cdot \Pr(M_{2/3})}{\
 $\Pr(M_{1/3} \mathrel| 010)=\dfrac{\Pr(010\mathrel|M_{1/3})\cdot \Pr(M_{1/3})}{\Pr(010)}=\dfrac{4/9\cdot 1/3}{19/72}$
 
 
+\chapter{Appendice}
+
+\section{Il simbolo di sommatoria}
+
+Data una sequenza finita $(a_i\ :\ i=0,\dots,n)$ scriveremo.
+
+\ceq{\hfill\sum^n_{i=0} a_i}{=}{a_0+a_1+\dots+a_n}
+
+\par\medskip
+Propriet\`a importanti:
+
+\ceq{\hfill\sum^n_{i=0} c\cdot a_i}{=}{c\cdot\sum^n_{i=0} a_i}\hfill dove $c$ \`e una costante arbitraria.
+
+\ceq{\hfill\sum^n_{i=0} (a_i+b_i)}{=}{ \bigg(\sum^n_{i=0} a_i\bigg) +\bigg(\sum^n_{i=0} b_i\bigg).}
+
+\ceq{\hfill\sum^n_{i=0} 1}{=}{n.}
+
+
+\clearpage\section{Esercizi}
+
+Verificare le seguenti identit\`a 
+
+\ceq{\hfill\sum^{n-1}_{i=0} a_i}{=}{\sum^{n}_{i=1} a_{i-1}}
+
+\ceq{\hfill\sum^{n}_{i=0} a_i}{=}{a_0+\sum^{n}_{i=1} a_i}
+
+\ceq{\hfill\sum^{2n}_{i=1} a_i}{=}{\sum^n_{i=1} a_i +\sum^{2n}_{i=n+1} a_i}
+
+\ceq{}{=}{\sum^n_{i=1} a_{2i} +\sum^{n-1}_{i=0} a_{2i+1}}
+
+\ceq{}{=}{\sum^n_{i=1} a_{2i} +\sum^{n}_{i=1} a_{2i-1}.}
+
+
+\clearpage\section{Sommatorie "disordinate"}
+\label{sommatorie_disordinate}
+
+Sia $D$ un insieme finito, diciamo $D\subseteq\{0,\dots,n\}$.
+
+Sia $(a_i\ :\ i=0,\dots,n)$ una sequenza finita definiamo
+
+\ceq{\hfill\sum_{i\in D} a_i}{=}{a_{i_0}+\dots+a_{i_k}}\hfill dove $D=\{i_0,\dots,i_k\}$.
+
+Per esempio possiamo scrivere
+
+
+\ceq{\hfill\sum^n_{i=0} a_i}{=}{\sum_{i\in P_n} a_i+\sum_{i\in D_n} a_i}
+
+dove $P_n=\big\{0\le i\le n : i\ \textrm{pari}\big\}$\quad
+e 
+\quad$D_n=\big\{0\le i\le n : i\ \textrm{dispari}\big\}$.
+
+La stessa notazione può essere usata senza ambiguità anche quando $D$ è un insieme finito non necessariamente numerico (né ordinabile in alcun modo). Per esempio, 
+
+$D=\{{\rm rosso, giallo, blu}\}$,\hfil $a_{{\rm rosso}}=2$,\hfil $a_{{\rm blu}}=6$,\hfil $a_{{\rm giallo}}=1$
+
+\ceq{\hfill\sum_{i\in D} a_i}{=}{9}.
+
+
+
+\clearpage\section{Sommatorie su due indici}
+
+Sia $a:D\to \RR$ una mappa con dominio finito  $D=\{0,\dots,n\}^2$.
+
+Indicheremo $a$ con $(a_{i,j}: 0\le i,j\le n)$ o notazione simile.
+
+Possiamo immaginare $(a_{i,j})_{0\le i,j\le n}$ come una matrice
+
+\hspace*{20ex}
+$\displaystyle\begin{array}{cccc}
+a_{0,0}&a_{0,1}&\dots&a_{0,n}\\[1ex]
+a_{1,0}&a_{1,1}&\dots&a_{1,n}\\[2ex]
+\vdots&\vdots&&\vdots\\[2ex]
+a_{n,0}&a_{n,1}&\dots&a_{n,n}\\
+\end{array}$
+
+\hfil$\displaystyle\sum^n_{i,j=0} a_{i,j}\quad =\quad$ somma di tutti gli elementi della matrice
+
+
+Per l'associativit\`a della somma possiamo riscrivere la somma
+
+\parbox{20ex}{\hfill$\displaystyle\sum^n_{i,j=0} a_{i,j}$}$\displaystyle\quad =\quad\sum^n_{i=0}\sum^n_{j=0}a_{i,j}$
+
+
+$\displaystyle\begin{array}{ccccccccc}
+\displaystyle\sum^n_{j=0}a_{0,j}&=& a_{0,0}&+&a_{0,1}&+&\dots&+&a_{0,n}\\[1ex]
+\displaystyle\sum^n_{j=0}a_{1,j}&=& a_{1,0}&+&a_{1,1}&+&\dots&+&a_{1,n}\\[2ex]
+\vdots\\[2ex]
+\displaystyle\sum^n_{j=0}a_{n,j}&=& a_{n,0}&+&a_{n,1}&+&\dots&+&a_{n,n}\\
+\end{array}$
 
 
 \end{document}
