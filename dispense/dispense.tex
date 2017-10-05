@@ -237,14 +237,14 @@ Dato $x\in R$ e $A\subseteq R$ scriveremo
 
 \ceq{\hfill \emph{$\Pr(X\in A)$}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\in A\}\big)}
 
-\ceq{\hfill \emph{$\Pr(X \le x$)}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\le x\}\big)}\hfill  se $X$ \`e numerica.
+\ceq{\hfill \emph{$F_X(x)$}\medrel{=}\emph{$\Pr(X \le x$)}}{=}{\Pr\big(\{\omega\in\Omega\ :\ X(\omega)\le x\}\big)}\hfill  se $X$ \`e numerica.
 
-La funzione $\Pr(X=x)$ si chiama \emph{distribuzione di probabilità (probability mass function)}. La funzione $\Pr(X \le x)$ si chiama  \emph{funzione di ripartizione (cumulative distribution function)}.
+La funzione $\Pr(X=x)$ si chiama \emph{distribuzione di probabilità (probability mass function)}. La funzione $\Pr(X \le x)$ si chiama  \emph{funzione di ripartizione (cumulative distribution function)}, spesso indicata con \emph{$F_X(x)$}.
 
 
 Le variabili numeriche possono dirsi \emph{discrete\/} o \emph{continue}. Una v.a.\@ $X$ è discreta se per ogni sottoinsieme $A\subseteq R$
 
-\ceq{\hfill \Pr\big(X\in A\big)}{=}{\sum_{x\in A}\Pr(X=x)}\hfill\hyperref[sommatorie_disordinate]{Per la notazione \faShare}
+\ceq{\hfill \Pr\big(X\in A\big)}{=}{\sum_{x\in A}\Pr(X{=}x)}\hfill\hyperref[sommatorie_disordinate]{Per la notazione \faShare}
 
 Ovvero la probabilità è concentrata nei punti di $R$. 
 
@@ -259,18 +259,36 @@ N.B. Esistono variabili aleatorie (anche in esempi concreti) che sono intermedie
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Funzione quantile}
+
+
+La \emph{mediana\/} (o il \emph{valore mediano}) di una variabile aleatoria $X$ è quel valore $x$ tale che $Pr(X\le x)=1/2$.
+
+In generale definiamo la \emph{funzione quantile}. Questa è la funzione che dato $p\in(0,1)$ ritorna quel valore $x=Q_X(p)$ tale che $p\le\Pr(X\le x)\}$. In altre parole $Q_X(p)$ è la \textit{funzione inversa\/} della funzione di ripartizione $F_X(x)=\Pr(X\le x)$.
+
+N.B. La definizione qui sopra non è sempre corretta. Può succedere che a più valori di $x$ corrisponda lo stesso valore di $F_X(x)$. (Ovvero $F_X$ non è invertibile.) In questo caso prendiamo il limite inferiore di questi $x$.
+
+Quindi il valore mediano di $X$ è $Q_X(1/2)$.
+
+
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Variabili aleatorie di Bernoulli}
 
-Una variabile aleatoria $X$ si dice di \emph{Bernoulli\/} se $\range X=\{0,1\}$, che spesso si abbrevia scrivendo \emph{$X\in\{0,1\}$}.
+Una variabile aleatoria $X:\Omega\to R$ si dice di \emph{Bernoulli\/} se $R=\{0,1\}$, che spesso si abbrevia scrivendo \emph{$X\in\{0,1\}$}.
 
 Possiamo identificare in modo canonico eventi e variabili aletorie di Bernoulli. L'evento associato ad $X$ è l'insieme $\{\omega:X(\omega)=1\}$ che chiameremo \emph{successo}. 
 
-Viceversa, la v.a.\@ di Bernoulli associata ad un evento $E$ è spesso denotata con $1_E$
+Viceversa, la v.a.\@ di Bernoulli associata ad un evento $E$ è spesso denotata con \emph{$1_E$}
 
 \ceq{\hfill 1_E(x)}{=}{\left\{\begin{array}{ll}1&\textrm{ se }\ x\in E\\0&\textrm{ se }\ x\notin E\end{array}\right.}
+
+Queste funzione di chiama \emph{funzione indicatrice\/} (o \emph{caratteristica}) dell'evento $E$. 
 
 Chiameremo \emph{$p$}\ $ = \Pr(X{=}1)$ la \emph{probabilità di successo}.
 
@@ -282,13 +300,7 @@ Per dire che $X$ è una variabile aleatoria di Bernoulli con probabilità di suc
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Probabilità condizionata} 
-
-{\color{brown}Esempi: \hyperref[MF_totali]{Popolazione maschile e femminile (probabilità totali) \faShare}
-\\
-\hphantom{Esempi:} \hyperref[Fumatori_Bayes]{Fumatori (regola di Bayes) \faShare}
-\\
-\hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts (Bayes rule) \faShare}}
+\hfill\rlap{.}\clearpage\section{Probabilità condizionata}
 
 
 Dato $A, \Phi\subseteq\Omega$ tali che $\Pr(\Phi)\neq 0$ definiamo 
@@ -297,11 +309,31 @@ Dato $A, \Phi\subseteq\Omega$ tali che $\Pr(\Phi)\neq 0$ definiamo
 
 Questo si legge \emph{probabilità di $A$ dato $\Phi$}. Si verifica facilmente che $\Pr(\,\cdot\,|\Phi)$ soddisfa a tutte le propriet\`a di $\Pr(\,\cdot\,$) se rimpiazziamo $\Omega$ con $\Phi$.
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Teorema delle Probabilità Totali}
+
+
+{\color{brown}Esempi: \hyperref[MF_totali]{Popolazione maschile e femminile (probabilità totali) \faShare}}
+
 Il fatto seguente si chiama \emph{Teorema delle Probabilità Totali}: siano $A_1,\dots,A_n$ eventi \emph{mutuamente esclusivi\/} ed \emph{esaustivi} di probabilità $\neq0$. Sia $C$ \`e un qualsiasi altro evento, allora
 
 \ceq{\hfill \Pr(C)}{=}{\sum^n_{i=1} \Pr(A_i)\cdot \Pr\big(C| A_i).}
 
-Il seguente di chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Teorema di Bayes}
+
+
+{\color{brown}Esempi: \hyperref[Fumatori_Bayes]{Fumatori (regola di Bayes) \faShare}
+\\
+\hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts (Bayes rule) \faShare}}
+
+Il fatto seguente di chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
 
 \ceq{\hfill \Pr(A|B)}{=}{\frac{\Pr(B|A)\cdot \Pr(A)}{\Pr(B)\vphantom{\Big[}}.}
 
@@ -314,7 +346,7 @@ In molte applicazioni $\Pr(B)$ viene calcolato usanto il teorema delle probabili
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Indipensenza stocastica}
+\hfill\rlap{.}\clearpage\section{Indipendenza stocastica}
 
 Due eventi $A$ e $B$ si dicono \emph{(stocasticamente) indipenenti\/} se 
 
@@ -381,7 +413,7 @@ La \emph{deviazione standard\/} è la radice della varianza
 
 \ceq{\hfill \emph{$\sigma$}}{=}{\sqrt{\Var(X)\vphantom{\big[]}}}
 
-Le lettere $\mu$ e $\sigma$ vengono usate quando è chiaro a quale variabile ci si riferisce. per evitare ambiguità a volte si scrive $\mu_X$ e $\sigma_X$.
+Le lettere $\mu$ e $\sigma$ vengono usate quando è chiaro a quale variabile ci si riferisce. Per evitare ambiguità a volte si scrive $\mu_X$ e $\sigma_X$.
 
 
 
@@ -606,12 +638,12 @@ Le biglie sono $8$ rosse, $6$ blu, $2$ nere.
 
 Esistono due scelte naturali per lo spazio di probabilità. Posto $\Omega=\{r,b,n\}$ stipuliamo che
 
-$\Pr(r)=1/2$\hfil $\Pr(b)=3/8$\hfil $\Pr(n)=1/8$
+\hfil$\Pr(r)=1/2$\hfil $\Pr(b)=3/8$\hfil $\Pr(n)=1/8$
 
 Oppure $\Omega=\{1,\dots,16\}$ e posto $B=\{1,\dots,8\}$, $R=\{9,\dots,14\}$, $N=\{15,16\}$ stipuliamo che 
 
 
-$\Pr(i)=1/16$\hfil per ogni $i=1,\dots,16$.
+\hfil$\Pr(i)=1/16$\hfil per ogni $i=1,\dots,16$.
 
 In questo modo diamo una misura di probabilità a molti eventi che non sono in realtà osservabili. 
 
@@ -641,16 +673,11 @@ L'urna potrebbe contenere un umero così grande di biglie d rendere più semplic
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Pobabilità totali}
+
+
+\subsection{Maschi e femmine patologia}
 \label{MF_totali}
 
-
-
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali}
-\subsection{Maschi e femmine}
-\label{Fumatori_Bayes}
 
 
 In letteratura è riportata la prevalenza di una certa patologia nella popolazione femminile ($5\%$) e nella popolazione maschile ($3\%$). Che prevalenza dovremo aspettarci in una popolazione composta dal $60\%$ di maschi e dal $40\%$ di femmine?
@@ -671,6 +698,23 @@ $P(A|M)=0.03$
 
 $P(A)=P(A|F)P(F)+P(A|M)P(M)=0.05\cdot0.4+0.03\cdot0.6=0.038=3.8\%$
 
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (media)}\subsection{Peso neonati}
+\label{Neonati_totali}
+
+Il peso medio dei neonati (non prematuri) in Europa è di 3.5kg per i maschi e di 3.4 per le femmine. Assumendo in prima approssimazione che il rapporto tra i sessi sia $1:1$, qual è il peso medio dei neonati alla nascita (indistintamente dal sesso)?
+
+$X$ variabile aleatoria peso del neonato
+
+$M$ evento neonato maschio,\quad $\Pr(M)=1/2$,\quad $E(X|M)=3.5$
+
+$F$ evento neonato femmina,\quad $\Pr(F)\ =1/2$,\quad $E(X|F)\ =3.4$
+
+
+$E(X)\medrel{=}E(X|M)\cdot\Pr(M)+ E(X|F)\cdot\Pr(F)\medrel{=}3.5\cdot\dfrac12 + 3.4\cdot\dfrac12\medrel{=}3.45$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -1170,7 +1214,7 @@ e
 
 La stessa notazione può essere usata senza ambiguità anche quando $D$ è un insieme finito non necessariamente numerico (né ordinabile in alcun modo). Per esempio, 
 
-$D=\{{\rm rosso, giallo, blu}\}$,\hfil $a_{{\rm rosso}}=2$,\hfil $a_{{\rm blu}}=6$,\hfil $a_{{\rm giallo}}=1$
+$D=\{{\rm rosso, giallo, blu}\}$,\hfil $a_{{\rm rosso}}=2$,\hfil $a_{{\rm giallo}}=1$,\hfil $a_{{\rm blu}}=6$,
 
 \ceq{\hfill\sum_{i\in D} a_i}{=}{9}.
 
