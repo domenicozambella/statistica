@@ -60,6 +60,22 @@ diagrams={>=latex}
    \end{list}\vspace*{-1.3mm}}
 
    
+\newenvironment{citemize}
+  {\begin{list}{$\triangleright$}{%
+   \setlength{\parskip}{0mm}
+   \setlength{\topsep}{.2\baselineskip}
+   \setlength{\rightmargin}{0mm}
+   \setlength{\listparindent}{0mm}
+   \setlength{\itemindent}{0mm}
+   \setlength{\labelwidth}{3ex}
+   \setlength{\itemsep}{.1\baselineskip}
+   \setlength{\parsep}{0mm}
+   \setlength{\partopsep}{0mm}
+   \setlength{\labelsep}{1ex}
+   \setlength{\leftmargin}{\labelwidth+\labelsep}
+   \let\makelabel\mylabel}}{%
+   \end{list}\vspace*{-1.3mm}}
+
 \definecolor{blue}{rgb}{0, 0.1, 0.6}
 \def\emph#1{\textcolor{blue}{\textbf{\boldmath #1}}}
 
@@ -702,7 +718,7 @@ $P(A)=P(A|F)P(F)+P(A|M)P(M)=0.05\cdot0.4+0.03\cdot0.6=0.038=3.8\%$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (media)}\subsection{Peso neonati}
+\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (richiede valore atteso)}\subsection{Peso neonati}
 \label{Neonati_totali}
 
 Il peso medio dei neonati (non prematuri) in Europa è di 3.5kg per i maschi e di 3.4 per le femmine. Assumendo in prima approssimazione che il rapporto tra i sessi sia $1:1$, qual è il peso medio dei neonati alla nascita (indistintamente dal sesso)?
@@ -715,6 +731,100 @@ $F$ evento neonato femmina,\quad $\Pr(F)\ =1/2$,\quad $E(X|F)\ =3.4$
 
 
 $E(X)\medrel{=}E(X|M)\cdot\Pr(M)+ E(X|F)\cdot\Pr(F)\medrel{=}3.5\cdot\dfrac12 + 3.4\cdot\dfrac12\medrel{=}3.45$
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (richiede nozione di idipendenza)}\subsection{Modello di Hardy-Weinberg (1)}
+\label{HW_totali1}
+
+In un locus possono occorrere due alleli $a$, $b$. 
+
+\begin{citemize}
+\item specie dipoide
+\item specie monoica (??)
+\item accoppiamento casuale (random mating)
+\item le generazioni non si sovrapongono
+\item nessuna selezione
+\end{citemize}
+
+
+Alla generazione \textit{$0$-esima\/} la popolazione è composta da individui con genotipo $aa$, $bb$ e $ab$ nelle proporzioni $p_{aa}$, $p_{bb}$, e  $p_{ab}=1-p_{aa}-p_{bb}$.
+
+Quali saranno le proporzioni alla \textit{prima generazione}? (Chiamiamole $q_{aa}$, $q_{bb}$, e $q_{ab}=1-q_{aa}-q_{bb}$)
+
+\def\-{\mbox{-}}
+
+Denotiamo con $aa$ l'evento \textit{ha genotipo $aa$ alla prima generazione}. Analgamente per gli altri genotipi. Denotiamo con $aa\-ab$, etc.\@ l'evento: i genitori hanno genotipo $aa\mbox{-}ab$. Analgamente per le altre coppe di genotipi.
+
+Osserviamo che $\Pr(aa | aa\-bb)=\Pr(aa | ab\-bb)=\Pr(aa | bb\-bb)=0$ quindi
+
+$q_{aa}\ =\ %
+p_{aa}^2\, \Pr(aa | aa\-aa)\ +\ 
+2\,p_{aa}p_{ab}\, \Pr(aa | aa\-ab)\ +\ 
+p^2_{ab}\, \Pr(aa | ab\-ab)$
+
+
+$\phantom{q_{aa}}\ =\ %
+p_{aa}^2\,\rlap{$\cdot\,1$}\ \phantom{\Pr(aa | aa,aa)}\ +\ 
+2\,p_{aa}p_{ab}\, \rlap{$\cdot\dfrac12$}\phantom{\Pr(aa | aa\-ab)}\ +\ 
+p^2_{ab}\, \cdot\dfrac14$ 
+
+$\phantom{q_{aa}}\ =\ p_{aa}^2+p_{aa}p_{ab} +\dfrac{1}{4}\,p^2_{ab}\,$;
+
+% analogamente,
+% 
+% $q_{ab}\ =\ %
+% 2\,p_{aa}p_{ab}\, \Pr(ab | aa\-ab)\ +\ 
+% 2\, p_{aa}p_{bb}\, \Pr(ab | aa\-bb)\ +\ 
+% p^2_{ab}\, \Pr(ab | ab\-ab)\ +\ 
+% 2\,p_{ab}p_{bb}\,\Pr(ab | ab\-bb)$
+% 
+% $\phantom{q_{aa}}\ =\ %
+% 2\,p_{aa}p_{ab}\,\rlap{$\cdot\dfrac12$}\phantom{\Pr(ab | aa\-ab)}\ +\ 
+% 2\,p_{aa}p_{bb}\, \rlap{$\cdot\,1$}\,\phantom{\Pr(ab | aa\-bb)}\ +\ 
+% p^2_{ab}\, \rlap{$\cdot\,\dfrac14$}\phantom{\Pr(ab | ab\-ab)}\ +\ 
+% 2\,p_{ab}p_{bb}\,\cdot\dfrac12$ 
+% 
+% $\phantom{q_{aa}}\ =\ p_{aa}p_{ab}+2\,p_{aa}p_{bb} +\dfrac{1}{4}\,p^2_{ab}+ p_{ab}p_{bb}\,$; 
+
+per simmetria con $q_{aa}$
+
+$q_{bb}\ =\ p_{bb}^2+p_{bb}p_{ab} +\dfrac{1}{4}\,p^2_{ab}\,$;
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (richiede nozione di idipendenza)}\subsection{Equilibrio di Hardy-Weinberg (2)}
+
+\def\ceq#1#2#3{\parbox{13ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+
+È utile osservare che $q_{aa}$, $q_{bb}$, e $q_{ab}$ dipendono solo dalla frazione di copie dell'allele $a$ presenti nella popolazione. Se $n$ \`e il numero di individui, $2n$ è il numero totale di copie dei due alleli. La frazione di $a$ sul totale è (indichiamola con $p_a$)
+
+\ceq{\#\hfill p_a}{=}{\dfrac{2\,n\,p_{aa}+n\,p_{ab}}{2n}}
+\medrel{=}$p_{aa}+\dfrac12\,p_{ab}$
+\medrel{=}$\dfrac12\,\big(1+p_{aa}-p_{bb}\big)$
+
+È immediato verificare che 
+
+\ceq{\hfill q_{aa}}{=}{p_a^2};
+\ceq{\hfill q_{bb}}{=}{(1-p_a)^2};
+\ceq{\hfill q_{ab}}{=}{p_a(1-p_a)}.
+
+È intuitivo che la frazione di copie dell'allele $a$ non cambia di generazione in generazione. Verifichiamolo numericamente usando la formula $\#$
+
+Indichiamo con $q_a$ la frazione di copie dell'allele $a$ alla prima generazione
+
+\ceq{\hfill q_a}{=}{\dfrac12\,\big(1+q_{aa}-q_{bb}\big)}
+\medrel{=}$\dfrac12\,\big(1+p^2_{a}-(1-p_{a})^2\big)$
+\medrel{=}$p_a$
+
+Quindi $q_a=p_a$ e diconseguenza $q_{aa}$, $q_{bb}$, e $q_{ab}$ sono le proporzioni dei diversi genotipi anche nelle generazioni successive alla prima.
+
+
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
