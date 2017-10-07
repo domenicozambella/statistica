@@ -1,7 +1,7 @@
 \documentclass[12pt,openany]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[dvips,a4paper,hmargin={2cm,2cm},vmargin={2cm,2cm}]{geometry}
+\usepackage[dvips,a4paper,hmargin={3.5cm,3.5cm},vmargin={2cm,2cm}]{geometry}
 \usepackage[a4paper,colorlinks=true,bookmarksopen=false,linkcolor=brown,citecolor=red]{hyperref}
 \usepackage{pythontex}
 \usepackage{calc}
@@ -199,8 +199,8 @@ Per esempi ed esercizi seguire i \hyperref[ch2]{link \faShare}
 
 
 
-\def\medrel#1{\parbox[t]{6ex}{$\displaystyle\hfil #1$}}
-\def\ceq#1#2#3{\parbox{25ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+\def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
+\def\ceq#1#2#3{\parbox{24ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
 
 Fisssiamo un insieme non vuoto \emph{$\Omega$\/} che chiameremo \emph{spazio campionario\/}  (\emph{sample space\/}) o \emph{popolazione}. Immagimiamo gli elementi \emph{$\omega$\ }$\in\Omega$ come i possibili \emph{risultati\/} di un rilevamento, un esperimento, un sorteggio, ecc. I sottoinsiemi $E\subseteq\Omega$ verranno chiamati \emph{eventi\/} e, intuitivamente, rapresentano proprietà osservabili.
@@ -221,19 +221,13 @@ Conseguenze:
 \item $\Pr(\neg E)=1-\Pr(E)$
 %\item $\Pr(E_1\cup E_2\cup E_3)=\Pr(E_1)+\Pr(E_2)+\Pr(E_3)$ per ogni $E_1,E_2,E_3$ mutualmente esclusivi.
 \item $\Pr(E_1\smallsetminus E_2)=\Pr(E_1)-\Pr(E_2)$ se $E_2\subseteq E_1$
-\item $\Pr(E_1\cup E_2)=\Pr(E_1)+\Pr(E_2)-\Pr(E_1\cap\E_2)$ per ogni coppia $E_1,E_2\in\P(\Omega)$.
+\item $\Pr(E_1\cup E_2)=\Pr(E_1)+\Pr(E_2)-\Pr(E_1\cap\E_2)$ per ogni $E_1,E_2\in\P(\Omega)$.
 \end{itemize}
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Variabili aleatorie}
-
-
-\def\medrel#1{\parbox[t]{6ex}{$\displaystyle\hfil #1$}}
-\def\ceq#1#2#3{\parbox[t]{25ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
-
-
 
 {\color{brown}Esempi: \hyperref[Urna_biglie_diverse]{Urna con biglie di dimensioni diverse \faShare}}
 
@@ -345,9 +339,18 @@ Il fatto seguente si chiama \emph{Teorema delle Probabilità Totali}: siano $A_1
 \hfill\rlap{.}\clearpage\section{Teorema di Bayes}
 
 
-{\color{brown}Esempi: \hyperref[Fumatori_Bayes]{Fumatori (regola di Bayes) \faShare}
+{\color{brown}Esempi: \hyperref[Fumatori_Bayes]{Fumatori \faShare}
 \\
-\hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts (Bayes rule) \faShare}}
+\hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts \faShare}
+\\
+\hphantom{Esempi:} \hyperref[Hemophilia]{Hemophilia gene carrier \faShare}}
+
+
+Ricordiamo la regola
+
+\ceq{\hfill\Pr(B|A)}{=}{\dfrac{\Pr(A|B)\cdot \Pr(B)}{\Pr(A)}}
+\medrel{=}$\dfrac{\Pr(A|B)\cdot \Pr(B)}{\Pr(A|B)\Pr(B)+\Pr(A|\neg B)\Pr(\neg B)}$
+
 
 Il fatto seguente di chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
 
@@ -385,7 +388,7 @@ Nel caso di variabili aleatorie continue la condizione diventa
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Esperimenti ripetuti: prodotto di spazi di probabilità}
+\hfill\rlap{.}\clearpage\section{Esperimenti ripetuti: prodotto di spazi}
 
 Sia $X:\Omega\to\{0,1\}$ una variabile aleatoria di Bernoulli (per avere un esempio semplice). Immaginiamo che $X$ modelli il lancio di una moneta. Per brevità definiamo $A=X^{-1}[\,1\,]$.
 
@@ -539,7 +542,7 @@ Introduciamo la terminologia dei test d'ipotesi basandoci sulla notazione usata 
 In questa tavola contrapponiamo la terminologia usata nei \emph{test statistici\/}  a quella dei \textit{test diagnostici}. Molto comuni sono anche i simboli \emph{$\alpha$\/} e \emph{$\beta$\/}.\bigskip   
 
 
-\fbox{\parbox[t]{35ex}{%
+\fbox{\parbox[t]{33ex}{%
 \emph{$T_+\cap H_0$} \ \textit{falso positivo}\hfill \emph{errore I tipo\/}\\
 
 \emph{$\Pr(T_+|H_0)=\emph{$\alpha$}$}\hfill \emph{significatività\/}
@@ -552,7 +555,7 @@ In questa tavola contrapponiamo la terminologia usata nei \emph{test statistici\
 }}
 
 
-\fbox{\parbox[t]{35ex}{%
+\fbox{\parbox[t]{33ex}{%
 \emph{$T_-\cap H_0$} \ \textit{corretto negativo}\\
 
 \emph{$\Pr(T_-|H_0)=1-\emph{$\alpha$}$} \ \textit{sepecificità}
@@ -575,6 +578,12 @@ N.B. È vacile progettare un test che minimizza una tra $\Pr(T_+|H_0)$ o $\Pr(T_
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Il p-valore}
+
+
+
+\def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
+\def\ceq#1#2#3{\parbox{15ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+
 
 Diamo due definizioni equivalenti di \emph{p-valore}. Sia $W$ una statistica e sia $w$ il valore osservato. 
 
@@ -624,7 +633,7 @@ N.B. In futuro abbrevieremo $\Pr(\{A\})$ con $\Pr(A)$, ecc.
 
 La misura su un qualsiasi altro evento $E\subseteq\Omega$ è determinata dalla condizione 
 
-$\Pr(E_1\cup E_2)=\Pr(E_1)+\Pr(E_2)$ per ogni coppia $E_1,E_2\in\P(\Omega)$ di insiemi disgiunti.
+$\Pr(E_1\cup E_2)=\Pr(E_1)+\Pr(E_2)$ per ogni $E_1,E_2\in\P(\Omega)$ disgiunti.
 
 
 
@@ -654,12 +663,12 @@ Le biglie sono $8$ rosse, $6$ blu, $2$ nere.
 
 Esistono due scelte naturali per lo spazio di probabilità. Posto $\Omega=\{r,b,n\}$ stipuliamo che
 
-\hfil$\Pr(r)=1/2$\hfil $\Pr(b)=3/8$\hfil $\Pr(n)=1/8$
+\ceq{\hfill\Pr(r)}{=}{1/2}\ceq{\hfill\Pr(b)}{=}{3/8}\ceq{\hfill\Pr(n)}{=}{1/8}
 
 Oppure $\Omega=\{1,\dots,16\}$ e posto $B=\{1,\dots,8\}$, $R=\{9,\dots,14\}$, $N=\{15,16\}$ stipuliamo che 
 
 
-\hfil$\Pr(i)=1/16$\hfil per ogni $i=1,\dots,16$.
+\ceq{\hfill\Pr(i)}{=}{1/16}\hfil per ogni $i=1,\dots,16$.
 
 In questo modo diamo una misura di probabilità a molti eventi che non sono in realtà osservabili. 
 
@@ -800,7 +809,7 @@ $q_{bb}\ =\ p_{bb}^2+p_{bb}p_{ab} +\dfrac{1}{4}\,p^2_{ab}\,$;
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (richiede nozione di idipendenza)}\subsection{Equilibrio di Hardy-Weinberg (2)}
 
-\def\ceq#1#2#3{\parbox{13ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+\def\ceq#1#2#3{\parbox{12ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
 È utile osservare che $q_{aa}$, $q_{bb}$, e $q_{ab}$ dipendono solo dalla frazione di copie dell'allele $a$ presenti nella popolazione. Se $n$ \`e il numero di individui, $2n$ è il numero totale di copie dei due alleli. La frazione di $a$ sul totale è (indichiamola con $p_a$)
 
@@ -831,10 +840,6 @@ Quindi $q_a=p_a$ e diconseguenza $q_{aa}$, $q_{bb}$, e $q_{ab}$ sono le proporzi
 \hfill\rlap{.}\clearpage\section{Regola di Bayes}
 \label{Bayes}
 
-
-$\Pr(B|A)=\dfrac{\Pr(A|B)\cdot \Pr(B)}{\Pr(A)}=\dfrac{\Pr(A|B)\cdot \Pr(B)}{\Pr(A|B)\Pr(B)+\Pr(A|\neg B)\Pr(\neg B)}$
-
-
 \subsection{Fumatori e non fumatori}
 \label{Fumatori_Bayes}
 
@@ -856,7 +861,7 @@ $\Pr(A|F)=\dfrac{\Pr(F|A)\cdot \Pr(A)}{\Pr(F)}=\dfrac{0.2\cdot0.02}{0.1}=0.04$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Regola di Bayes}\subsection{Hemophilia}
+\hfill\rlap{.}\clearpage\hfill\textbf{Regola di Bayes}\subsection{Hemophilia gene carrier }
 \label{Hemophilia}
 
 Hemophilia is a disease that exhibits X-chromosome-linked recessive inheritance, meaning that a male who inherits the gene that causes the disease on the X-chromosome is affected, whereas a
@@ -864,19 +869,21 @@ female carrying the gene on only one of her two X-chromosomes is not affected. T
 
 Consider a woman who has an affected brother, which implies that her mother must be a carrier of the hemophilia gene. We are also told that her father is not affected; thus the woman herself has a fifty-fifty chance of having the gene.
 
-Suppose she has a son (from a man who is not affected) that is affected. What is the probability that she is a carrier?
+Suppose she has a son (from a man who is not affected) that is not affected. What is the probability that she is a carrier?
 
-$\Omega$\hfill  set of women with mother carrier, father and husband unaffected, one son
+$\Omega$\hfill  set of women w\!/ mother carrier, father and husband unaffected, one son
 
 $C$\hfill set of women that are carrier
 
-$S_{na}$\hfill set of women whose son is not affected
+$S_{na}$\hfill set of women w\!/ son not affected
 
 $\Pr(C)\ =\ 1/2$\hfill 
 
 $\Pr(S_{na}|C)\ =\ 1/2$\hfill 
 
-$\Pr(C|S_{na})\ =\ \dfrac{\Pr(S_{na}|C)\cdot \Pr(C)}{\Pr(S_{na})}\ =\ \dfrac{\Pr(S_{na}|C)\cdot \Pr(C)}{\Pr(S_{na}|C)\cdot \Pr(C)+\Pr(S_{na}|\neg C)\cdot \Pr(C)}\ =\ \dfrac{1/4}{1/4+1/2}\ =\ 1/3$
+$\Pr(C|S_{na})\ =\ \dfrac{\Pr(S_{na}|C)\cdot \Pr(C)}{\Pr(S_{na})}\ =\ \dfrac{\Pr(S_{na}|C)\cdot \Pr(C)}{\Pr(S_{na}|C)\cdot \Pr(C)+\Pr(S_{na}|\neg C)\cdot \Pr(C)}$
+
+$\phantom{\Pr(C|S_{na})}\ =\ \dfrac{1/4}{1/4+1/2}\ =\ 1/3$
 
 
 %%%%%%%%%%%%
@@ -982,8 +989,7 @@ Suppose it was known that the subject was an intravenous drug user and routinely
 \def\medrel#1{\parbox[t]{6ex}{$\displaystyle\hfil #1$}}
 \def\ceq#1#2#3{\parbox[t]{15ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
-
-Nella pratica questo test è sempre sostituito da un test sulle proporzioni. Comunque in questa versione è concettualmente più semplice. 
+Nella pratica questo test è spesso sostituito da un test sulle proporzioni ($Z$-test). Comunque in questa versione è concettualmente più semplice. 
 
 \subsection{Una coda}\label{Bernoulli_test}
 
