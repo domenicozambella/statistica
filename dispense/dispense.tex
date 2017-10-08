@@ -179,6 +179,14 @@ diagrams={>=latex}
 
 
 
+\chapter*{Prefazione}
+
+\begin{itemize}
+\item Per quanto possibile, meglio separare teoria ed esempi/esercizi/spegazioni. 
+
+\item 
+\end{itemize}
+
 \chapter{Teoria (il minimo sindacale)}
 \raggedbottom
 
@@ -400,13 +408,18 @@ Nel caso di variabili aleatorie continue la condizione diventa
 %%%%%%%%%%%%%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Esperimenti ripetuti: prodotto di spazi}
 
-Sia $X:\Omega\to\{0,1\}$ una variabile aleatoria di Bernoulli (per avere un esempio semplice). Immaginiamo che $X$ modelli il lancio di una moneta. Per brevità definiamo $A=X^{-1}[\,1\,]$.
+Sia $X:\Omega\to\{0,1\}$ una variabile aleatoria di Bernoulli (per avere un esempio semplice). Immaginiamo che $X$ modelli il lancio di una moneta. Per brevità definiamo $A=\{\omega\in\Omega\ :\  X(\omega)=1\}$.
 
-Il lancio ripetuto di una monetina è modellato con lo spazio campionario $\Omega^2$. L'insieme  $A\times\Omega$ è l'evento dello spazio $\Omega^2$ che corrisponde  ad ottenere $1$ nel primo lancio. L'insieme $\Omega\times\!\neg A$ corrisponde ad ottenere $0$ nel secondo lancio.
+Il lancio ripetuto di una monetina è modellato usando mome spazio campionario il prodotto cartesiano di $\Omega$ con se stesso: $\Omega^2$.
 
-L'intersezione di questi eventi è $A\times\!\neg A$. Questo corrisponde ad ottenere nei due lanci la sequenza $1\,0$. 
+Per esempio: l'evento  $A\times\Omega\subseteq\Omega^2$  corrisponde  ad ottenere $1$ nel primo lancio. L'evento $\Omega\times\!\neg A$ corrisponde ad ottenere $0$ nel secondo lancio. L'intersezione di questi eventi è $A\times\!\neg A$. Questo corrisponde ad ottenere nei due lanci la sequenza $1\,0$. 
 
-La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\Pr(A)\cdot \Pr(B)$. Gli eventi $A\times\Omega$ e $\Omega\times B$ sono quindi indipendenti.
+In generale la probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\Pr(A)\cdot \Pr(B)$. Gli eventi $A\times\Omega$ e $\Omega\times B$ sono quindi (per costruzione) indipendenti.
+
+Introduciamo due v.a.\@ di Bernoulli $X_1:\Omega^2\to\{0,1\}$ e $X_2:\Omega^2\to\{0,1\}$.  
+
+La v.a.\@ $X_1$ guarda solo alla prima coordinata di un risultato in $\Omega^2$ e restituisce lo valore di $X$. Quindi $X_1$ restituisce $1$ per i risusltati in $A\times\Omega$. La v.a.\@ $X_2$ fa lo stesso con la seconda coordinata,  restituisce $1$ per i risusltati in $\Omega\times A$.
+
 
 
 
@@ -415,12 +428,30 @@ La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\P
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Variabili aleatorie binomiali}
+\hfill\rlap{.}\clearpage\section{Binomial random variables}
+\label{Binomial_rv}
 
-Diremo che $X\sim B(n,p)$, ovvero che $X$ una  sono la 
+{\color{brown}Esempi: \hyperref[estrazione_biglie_ripetuta]{Estrazione ripetuta \faShare}}
 
 
 
+
+
+We say that $X$ is a \emph{binomial random variable with parameters $n$ and $p$}, for short $X\sim B(n,p)$, if
+
+\ceq{\hfill X}{=}{\sum^n_{i=1}X_i}
+
+where the $X_i$ are independent Bernoulli random variables with success probability $p$. So, $X$ counts the number of successes in a sequence of $n$ independent experiments (Bernoulli trials with success probability $p$). Clearly $X\in\{0,\dots,n\}$.
+
+We may also say that $X$ has a \emph{binomial distribution\/} with parameters $n$ and $p$. In fact binomial random variables are characterized by their distribution which is not difficult to compute
+
+
+\ceq{\hfill P(X{=}k)}{=}{{n\choose k}p^k(1-p)^{n-k}}
+
+The cumulative distribution function is
+
+
+\ceq{\hfill P(X{\le}k)}{=}{\sum^k_{i=0}{n\choose i}p^i(1-p)^{n-i}}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -965,6 +996,28 @@ $Y=0$ se $X_1\neq X_2$, altrimenti $=1$.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Distribuzione binomiale}
+\hfill\textbf{{\color{brown}\hyperref[Binomial_rv]{Binomail random variables} \faShare}}
+\subsection{Estrazione ripetuta}
+\label{estrazione_biglie_ripetuta}
+
+Abbiamo un urna con $36$ biglie $21$ biglie rosse e $15$ blu. Estraiamo una biglia, ne annotiamo il colore e la reintroduiamo nell'urna (\emph{reimbussolamento\/} in inglese \emph{replacement\/}) per $n=7$ volte.
+
+Qual è la probabilità di estrarre esattamente $k=3$ biglie rosse? Chiamiamo $X$ la v.a.\@ che conta il numero di biglie rosse estratte. Allora $X\sim B(6,p)$ con $p=21/36=7/12$. 
+
+\ceq{\hfill\Pr(X=k)}{=}{{n\choose k}p^k(1-p)^{n-k}}
+
+\ceq{}{=}{{7\choose 3}\bigg(\dfrac{7}{12}\bigg)^{\!3}\bigg(\dfrac{5}{12}\bigg)^{\!4}}
+\medrel{=}$\dfrac{7!}{3!\cdot4!}\cdot\dfrac{7^3\cdot5^4}{12^7}$
+\medrel{=}$20.94\%$
+
+
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Diagnostic test: HIV}
 \label{HIV_test}
 
@@ -981,7 +1034,7 @@ Mathematically, we want $\Pr(D | T_+)$ given the sensitivity, {\color{violet}$\P
 prevalence {\color{violet}$\Pr(D) = .001$}
 
 \begin{eqnarray*}
-\Pr(D ~|~ +)& = &\frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+)\vphantom{\Big[}}\\ \\
+\Pr(D ~|T_+)& = &\frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+)\vphantom{\Big[}}\\ \\
 & = &\frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+|D)\ \Pr(D) + \Pr(T_+|\neg D)\ \Pr(\neg D)\vphantom{\Big[}}\\ \\
 & = & \frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+|D)\Pr(D) + \big[1-\Pr(T_-|\neg D)\big]\ \big[1 - \Pr(D)\big]\vphantom{\Big[}} \\ \\
 %& = & \frac{.997\times .001}{.997 \times .001 + .015 \times .999}\\ \\
@@ -994,10 +1047,10 @@ The {\color{violet}positive predictive value is 6\%} for this test. In this popu
 The low positive predictive value is due to low prevalence of disease and the
 somewhat modest specificity 
 
-Suppose it was known that the subject was an intravenous drug user and routinely had intercourse with an HIV infected partner that the test was taken in South Africa where the prevalence is estimated to be around 20\%
+Suppose it was known that the subject was an intravenous drug user and routinely had intercourse with HIV infected partners that the test was taken in South Africa where the prevalence is estimated to be around 20\%
 
 \begin{eqnarray*}
-\Pr(D ~|~ +)& = & 0.943\\
+\Pr(D ~|T_+)& = & 0.943\\
 & \hphantom{=} & \hphantom{\frac{\Pr(T_+|D)\Pr(D)}{\Pr(T_+|D)\Pr(D) + \big[1-\Pr(T_-|\neg D)\big]\ \big[1 - \Pr(D)\big]\vphantom{\Big[}}}
 \end{eqnarray*}
 
