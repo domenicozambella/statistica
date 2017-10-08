@@ -324,9 +324,14 @@ Questo si legge \emph{probabilità di $A$ dato $\Phi$}. Si verifica facilmente c
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Teorema delle Probabilità Totali}
+\label{TeoremaProbabilitaTotali}
 
 
-{\color{brown}Esempi: \hyperref[MF_totali]{Popolazione maschile e femminile (probabilità totali) \faShare}}
+{\color{brown}Esempi: \hyperref[MF_totali]{Popolazione maschile e femminile \faShare}
+\\
+\hphantom{Esempi:} \hyperref[Neonati_totali]{Peso neonati \faShare}
+\\
+\hphantom{Esempi:} \hyperref[HW_totali1]{Modello di Hardy-Weinberg \faShare}}
 
 Il fatto seguente si chiama \emph{Teorema delle Probabilità Totali}: siano $A_1,\dots,A_n$ eventi \emph{mutuamente esclusivi\/} ed \emph{esaustivi} di probabilità $\neq0$. Sia $C$ \`e un qualsiasi altro evento, allora
 
@@ -336,14 +341,18 @@ Il fatto seguente si chiama \emph{Teorema delle Probabilità Totali}: siano $A_1
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Teorema di Bayes}
+\hfill\rlap{.}\clearpage\section{Regola di Bayes}
+\label{RegolaBayes}
 
 
 {\color{brown}Esempi: \hyperref[Fumatori_Bayes]{Fumatori \faShare}
 \\
+\hphantom{Esempi:} \hyperref[Hemophilia]{Hemophilia gene carrier \faShare}
+\\
 \hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts \faShare}
 \\
-\hphantom{Esempi:} \hyperref[Hemophilia]{Hemophilia gene carrier \faShare}}
+\hphantom{Esempi:} \hyperref[HIV_test]{Diagnostic test: HIV \faShare}}
+
 
 
 Ricordiamo la regola
@@ -366,6 +375,7 @@ In molte applicazioni $\Pr(B)$ viene calcolato usanto il teorema delle probabili
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Indipendenza stocastica}
+\label{indipendenza}
 
 Due eventi $A$ e $B$ si dicono \emph{(stocasticamente) indipenenti\/} se 
 
@@ -407,7 +417,7 @@ La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\P
 %%%%%%%%%%%%%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Variabili aleatorie binomiali}
 
-
+Diremo che $X\sim B(n,p)$, ovvero che $X$ una  sono la 
 
 
 
@@ -417,6 +427,7 @@ La probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\P
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Valore atteso e varianza}
+\label{ValoreAtteso}
 
 Il \emph{valore atteso\/} o \emph{media di popolazione\/} (\emph{expected value, population mean\/}) di una variabile aleatoria numerica discreta $X$ a valori in $R$ è
 
@@ -700,6 +711,7 @@ L'urna potrebbe contenere un umero così grande di biglie d rendere più semplic
 \hfill\rlap{.}\clearpage\section{Pobabilità totali}
 
 
+\hfill\textbf{{\color{brown}\hyperref[TeoremaProbabilitaTotali]{Pobabilità totali} \faShare}}
 \subsection{Maschi e femmine patologia}
 \label{MF_totali}
 
@@ -727,7 +739,9 @@ $P(A)=P(A|F)P(F)+P(A|M)P(M)=0.05\cdot0.4+0.03\cdot0.6=0.038=3.8\%$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (richiede valore atteso)}\subsection{Peso neonati}
+\hfill\rlap{.}\clearpage
+\hfill\textbf{{\color{brown}\hyperref[TeoremaProbabilitaTotali]{Pobabilità totali} \faShare} (richiede \hyperref[ValoreAtteso]{valore atteso \faShare})}
+\subsection{Peso neonati}
 \label{Neonati_totali}
 
 Il peso medio dei neonati (non prematuri) in Europa è di 3.5kg per i maschi e di 3.4 per le femmine. Assumendo in prima approssimazione che il rapporto tra i sessi sia $1:1$, qual è il peso medio dei neonati alla nascita (indistintamente dal sesso)?
@@ -746,7 +760,10 @@ $E(X)\medrel{=}E(X|M)\cdot\Pr(M)+ E(X|F)\cdot\Pr(F)\medrel{=}3.5\cdot\dfrac12 + 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (richiede nozione di idipendenza)}\subsection{Modello di Hardy-Weinberg (1)}
+\hfill\rlap{.}\clearpage
+\hfill\textbf{{\color{brown}\hyperref[TeoremaProbabilitaTotali]{Pobabilità totali} \faShare} (richiede nozione di \hyperref[indipendenza]{indipendenza \faShare})}
+
+\subsection{Modello di Hardy-Weinberg (1)}
 \label{HW_totali1}
 
 In un locus possono occorrere due alleli $a$, $b$. 
@@ -807,23 +824,25 @@ $q_{bb}\ =\ p_{bb}^2+p_{bb}p_{ab} +\dfrac{1}{4}\,p^2_{ab}\,$;
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Pobabilità totali (richiede nozione di idipendenza)}\subsection{Equilibrio di Hardy-Weinberg (2)}
+\hfill\rlap{.}\clearpage\hfill\textbf{Digressione (continuazione dl paragrafo~\ref{HW_totali1})}\subsection{Equilibrio di Hardy-Weinberg (2)}
 
 \def\ceq#1#2#3{\parbox{12ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
-È utile osservare che $q_{aa}$, $q_{bb}$, e $q_{ab}$ dipendono solo dalla frazione di copie dell'allele $a$ presenti nella popolazione. Se $n$ \`e il numero di individui, $2n$ è il numero totale di copie dei due alleli. La frazione di $a$ sul totale è (indichiamola con $p_a$)
+Mostriamo ora che $q_{aa}$, $q_{bb}$, e $q_{ab}$ dipendono solo dalla frazione di copie dell'allele $a$ presenti nella popolazione. 
+
+Se $n$ \`e il numero di individui, $2n$ è il numero totale di copie dei due alleli. La frazione di $a$ sul totale è (indichiamola con $p_a$)
 
 \ceq{\#\hfill p_a}{=}{\dfrac{2\,n\,p_{aa}+n\,p_{ab}}{2n}}
 \medrel{=}$p_{aa}+\dfrac12\,p_{ab}$
 \medrel{=}$\dfrac12\,\big(1+p_{aa}-p_{bb}\big)$
 
-È immediato verificare che 
+È immediato verificare che (sorprendentemente) $p_a$ determina  $q_{aa}$, $q_{bb}$, e $q_{ab}$
 
 \ceq{\hfill q_{aa}}{=}{p_a^2};
 \ceq{\hfill q_{bb}}{=}{(1-p_a)^2};
 \ceq{\hfill q_{ab}}{=}{p_a(1-p_a)}.
 
-È intuitivo che la frazione di copie dell'allele $a$ non cambia di generazione in generazione. Verifichiamolo numericamente usando la formula $\#$
+A questo punto è intuitivo che la frazione di copie dell'allele $a$ non cambia di generazione in generazione. Verifichiamolo numericamente applicando la formula $\#$ alle frequenze nella prima generazione.
 
 Indichiamo con $q_a$ la frazione di copie dell'allele $a$ alla prima generazione
 
@@ -839,7 +858,7 @@ Quindi $q_a=p_a$ e diconseguenza $q_{aa}$, $q_{bb}$, e $q_{ab}$ sono le proporzi
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Regola di Bayes}
 \label{Bayes}
-
+\hfill\textbf{{\color{brown}\hyperref[RegolaBayes]{Regola di Bayes} \faShare}}
 \subsection{Fumatori e non fumatori}
 \label{Fumatori_Bayes}
 
@@ -861,7 +880,9 @@ $\Pr(A|F)=\dfrac{\Pr(F|A)\cdot \Pr(A)}{\Pr(F)}=\dfrac{0.2\cdot0.02}{0.1}=0.04$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Regola di Bayes}\subsection{Hemophilia gene carrier }
+\hfill\rlap{.}\clearpage\hfill
+\hfill\textbf{{\color{brown}\hyperref[RegolaBayes]{Regola di Bayes} \faShare}}
+\subsection{Hemophilia gene carrier }
 \label{Hemophilia}
 
 Hemophilia is a disease that exhibits X-chromosome-linked recessive inheritance, meaning that a male who inherits the gene that causes the disease on the X-chromosome is affected, whereas a
@@ -871,11 +892,11 @@ Consider a woman who has an affected brother, which implies that her mother must
 
 Suppose she has a son (from a man who is not affected) that is not affected. What is the probability that she is a carrier?
 
-$\Omega$\hfill  set of women w\!/ mother carrier, father and husband unaffected, one son
+$\Omega$\hfill  set of women 
 
 $C$\hfill set of women that are carrier
 
-$S_{na}$\hfill set of women w\!/ son not affected
+$S_{na}$\hfill set of women that have one son, and this is not affected
 
 $\Pr(C)\ =\ 1/2$\hfill 
 
@@ -889,7 +910,8 @@ $\phantom{\Pr(C|S_{na})}\ =\ \dfrac{1/4}{1/4+1/2}\ =\ 1/3$
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Regola di Bayes}
+\hfill\rlap{.}\clearpage\hfill
+\textbf{{\color{brown}\hyperref[RegolaBayes]{Regola di Bayes} \faShare}}
 \subsection{Rain forcasts}
 \label{rain_desert}
 
