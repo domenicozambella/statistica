@@ -345,39 +345,6 @@ Il fatto seguente si chiama \emph{Teorema delle Probabilità Totali}: siano $A_1
 
 \ceq{\hfill \Pr(C)}{=}{\sum^n_{i=1} \Pr(A_i)\cdot \Pr\big(C| A_i).}
 
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Regola di Bayes}
-\label{RegolaBayes}
-
-
-{\color{brown}Esempi: \hyperref[Fumatori_Bayes]{Fumatori \faShare}
-\\
-\hphantom{Esempi:} \hyperref[Hemophilia]{Hemophilia gene carrier \faShare}
-\\
-\hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts \faShare}
-\\
-\hphantom{Esempi:} \hyperref[HIV_test]{Diagnostic test: HIV \faShare}}
-
-
-
-Ricordiamo la regola
-
-\ceq{\hfill\Pr(B|A)}{=}{\dfrac{\Pr(A|B)\cdot \Pr(B)}{\Pr(A)}}
-\medrel{=}$\dfrac{\Pr(A|B)\cdot \Pr(B)}{\Pr(A|B)\Pr(B)+\Pr(A|\neg B)\Pr(\neg B)}$
-
-
-Il fatto seguente di chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
-
-\ceq{\hfill \Pr(A|B)}{=}{\frac{\Pr(B|A)\cdot \Pr(A)}{\Pr(B)\vphantom{\Big[}}.}
-
-In molte applicazioni $\Pr(B)$ viene calcolato usanto il teorema delle probabilità totali.
-
-\ceq{}{=}{\frac{\Pr(B|A)\cdot \Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)\vphantom{\Big[}}.}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -416,7 +383,7 @@ Per esempio: l'evento  $A\times\Omega\subseteq\Omega^2$  corrisponde  ad ottener
 
 In generale la probabilità di un evento $A\times B\subseteq\Omega^2$ è per definizione $\Pr(A)\cdot \Pr(B)$. Gli eventi $A\times\Omega$ e $\Omega\times B$ sono quindi (per costruzione) indipendenti.
 
-Introduciamo due v.a.\@ di Bernoulli $X_1:\Omega^2\to\{0,1\}$ e $X_2:\Omega^2\to\{0,1\}$.  
+Introduciamo due v.a.\@ di Bernoulli $X_1:\Omega^2\to\{0,1\}$ ed $X_2:\Omega^2\to\{0,1\}$.  
 
 La v.a.\@ $X_1$ guarda solo alla prima coordinata di un risultato in $\Omega^2$ e restituisce lo valore di $X$. Quindi $X_1$ restituisce $1$ per i risusltati in $A\times\Omega$. La v.a.\@ $X_2$ fa lo stesso con la seconda coordinata,  restituisce $1$ per i risusltati in $\Omega\times A$.
 
@@ -452,6 +419,11 @@ The cumulative distribution function is
 
 
 \ceq{\hfill P(X{\le}k)}{=}{\sum^k_{i=0}{n\choose i}p^i(1-p)^{n-i}}
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -490,6 +462,35 @@ Sia $X$ una v.a.\@ con media $\mu$ e deviazione standaed $\sigma$. La variabile 
 \ceq{\hfill Z}{=}{\frac{X-\mu}{\sigma}}
 
 si dice ottenuta da $X$ per \emph{standardizzazione}. La variabile $Z$ ha media nulla e deviazione standaed $1$ ed è sempre adimensionale. Un valore ottenuto da $Z$ si dice \emph{punteggio $Z$\/} o \emph{punteggio standard\/} (\emph{$Z$-score}).
+
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Regola di Bayes}
+\label{RegolaBayes}
+
+
+{\color{brown}Esempi: \hyperref[Fumatori_Bayes]{Fumatori \faShare}
+\\
+\hphantom{Esempi:} \hyperref[Hemophilia]{Hemophilia gene carrier \faShare}
+\\
+\hphantom{Esempi:} \hyperref[rain_desert]{Rain forcasts \faShare}
+\\
+\hphantom{Esempi:} \hyperref[HIV_test]{Diagnostic test: HIV \faShare}}
+
+
+Il fatto seguente di chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
+
+\ceq{\hfill \Pr(A|B)}{=}{\frac{\Pr(B|A)\cdot \Pr(A)}{\Pr(B)\vphantom{\Big[}}.}
+
+In molte applicazioni $\Pr(B)$ viene calcolato usanto il teorema delle probabilità totali. La regola diventa
+
+\ceq{}{=}{\frac{\Pr(B|A)\cdot \Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)\vphantom{\Big[}}.}
+
 
 
 
@@ -801,10 +802,9 @@ In un locus possono occorrere due alleli $a$, $b$.
 
 \begin{citemize}
 \item specie dipoide
+\item accoppiamento casuale (random mating) nessuna selezione
 \item specie monoica (??)
-\item accoppiamento casuale (random mating)
 \item le generazioni non si sovrapongono
-\item nessuna selezione
 \end{citemize}
 
 
@@ -814,7 +814,7 @@ Quali saranno le proporzioni alla \textit{prima generazione}? (Chiamiamole $q_{a
 
 \def\-{\mbox{-}}
 
-Denotiamo con $aa$ l'evento \textit{ha genotipo $aa$ alla prima generazione}. Analgamente per gli altri genotipi. Denotiamo con $aa\-ab$, etc.\@ l'evento: i genitori hanno genotipo $aa\mbox{-}ab$. Analgamente per le altre coppe di genotipi.
+Denotiamo con $aa$ l'evento \textit{ha genotipo $aa$ alla prima generazione}. Analgamente per gli altri genotipi. Denotiamo con $aa\-ab$ l'evento: i genitori hanno genotipo $aa\mbox{-}ab$. Analgamente per le altre coppe di genotipi.
 
 Osserviamo che $\Pr(aa | aa\-bb)=\Pr(aa | ab\-bb)=\Pr(aa | bb\-bb)=0$ quindi
 
@@ -825,8 +825,8 @@ p^2_{ab}\, \Pr(aa | ab\-ab)$
 
 
 $\phantom{q_{aa}}\ =\ %
-p_{aa}^2\,\rlap{$\cdot\,1$}\ \phantom{\Pr(aa | aa,aa)}\ +\ 
-2\,p_{aa}p_{ab}\, \rlap{$\cdot\dfrac12$}\phantom{\Pr(aa | aa\-ab)}\ +\ 
+p_{aa}^2\,\rlap{$\cdot\,1$}\phantom{\Pr(aa | aa,aa)}\ +\ 
+2\,p_{aa}p_{ab}\, \rlap{$\,\cdot\,\dfrac12$}\ \phantom{\Pr(aa | aa\-ab)}\ +\ 
 p^2_{ab}\, \cdot\dfrac14$ 
 
 $\phantom{q_{aa}}\ =\ p_{aa}^2+p_{aa}p_{ab} +\dfrac{1}{4}\,p^2_{ab}\,$;
@@ -894,18 +894,18 @@ Quindi $q_a=p_a$ e diconseguenza $q_{aa}$, $q_{bb}$, e $q_{ab}$ sono le proporzi
 \label{Fumatori_Bayes}
 
 
-Tra le persone affette da una certa patolopgia $A$, il $20\%$ è fumatore. La prevalenza di $A$ tra i fumatori è del $10\%$ nella popolazione generale è del $2\%$. Calcolare la probabilità che un fumatore ha di essere affetto da $A$.
+Tra le persone affette da una certa patologia, il $20\%$ è fumatore. La prevalenza nella popolazione generale è del $2\%$. Il $10\%$ della popolazione fuma. Calcolare la probabilità che un fumatore sia affetto da questa patologia.
 
 
 $F$\hfill insieme dei fumatori
 
 $A$\hfill insieme persone affette da $A$
 
-$\Pr(A)=0.02$\hfill prevalenza di $A$ nella popolazione generale
+$\Pr(A)=0.02$\hfill prevalenza nella popolazione generale
 
 $\Pr(F)=0.1$\hfill frazione di fumatori nella popolazione generale
 
-$\Pr(F|A)=0.2$\hfill prevalenza di $A$ tra i fumatori
+$\Pr(F|A)=0.2$\hfill prevalenza tra i fumatori
 
 $\Pr(A|F)=\dfrac{\Pr(F|A)\cdot \Pr(A)}{\Pr(F)}=\dfrac{0.2\cdot0.02}{0.1}=0.04$
 %%%%%%%%%%%%
