@@ -32,6 +32,7 @@ diagrams={>=latex}
 \def\0{\varnothing}
 \def\E{{\rm E}}
 \def\Var{{\rm Var}}
+\def\coVar{{\rm co\kern-0.3ex Var}}
 \def\range{\mathop{\rm img}}
 \linespread{1.2}
 \setlength{\parindent}{0ex}
@@ -177,15 +178,6 @@ diagrams={>=latex}
 \setlength{\belowdisplayskip}{0pt}
 
 
-
-
-\chapter*{Prefazione}
-
-\begin{itemize}
-\item Per quanto possibile, meglio separare teoria ed esempi/esercizi/spegazioni. 
-
-\item 
-\end{itemize}
 
 \chapter{Teoria (il minimo sindacale)}
 \raggedbottom
@@ -398,6 +390,10 @@ La v.a.\@ $X_1$ guarda solo alla prima coordinata di un risultato in $\Omega^2$ 
 \hfill\rlap{.}\clearpage\section{Binomial random variables}
 \label{Binomial_rv}
 
+
+\def\ceq#1#2#3{\parbox{18ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+
+
 {\color{brown}Esempi: \hyperref[estrazione_biglie_ripetuta]{Estrazione ripetuta \faShare}}
 
 
@@ -429,24 +425,217 @@ The cumulative distribution function is
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Valore atteso e varianza}
+\hfill\rlap{.}\clearpage\section{Valore atteso}
 \label{ValoreAtteso}
 
-Il \emph{valore atteso\/} o \emph{media di popolazione\/} (\emph{expected value, population mean\/}) di una variabile aleatoria numerica discreta $X$ a valori in $R$ è
+Il \emph{valore atteso\/} o \emph{media (di popolazione)\/} (in inglese \emph{expected value, population mean\/}) di una variabile aleatoria numerica discreta $X$ a valori in $R$ è
 
 \ceq{\hfill\emph{$\mu\medrel{=} \E(X)$}}{=}{\sum_{x\in R} x\cdot \Pr(X=x)}
 
+La lettera $\mu$ viene usata quando è chiaro a quale variabile ci si riferisce. Per evitare ambiguità a volte si scrive \emph{$\mu_X$}.
+
+ATTENZIONE: non si confonda il concetto di media di popolazione con quello di media campionaria (che introdurremo più avanti). Entrambi vengono spesso abbreviati con \emph{media}\,!
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Valore atteso della somma di v.a.}
+\label{ValoreAtteso}
+
+Siano $X$ ed $Y$ due variabili aleatorie discrete. Supponiamo di conoscere $\E(X)$ ed $\E(Y)$. La somma $X+Y$ è anche una variabile aleatoria e 
+
+\ceq{\hfill\E(X+Y)}{=}{\sum_{z\in R} z\cdot \Pr(X+Y=z)}
+
+\ceq{}{=}{\E(X)+\E(Y)}
+
+L'uguaglianza non è difficile da verificare (noi la prendiamo comunque per buona). 
+
+È anche interessante notare che se $c$ \`e una costante qualsiasi
+
+\ceq{\hfill\E(cX)}{=}{c\,\E(X)} 
+
+Le due proprietà congiunte si chiamano \emph{linearità}, ovvero si dice che il valore atteso è un operatore \emph{lineare}.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Valore atteso del prodotto di v.a.}
+\label{ValoreAttesoProdotto}
+
+Siano $X$ ed $Y$ due variabili aleatorie discrete. Supponiamo di conoscere $\E(X)$ ed $\E(Y)$. Il prodotto $XY$ è anche una variabile aleatoria e 
+
+\ceq{\hfill\E(XY)}{=}{\sum_{z\in R} z\cdot \Pr(XY=z)}
+
+\ceq{}{=}{\E(X)\E(Y)}\hfill\textbf{\color{red} se $X$ e $Y$ sono indipendenti}
+
+L'uguaglianza non è difficile da verificare (noi la prendiamo per buona).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Valore atteso di variabili binomiali}
+\label{ValoreAtteso}
+
+Sia $X\sim B(1,p)$  dalla definizione di valore atteso
+
+\ceq{\hfill\E(X)}{=}{\sum_{x\in\{0,1\}} x\cdot \Pr(X=x)}
+
+Siccome $\Pr(X=0)=1-p$ e $\Pr(X=1)=p$
+
+\ceq{}{=}{1\cdot p + 0 \cdot (1-p)}\medrel{=}$p$
+
+Sia ora $X\sim B(n,p)$, allora possiamo immaginare $X$ come 
+
+\ceq{\hfill X}{=}{\sum^n_{i=1}X_i}
+
+per $X_i\sim B(1,p)$ quindi per la linearità del valore atteso
+
+
+\ceq{\hfill\E(X)}{=}{\E\left(\sum^n_{i=1}X_i\right)}
+\medrel{=}
+$\displaystyle\sum^n_{i=1}\E(X_i)$
+
+\ceq{}{=}{\sum^n_{i=1}p}\medrel{=}$np$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\hfill\rlap{.}\clearpage\section{Teorema delle Probabilità Totali per la media}
+\label{TeoremaProbabilitaTotali}
+
+{\color{brown}Esempi: \hyperref[Neonati_totali]{Peso neonati \faShare}}
+
+Il valore medio può essere condizionato ad un qualsiasi evento $\Phi\subseteq\Omega$ tale che $\Pr(\Phi)\neq 0$ definendo (nel caso di una variabile discreta $X$ a valori in $R$)
+
+
+\ceq{\hfill \emph{$\E(X\,|\,\Phi)$}}{=}{\sum_{x\in R} x\cdot \Pr\big(X{=}x\,|\, \Phi).}
+
+
+
+Il fatto seguente è una conseguenza del Teorema delle Probabilità Totali. Siano $A_1,\dots,A_n$ eventi mutuamente esclusivi ed esaustivi di probabilità $\neq0$. Sia $X$ una v.a.\@ discreta
+
+\ceq{\hfill \E(X)}{=}{\sum^n_{i=1} \Pr(A_i)\cdot \E\big(X|A_i).}
+
+La verifica è immediata.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Varianza}
+\label{Varianza}
+
 La \emph{varianza\/} di una variabile aleatoria numerica discreta $X$ a valori in $R$ è
 
-\ceq{\hfill\emph{$\sigma^2\medrel{=} \Var(X)$}}{=}{\sum_{x\in R} \big(x- E(X)\big)^2\cdot \Pr(X=x)}
+\ceq{\hfill\emph{$\sigma^2\medrel{=} \Var(X)$}}{=}{\E\Big(\big(X-E(X)\big)^2\Big)}
+
+per la definizione di valore atteso
+
+\ceq{}{=}{\sum_{x\in R} \Big(x- E(X)\Big)^2\cdot \Pr(X=x)}
 
 \ceq{}{=}{E(X^2)-E(X)^2}\hfill (facile da verificare).
 
 La \emph{deviazione standard\/} è la radice della varianza
 
-\ceq{\hfill \emph{$\sigma$}}{=}{\sqrt{\Var(X)\vphantom{\big[]}}}
+\ceq{\hfill \emph{$\sigma$}\medrel{=}\emph{SD$(X)$}}{=}{\sqrt{\Var(X)\vphantom{\big[]}}}
 
-Le lettere $\mu$ e $\sigma$ vengono usate quando è chiaro a quale variabile ci si riferisce. Per evitare ambiguità a volte si scrive $\mu_X$ e $\sigma_X$.
+La lettera $\sigma$ viene usata quando è chiaro a quale variabile ci si riferisce. Per evitare ambiguità a volte si scrive \emph{$\sigma_X$}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Disequazione di Chebyshev}
+\label{Varianza}
+
+Enunciamo senza dimostrazione un caso particolare di famoso teorema.
+
+Per ogni variabile aleatoria numerica $X$ con valore atteso $\mu$ e varianza $\sigma^2$.
+
+\ceq{\hfill 75\%}{\le}{\Pr\Big(\mu - 2\sigma \le X\le\mu+2\sigma\Big) }
+
+Ovvero gran parte della massa di probailità è concentrata in un intorno di $\mu$ di raggio $\sigma$. Quindi più piccola è $\sigma$ più concentrata è a distribuzione di $X$.
+
+Per alcune particolari v.a.\@ valgono anche proprietà ancora più forti. (Per esempio, se $X$ ha distribuzione normale possiamo scrivere $95\%$ invece che $75\%$.)
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Varianza della somma di v.a.}
+\label{ValoreAtteso}
+
+Siano $X$ ed $Y$ due variabili aleatorie discrete \textit{indipendenti}. Supponiamo di conoscere $\Var(X)$ ed $\Var(Y)$. La somma $X+Y$ è anche una variabile aleatoria e 
+
+\ceq{\hfill\Var(X+Y)}{=}{\sum_{z\in R} \big(z-\E(X+Y)\big)^2\cdot \Pr(X+Y=z)}
+
+%\ceq{}{=}{\sum_{z\in R} (z-\E(X)-\E(Y)\big)^2\cdot \Pr(X+Y=z)}
+
+\ceq{\hfill(*)}{=}{\Var(X)+\Var(Y)+2\big[\E(XY)-\E(X)\E(Y)\big]}
+
+\ceq{}{=}{\Var(X)+\Var(Y)}\hfill\textbf{\color{red} se $X$ e $Y$ sono indipendenti}
+
+L'uguaglianza (*) la prendiamo per buona.
+
+Chiemeremo \emph{covarianza\/} di $X$ ed $Y$ la quantità
+
+
+\ceq{\hfill\emph{$\coVar(X,Y)$}}{=}{\E(XY)-\E(X)\E(Y)}
+
+Notare che per \hyperref[ValoreAttesoProdotto]{quando detto in \faShare} se $X$ ed $Y$ sono indipendenti allora il termine $\coVar(X,Y)$ si annulla.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Varianza di variabili binomiali}
+\label{ValoreAtteso}
+
+Sia $X\sim B(1,p)$  dalla definizione di varianza (e ricordando che $E(X)=p$)
+
+\ceq{\hfill\E(X)}{=}{\sum_{x\in\{0,1\}} (x-p)^2\cdot \Pr(X=x)}
+
+\ceq{}{=}{(1-p)^2\cdot p + p^2 \cdot (1-p)}\medrel{=}$p\,(1-p)$
+
+N.B. Possiamo calcolarla così
+
+\ceq{}{=}{\E(X^2)-E(X)^2}
+
+\ceq{}{=}{p-p^2}\hfill (perché se $X\sim B(1,p)$ allora $X^2=X$).
+
+Sia ora $X\sim B(n,p)$, allora possiamo immaginare $X$ come 
+
+\ceq{\hfill X}{=}{\sum^n_{i=1}X_i}
+
+per $X_i\sim B(1,p)$ indipendenti. Quindi
+
+\ceq{\hfill\Var(X)}{=}{\Var\left(\sum^n_{i=1}X_i\right)}
+\medrel{=}
+$\displaystyle\sum^n_{i=1}\Var(X_i)$
+
+\ceq{}{=}{\sum^n_{i=1}p\,(1-p)}\medrel{=}$n\,p\,(1-p)$.
+
+
+
+
 
 
 
@@ -457,7 +646,7 @@ Le lettere $\mu$ e $\sigma$ vengono usate quando è chiaro a quale variabile ci 
 %%%%%%%%%%%%%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Standardizzazione}
 
-Sia $X$ una v.a.\@ con media $\mu$ e deviazione standaed $\sigma$. La variabile aleatoria $Z$ così definita
+Sia $X$ una v.a.\@ con media $\mu$ e deviazione standard $\sigma$. La variabile aleatoria $Z$ così definita
 
 \ceq{\hfill Z}{=}{\frac{X-\mu}{\sigma}}
 
@@ -532,22 +721,6 @@ Tipicamente la specificità e la sensitività del test sono note. I poteri predi
 
 
 
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Campioni e statistiche}
-
-Un campione $\{X_1,\dots,X_n\}$ è un insieme di v.a.\@ indipendenti e identicamente distribuite. Il numero $n$ si chiama \emph{rango\/} (o \emph{dimensione\/}) del campione. 
-
-Una \emph{statistica\/} è una variabile aleatoria a valori in $\RR$ ottenuta come funzione delle variabili aleatorie di un campione. Gli esempi più noti sono $\bar X$, la \emph{media campionaria\/} ed $S$, lo \emph{stimatore della deviazione standard\/} 
-
-\ceq{\hfill \emph{$\bar X$}}{=}{\frac1n\sum_{i=1}^n X_i}
-
-\ceq{\hfill  \emph{$S$}}{=}{\sqrt{\frac1{n-1}\sum_{i=1}^n (X_i-\bar X)^2}}
- 
-
-
-
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -585,7 +758,7 @@ Introduciamo la terminologia dei test d'ipotesi basandoci sulla notazione usata 
 In questa tavola contrapponiamo la terminologia usata nei \emph{test statistici\/}  a quella dei \textit{test diagnostici}. Molto comuni sono anche i simboli \emph{$\alpha$\/} e \emph{$\beta$\/}.\bigskip   
 
 
-\fbox{\parbox[t]{33ex}{%
+\noindent\kern-3ex\fbox{\parbox[t]{33ex}{%
 \emph{$T_+\cap H_0$} \ \textit{falso positivo}\hfill \emph{errore I tipo\/}\\
 
 \emph{$\Pr(T_+|H_0)=\emph{$\alpha$}$}\hfill \emph{significatività\/}
@@ -594,14 +767,14 @@ In questa tavola contrapponiamo la terminologia usata nei \emph{test statistici\
 \fbox{\parbox[t]{38ex}{%
 \emph{$T_+\cap H_A$} \ \textit{corretto positivo}\\
 
-\emph{$\Pr(T_+|H_A)=1-\emph{$\beta$}$} \ \textit{sensibilità}\hfill \emph{potenza\/}
+\emph{$\Pr(T_+|H_A)=1{-}\emph{$\beta$}$} \ \textit{sensibilità}\hfill \emph{potenza\/}
 }}
 
 
-\fbox{\parbox[t]{33ex}{%
+\noindent\kern-3ex\fbox{\parbox[t]{33ex}{%
 \emph{$T_-\cap H_0$} \ \textit{corretto negativo}\\
 
-\emph{$\Pr(T_-|H_0)=1-\emph{$\alpha$}$} \ \textit{sepecificità}
+\emph{$\Pr(T_-|H_0)=1{-}\emph{$\alpha$}$} \ \textit{sepecificità}
 }}
 \kern1ex
 \fbox{\parbox[t]{38ex}{%
@@ -651,11 +824,56 @@ Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{p
 
 
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Campioni e statistiche}
+
+Un campione $\{X_1,\dots,X_n\}$ è un insieme di v.a.\@ indipendenti e identicamente distribuite. Il numero $n$ si chiama \emph{rango\/} (o \emph{dimensione\/}) del campione. 
+
+Una \emph{statistica\/} è una variabile aleatoria a valori in $\RR$ ottenuta come funzione delle variabili aleatorie di un campione. Una statistica che ha come valore atteso un certo parametro di una distribuzione (vedremo solo $\mu$  $\sigma$) s chiama uno  \emph{stimatore\/} di quel parametro.
+
+Gli esempi più noti sono $\bar X$, la \emph{media campionaria\/} ed $S$, lo \emph{stimatore della deviazione standard\/} 
+
+\ceq{\hfill \emph{$\bar X$}}{=}{\frac1n\sum_{i=1}^n X_i}
+
+\ceq{\hfill  \emph{$S$}}{=}{\sqrt{\frac1{n-1}\sum_{i=1}^n (X_i-\bar X)^2}}
+
+% %%%%%%%%%%%%
+% %%%%%%%%%%%%
+% %%%%%%%%%%%%
+% \hfill\rlap{.}\clearpage\section{Stimare la media di una variabile di Bernoulli}
+% 
+% \def\ceq#1#2#3{\parbox{25ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+% 
+% Sia $X\sim B(1,p)$ con $p$ ignota e siano $X_1,\dots,X_n$ v.a.i.\@ con la stessa distibuzione di $X$. Definiamo
+% 
+% \ceq{\hfill\bar X}{=}{\frac1n\sum_{i=1}^n X_i}
+% 
+% Sia $\bar x$ un valore restituito $\bar X$. Sia $\epsilon>0$ un errore che siamo disposti a tollerare. Sia $q$ una probabilità, auspicabilente prossima a $1$, e spesso espressa in percentuale. Diremo che \emph{$p=\bar x\pm\epsilon$\/} con \emph{livello di confidenza $q$\/}  se
+% 
+% \ceq{\hfill q}{=}{P( p-\epsilon\le \bar X \le p+\epsilon)}
+% 
+% \ceq{}{=}{P( -\epsilon\le \bar X -p\le \epsilon)}
+% 
+% L'interpretazione \`e che con probabilità $q$ il paramento $p$ appartiene all'intervallo $[\bar X-\epsilon, \bar X+\epsilon]$. Si noti che l'intervallo è aleatorio , il parametro $p$ è assouto (se pur ignoto).
+% 
+% Fissato l'errore si determina il livello di confidenza. O (più spesso) fissato un livello di confidenza si determina l'errore.
+% 
+% Ma ci sono delle difficoltà a calcolare $\epsilon$ e $q$ perché $p$ non è noto. Per la distri
+% 
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{La distribuzione normale}
+
+
 
 \chapter{Esempi ed esercizi}
 \label{ch2}
-
-\ \ 
 
 
 %%%%%%%%%%%%
@@ -861,7 +1079,7 @@ $q_{bb}\ =\ p_{bb}^2+p_{bb}p_{ab} +\dfrac{1}{4}\,p^2_{ab}\,$;
 
 Mostriamo ora che $q_{aa}$, $q_{bb}$, e $q_{ab}$ dipendono solo dalla frazione di copie dell'allele $a$ presenti nella popolazione. 
 
-Se $n$ \`e il numero di individui, $2n$ è il numero totale di copie dei due alleli. La frazione di $a$ sul totale è (indichiamola con $p_a$)
+Se $n$ \`e il numero di individui, $2n$ è il numero totale di copie dei due alleli. La frazione di $a$ sul totale è (la indichiamo con $p_a$)
 
 \ceq{\#\hfill p_a}{=}{\dfrac{2\,n\,p_{aa}+n\,p_{ab}}{2n}}
 \medrel{=}$p_{aa}+\dfrac12\,p_{ab}$
@@ -1019,6 +1237,7 @@ Qual è la probabilità di estrarre esattamente $k=3$ biglie rosse? Chiamiamo $X
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Diagnostic test: HIV}
+\hfill\textbf{{\color{brown}\hyperref[RegolaBayes]{Regola di Bayes} \faShare}}
 \label{HIV_test}
 
 A study comparing the efficacy of HIV tests, reports on an
@@ -1066,7 +1285,7 @@ Suppose it was known that the subject was an intravenous drug user and routinely
 
 Nella pratica questo test è spesso sostituito da un test sulle proporzioni ($Z$-test). Comunque in questa versione è concettualmente più semplice. 
 
-\subsection{Una coda}\label{Bernoulli_test}
+\subsection{Test a una coda}\label{Bernoulli_test}
 
 Un'urna contiene monete equilibrate e monete difettose. Le monete equilibrate hanno probabilità di successo $p=1/2$ le monete difettose hanno probabilità di successo ignota $p>1/2$. Non conosciamo la frazione di monete difettose. Questi dati vengono riassunti scrivendo
 
@@ -1084,14 +1303,18 @@ Condizionando a $H_0$ otteniamo $X\sim {\rm B}(n,1/2)$. Condizionando a $H_A$ ot
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Una coda, errore I tipo}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a una coda, errore I tipo}
 
 Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il risultato del test positivo. N.B. dipende da $n$ e da $k$.
 
 Per quanto osservato sulla distribuzione di $X$, possiamo calcolare la specificità del test (probabilità di falsi positivi)
 
 
-\ceq{\hfill \Pr(T_+\mathrel|H_0)}{=}{\Pr(X\ge k\mathrel|H_0)\quad=\quad\sum^n_{i=k} {n\choose i}\bigg(\frac12\bigg)^i\bigg(1-\frac12\bigg)^{n-i}=\quad\frac1{2^n}\sum^n_{i=k+1} {n\choose i}}
+\ceq{\hfill \Pr(T_+\mathrel|H_0)}{=}{\Pr(X\ge k\mathrel|H_0)}
+
+\ceq{}{=}{\sum^n_{i=k} {n\choose i}\bigg(\frac12\bigg)^i\bigg(1-\frac12\bigg)^{n-i}}
+\medrel{=}$\displaystyle\frac1{2^n}\sum^n_{i=k+1} {n\choose i}$
+
 
 Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13,\dots,20\}$} è la regione di rifiuto. Otteniamo %$\Pr(T_+|\neg D) = \py{sum(y[y.index<=k]}$
 
@@ -1103,7 +1326,7 @@ Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Testa una coda, errore II tipo}
+\hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a una coda, errore II tipo}
 
 La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $>1/2$)
 
