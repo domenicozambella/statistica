@@ -409,7 +409,7 @@ where the $X_i$ are independent Bernoulli random variables with success probabil
 We may also say that $X$ has a \emph{binomial distribution\/} with parameters $n$ and $p$. In fact binomial random variables are characterized by their distribution which is not difficult to compute
 
 
-\ceq{\hfill P(X{=}k)}{=}{{n\choose k}p^k(1-p)^{n-k}}
+\ceq{\hfill P(X{=}k)}{=}{{n\choose k}p^k(1-p)^{n-k}}\hfill \href{http://homepage.divms.uiowa.edu/~mbognar/applets/normal.html}{il grafico di $P(X{=}k)$ \faShare}
 
 The cumulative distribution function is
 
@@ -436,9 +436,6 @@ La lettera $\mu$ viene usata quando è chiaro a quale variabile ci si riferisce.
 
 ATTENZIONE: non si confonda il concetto di media di popolazione con quello di media campionaria (che introdurremo più avanti). Entrambi vengono spesso abbreviati con \emph{media}\,!
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -459,10 +456,6 @@ L'uguaglianza non è difficile da verificare (noi la prendiamo comunque per buon
 \ceq{\hfill\E(cX)}{=}{c\,\E(X)} 
 
 Le due proprietà congiunte si chiamano \emph{linearità}, ovvero si dice che il valore atteso è un operatore \emph{lineare}.
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -521,10 +514,7 @@ $\displaystyle\sum^n_{i=1}\E(X_i)$
 
 Il valore medio può essere condizionato ad un qualsiasi evento $\Phi\subseteq\Omega$ tale che $\Pr(\Phi)\neq 0$ definendo (nel caso di una variabile discreta $X$ a valori in $R$)
 
-
 \ceq{\hfill \emph{$\E(X\,|\,\Phi)$}}{=}{\sum_{x\in R} x\cdot \Pr\big(X{=}x\,|\, \Phi).}
-
-
 
 Il fatto seguente è una conseguenza del Teorema delle Probabilità Totali. Siano $A_1,\dots,A_n$ eventi mutuamente esclusivi ed esaustivi di probabilità $\neq0$. Sia $X$ una v.a.\@ discreta
 
@@ -870,7 +860,15 @@ Gli esempi più noti sono $\bar X$, la \emph{media campionaria\/} ed $S$, lo \em
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{La distribuzione normale}
 
+Diremo che la v.a.\@ $X$ a valori reali ha   \emph{distribuzione normale standard\/} abbreviato con $X\sim N(0,1)$, se
 
+\ceq{\hfill\Pr(X\le x)}{=}{\frac 1 {\sqrt{2\pi}} \int_{-\infty}^x e^{-t^2/2} \, {\rm d}t}\hfill \href{http://homepage.divms.uiowa.edu/~mbognar/applets/normal.html}{il grafico di $\displaystyle\frac 1 {\sqrt{2\pi}} e^{-t^2/2}$ \faShare}
+
+
+
+Più in generale $X$ ha \emph{distribuzione normale\/} con media $\mu$ e varianza $\sigma^2$, abbreviato con $X\sim N(\mu,\sigma^2)$, se
+
+\ceq{\hfill\Pr(X\le x)}{=}{\frac 1 {\sqrt{2\pi}} \int_{-\infty}^x e^{-(t-\mu)^2/2\sigma^2} \, {\rm d}t}
 
 \chapter{Esempi ed esercizi}
 \label{ch2}
