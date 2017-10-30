@@ -561,7 +561,7 @@ Per alcune particolari v.a.\@ valgono anche proprietà ancora più forti. (Per e
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Varianza della somma di v.a.}
-\label{ValoreAtteso}
+\label{VarianzaSomma}
 
 Siano $X$ ed $Y$ due variabili aleatorie discrete \textit{indipendenti}. Supponiamo di conoscere $\Var(X)$ ed $\Var(Y)$. La somma $X+Y$ è anche una variabile aleatoria e 
 
@@ -588,8 +588,21 @@ Notare che per \hyperref[ValoreAttesoProdotto]{quando detto in \faShare} se $X$ 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Varianza di un multiplo di una v.a.}
+\label{VarianzaMultiplo}
+
+
+Sia $X$ una variabile aleatoria e sia $c$ una costante. Supponiamo di conoscere $\Var(X)$. La v.a.\@ $cX$ è anche una variabile aleatoria e 
+
+\ceq{\hfill\Var(cX)}{=}{c^2\,\Var(X)}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Varianza di variabili binomiali}
-\label{ValoreAtteso}
+\label{VarianzaBinomiali}
 
 Sia $X\sim B(1,p)$  dalla definizione di varianza (e ricordando che $E(X)=p$)
 
@@ -708,6 +721,7 @@ Tipicamente la specificità e la sensitività del test sono note. I poteri predi
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Test d'ipotesi}
+\label{test_ipotesi}
 
 Esempi: \hyperref[Bernoulli_test]{Test binomiale (il più elementare test di ipotesi) \faShare}
 
@@ -716,7 +730,7 @@ Nei test di ipotesi la scelta tra risultato positivo/negativo viene fatta in bas
 Introduciamo la terminologia dei test d'ipotesi basandoci sulla notazione usata per i test diagnostici.
 
 \begin{itemize}
-\item L'\emph{ipotesi nulla\/} denotata con \emph{$H_0$} definisce l'insieme dei \textit{sani\/} (qui $H_0$ è anche l'evento corrispondente, quello denotavamo $\neg D$). 
+\item L'\emph{ipotesi nulla\/} denotata con \emph{$H_0$} definisce l'insieme dei \textit{sani\/} (qui $H_0$ è anche l'evento corrispondente, quello che denotavamo con $\neg D$). 
 
 \item L'\emph{ipotesi alternativa\/} denotata con \emph{$H_A$}  descrive la \textit{patologia}, ovvero definisce l'insieme dei \textit{malati\/} (qui $H_A$ è anche l'evento corrispondente, era $D$).
 
@@ -851,16 +865,55 @@ Gli esempi più noti sono $\bar X$, la \emph{media campionaria\/} ed $S$, lo \em
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{La distribuzione normale}
+\label{distribuzione normale}
+
+Esempi: \hyperref[Z-test]{$Z$-test \faShare}
 
 Diremo che la v.a.\@ $X$ a valori reali ha   \emph{distribuzione normale standard\/} abbreviato con $X\sim N(0,1)$, se
 
+\bigskip
+
 \ceq{\hfill\Pr(X\le x)}{=}{\frac 1 {\sqrt{2\pi}} \int_{-\infty}^x e^{-t^2/2} \, {\rm d}t}\hfill \href{http://homepage.divms.uiowa.edu/~mbognar/applets/normal.html}{il grafico di $\displaystyle\frac 1 {\sqrt{2\pi}} e^{-t^2/2}$ \faShare}
 
-
+\bigskip
 
 Più in generale $X$ ha \emph{distribuzione normale\/} con media $\mu$ e varianza $\sigma^2$, abbreviato con $X\sim N(\mu,\sigma^2)$, se
 
-\ceq{\hfill\Pr(X\le x)}{=}{\frac 1 {\sqrt{2\pi}} \int_{-\infty}^x e^{-(t-\mu)^2/2\sigma^2} \, {\rm d}t}
+\medskip
+
+\ceq{\hfill\Pr(X\le x)}{=}{\frac 1 {\sqrt{2\pi\sigma^2}} \int_{-\infty}^x e^{-(t-\mu)^2/2\sigma^2} \, {\rm d}t}
+
+\medskip
+
+Importante proprietà
+
+
+
+
+se $X_1,\dots,X_n$ sono variabili aleatorie indipendenti con distribuzione $N(\mu,\sigma^2)$ allora la variabile media compionaria
+
+\ceq{\hfill \emph{$\bar X$}}{=}{\frac1n\sum_{i=1}^n X_i}
+
+ha distribuzione $N(\mu,\dfrac{\sigma^2}{n})$.
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{The Central Limit Theorem}
+\label{distribuzione normale}
+
+Let $X_1, X_2, ... , X_n$ be a random sample (i.e.\@ independent and identically distributed random variables) from any distribution with mean $\mu$ and variance $\sigma^2$ (both finite).
+
+then $\bar X$ has mean $\E(\bar X)=\mu$ and variance $\Var(\bar X)=\sigma^2/n$. Moreover, if the sample size $n$ is \textit{sufficiently large\/} then 
+
+\ceq{\hfill \emph{$Z$}}{=}{\frac{\bar X - \mu}{\sigma/\sqrt{n}}}
+
+has \textit{approximately\/} distribution $N(0,1)$.
+
+
+
 
 \chapter{Esempi ed esercizi}
 \label{ch2}
@@ -1268,12 +1321,12 @@ Suppose it was known that the subject was an intravenous drug user and routinely
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Test Binomiale}
-
+\hfill\textbf{{\color{brown}\hyperref[test_ipotesi]{Test di ipotesi \faShare}}}
 
 \def\medrel#1{\parbox[t]{6ex}{$\displaystyle\hfil #1$}}
 \def\ceq#1#2#3{\parbox[t]{15ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
-Nella pratica questo test è spesso sostituito da un test sulle proporzioni ($Z$-test). Comunque in questa versione è concettualmente più semplice. 
+Nella pratica questo test è spesso sostituito da un test sulle proporzioni (uno $Z$-test o, a volte, un $\chi^2$-test). In questa versione il test è computazionalmente più pesante ma concettualmente più semplice.
 
 \subsection{Test a una coda}\label{Bernoulli_test}
 
@@ -1296,6 +1349,7 @@ Condizionando a $H_0$ otteniamo $X\sim {\rm B}(n,1/2)$. Condizionando a $H_A$ ot
 \hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a una coda, errore I tipo}
 
 Indichiamo con $T_+$ l'evento $\{\omega\in\Omega: X(\omega)\ge k\}$, ovvero il risultato del test positivo. N.B. dipende da $n$ e da $k$.
+si
 
 Per quanto osservato sulla distribuzione di $X$, possiamo calcolare la specificità del test (probabilità di falsi positivi)
 
@@ -1303,7 +1357,7 @@ Per quanto osservato sulla distribuzione di $X$, possiamo calcolare la specifici
 \ceq{\hfill \Pr(T_+\mathrel|H_0)}{=}{\Pr(X\ge k\mathrel|H_0)}
 
 \ceq{}{=}{\sum^n_{i=k} {n\choose i}\bigg(\frac12\bigg)^i\bigg(1-\frac12\bigg)^{n-i}}
-\medrel{=}$\displaystyle\frac1{2^n}\sum^n_{i=k+1} {n\choose i}$
+\medrel{=}$\displaystyle\frac1{2^n}\sum^n_{i=k} {n\choose i}$
 
 
 Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13,\dots,20\}$} è la regione di rifiuto. Otteniamo %$\Pr(T_+|\neg D) = \py{sum(y[y.index<=k]}$
@@ -1318,7 +1372,7 @@ Per concretezza, fissiamo $n=20$, $k=13$ quindi {\color{red}\boldmath\ $T_+=\{13
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}\subsection{Test a una coda, errore II tipo}
 
-La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $>1/2$)
+La probabilità dei falsi negativi può essere espressa in funzione di $p$ (abbiamo solo assunto che $p>1/2$)
 
 
 \ceq{\hfill \Pr(T_-\mathrel|H_A)}{=}{\Pr(X< k\mathrel|H_A)\quad=\quad\sum^{k-1}_{i=1} {n\choose i}p^i(1-p)^{n-i}}
@@ -1401,7 +1455,9 @@ Per riparare il problema discusso al paragrafo precedente. prendiamo come zona d
 \hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}
 \subsection{Test a due code, con campione più ampio}
 
-Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$):  $T_+=\{0,\dots,14=n-k\}\cup \{k=26,\dots,40=n\}$
+Supponiamo di raddoppiare la dimensione del campione ($n=40$). Aggiustiamo la zona di rifiuto allo stesso modo ($k=26$): 
+
+\hfil$T_+=\{0,\dots,14=n-k\}\cup \{k=26,\dots,40=n\}$
 
 Entrambi gli errori diminuiscono.
 
@@ -1443,7 +1499,7 @@ Gli esempi considerati (con $n=20,40$ e $k=13,26$) diventano:
 \hfill\rlap{.}\clearpage\hfill\textbf{Test Binomiale}
 \subsection{Standardizzazione (2)}
 
-Si noti che le regioni di rifiuto non sono le stesse. in effetti
+Si noti che le regioni di rifiuto non sono le stesse. In effetti
 
 
 \ceq{\hfill\frac{k-np}{\rule{0ex}{3ex}\sqrt{np\big(1-p\big)}}}{=}{1.34}\qquad se $n=20$, \ $k=13$, \ $p=05$
@@ -1452,7 +1508,7 @@ Si noti che le regioni di rifiuto non sono le stesse. in effetti
 \ceq{}{=}{1.90}\qquad se $n=40$, \ $k=26$, \ $p=05$
 
 
-Se per entriambi i casi prendiamo la stessa regione di rifiuto misurata in punteggio $Z$, diciamo $(-\infty, -1.34]\ \cup\ [1.34, +\infty)]$ avremmo ottenuto praticamente lo stesso $\alpha$. Infatti una volta standardizzate le due distribuzioni diventano estremamente simili. Lo scopo dela standardizzazione è rendere evidenti queste similitudini.  
+Se per entrambi i casi prendiamo la stessa regione di rifiuto misurata in punteggio $Z$, diciamo $(-\infty, -1.34]\ \cup\ [1.34, +\infty)]$, che corrisponde a $k=24$ o $25$,  avremmo ottenuto praticamente lo stesso $\alpha$. Infatti una volta standardizzate le due distribuzioni diventano estremamente simili. Lo scopo dela standardizzazione è rendere evidenti queste similitudini.  
 
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test-standard2_01.pdf}
@@ -1461,14 +1517,77 @@ Se per entriambi i casi prendiamo la stessa regione di rifiuto misurata in punte
 
 
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\
+\subsection{Prevalenza mancinismo (domanda in formato esame)}
+
+Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia ereditaria. Eseguiamo il seguente esperimento. Selezioniamo un campione di $1000$ persone con almeno un genitore mancino e misuriamo la frequenza di mancini. Concludiamo che la caratteristica \`e ereditaria se pi\`u di $115$ individui sono mancini.
+
+\textbf{Domande}
+
+\begin{itemize}
+\item[1.] Qual è l'potesi nulla?
+
+\item[2.] Qual è l'potesi alternativa?
+
+\item[3.] Che test possiamo fare?
+
+\item[4.] Esprimere la significatività del test usando una delle funzioni di R riportate in calce.
+
+\item[5.] Suppiamo che un leggero fattore ereditario renda la prevalenza del mancinismo tra i figli di un genitore mancino $\ge12\%$. Stimare la probabilità che questa dipendenza ereditaria non venga rilevata dal nostro test. 
+
+\item[6.] Qual è la potenza del test nel caso descritto sopra.
+
+\item[7.] Supponiamo di volere un test con la significatività del $1\%$ come dobbiamo sceglere la zona di rifiuto?
+\end{itemize}
+
+\textbf{Risposte}
+
+\begin{itemize}
+\item[1.] $p=10\%$ dove $p$ è la prevalenza di mancini tra i figli di genitori mancini.
+\item[2.]  $p>10\%$ 
+\item[3.] Test binomiale a una coda.
+\item[4.]  $\tt 1 - pbinom(115,1000,0.1)$\hfill ($\tt 0.053$)
+\item[5.]  $\tt pbinom(115,1000,0.12)$\hfill ($\tt 0.033$)
+\item[6.]  $\tt 1- pbinom(115,1000,0.12)$\hfill ($\tt 0.67$)
+\item[7.]  rifiutiamo $H_0$ se più di $\tt qbinom(0.99,1000,0.1)$ mancini \hfill ($\tt 123$) 
+\end{itemize}
+
+\textit{N.B per 3-7, altre risposte corrette sono possibili (se coerenti).}
+
+\parskip1ex
+{\hrulefill\scriptsize
+
+Si assumano noti i valori delle seguenti funzioni
+
+{\tt pbinom(x,n,p)}=$P(X\le x)$, per $X\sim B(n,p)$
+\hfill 
+{\tt qbinom($\alpha$,n,p)=x},  dove $P(X\le x)=\alpha$ per $X\sim B(n,p)$
+
+{\tt pnorm(z)}=$P(Z\le z)$, per $Z\sim N(0,1)$
+\hfill 
+{\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
+
+{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+\hfill
+{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+
+{\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
+\hfill
+{\tt qchisq($\alpha$,k)=q},  dove $P(Q\le q)=\alpha$ per $Q\sim \chi^2_k$
+\par
+}
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\
 \section{Z-test}
-\subsection{Una coda}
-
+\label{Z-test}
+\hfill\textbf{{\color{brown}\hyperref[distribuzione normale]{La distribuzione normale \faShare}}}
+\subsection{Test a una coda}
 Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma^2)$ con $\mu_0=75$ e $\sigma=9.5$. 
 
 Assumiamo che tra i pazienti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale. Vogliamo testare le seguenti ipotesi:
@@ -1481,9 +1600,12 @@ Il test consiste nel misurare la pressione ad un campione di $n$ pazienti e di q
 
 \ceq{\hfill \bar X}{=}{\frac1n\sum_{i=1}^nX_i}
 
-Dove $X_i$ è la v.a.\@ che dà la pressione dell'$i$-esimo pazione del campione. Rigetteremo $H_0$ se il valore ottenuto è suporiore ad un certo $x_\alpha$ che vogliamo fissare in modo che l'errore I tipo risulti uguale ad $\alpha$. Quindi $x_\alpha$ dev'essere tale che $x_\alpha$ tale che $\Pr(\bar X>x_\alpha)=\alpha$.
+Dove $X_i$ è la v.a.\@ che dà la pressione dell'$i$-esimo paziente del campione. Rigetteremo $H_0$ se il
+valore ottenuto è suporiore ad un certo $x_\alpha$ che vogliamo fissare in modo che l'errore I tipo risulti uguale ad $\alpha$. Quindi $x_\alpha$ dev'essere tale che $x_\alpha$ tale che $\Pr(\bar X>x_\alpha)=\alpha$.
 
 Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma^2}{n}\bigg)$.
+
+Se $H_A$ è vera, $\bar X\sim N\bigg(\mu,\dfrac{\sigma^2}{n}\bigg)$ per qualche $\mu>\mu_0$.
 
 % Non è necessario, ma conviene sempre ridursi alla normale standard: $\dfrac{\bar X-\mu_0}{\sigma/\sqrt{n}}$ ha distribuzione normale standard $Z$.
 % 
@@ -1497,7 +1619,7 @@ Se $H_0$ è vera, $\bar X\sim N\bigg(\mu_0,\dfrac{\sigma^2}{n}\bigg)$.
 \hfill\rlap{.}\clearpage\subsection{Una coda, errore I e II tipo\hfill Z-test}
 
 
-Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20, 40$. Per gli errori del II tipo prendiamo $\delta=5$.
+Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20$ e $n= 40$ e con un $x_\alpha$ scelto in moto tale da avere $\alpha=5\%$. Per gli errori del II tipo prendiamo $\delta=5$.
 
 \hfil\includegraphics[width=0.8\textwidth]{figure/Z-test_01.pdf}
 
@@ -1514,13 +1636,18 @@ Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20, 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\subsection{Una coda, p valore.\hfill Z-test}
+\hfill\rlap{.}\clearpage\subsection{Una coda, p-valore.\hfill Z-test}
 
 
-Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=40$. Il p-valore di questa misura è $\Pr(\bar X>78)=1-\Pr(\bar X\le 78)$.
+Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=20$. Il p-valore di questa misura è $\Pr(\bar X\ge 78)=1-\Pr(\bar X\le 78)$.
 
+\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_01.pdf}
 
+Numericamente $\Pr(\bar X\ge \bar x)$ si può calcolare il p-valore usando la funzione {\tt pnorm(x,m,s).} Nel nostro caso i valori sono \ {\tt x}$=\bar x$,  \ {\tt m}$=\mu_0$, \ e  \ {\tt s}$=\sigma/\sqrt{n}$.
 
+Nel caso di un test a due code, se $H_A$ fosse stata $\mu_0\neq\mu$, il p-valore diventa esattamente il doppio che per il test ad una coda (anche se numericamente puotrebbe differire a causa degli arrotondamenti). 
+
+\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_02.pdf}
 
 
 %%%%%%%%%%%%
