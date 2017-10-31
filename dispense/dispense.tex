@@ -1521,7 +1521,7 @@ Se per entrambi i casi prendiamo la stessa regione di rifiuto misurata in punteg
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\
-\subsection{Prevalenza mancinismo (domanda in formato esame)}
+\subsection{Prevalenza mancinismo 1 (domanda in formato esame)}
 
 Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia ereditaria. Eseguiamo il seguente esperimento. Selezioniamo un campione di $1000$ persone con almeno un genitore mancino e misuriamo la frequenza di mancini. Concludiamo che la caratteristica \`e ereditaria se pi\`u di $115$ individui sono mancini.
 
@@ -1584,6 +1584,65 @@ Si assumano noti i valori delle seguenti funzioni
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\
+\subsection{Prevalenza mancinismo 2 (domanda in formato esame)}
+
+Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia ereditaria. Eseguiamo il seguente esperimento. Selezioniamo un campione di $1000$ persone con almeno un genitore mancino e misuriamo la frequenza di mancini. Otteniamo $112$ mancini. 
+
+\textbf{Domande}
+
+\begin{itemize}
+\item[1.] Qual è l'potesi nulla?
+
+\item[2.] Qual è l'potesi alternativa?
+
+\item[3.] Che test possiamo fare?
+
+\item[4.] Qual'è il p-valore ottenuto dai dati?
+
+\item[5.] Possiamo rigettare l'ipotesi nulla con una significatività del $\alpha=5\%$~?
+\end{itemize}
+
+\textbf{Risposte}
+
+\begin{itemize}
+\item[1.] $p=10\%$ dove $p$ è la prevalenza di mancini tra i figli di genitori mancini
+\item[2.]  $p>10\%$ 
+\item[3.] Test binomiale a una coda
+\item[4.] il p-valore è \ {\tt 1 - pbinom(112,1000,0.1)}\hfill ({\tt 0.095})
+\item[5.] no, perché $\alpha<$ p-valore.
+\end{itemize}
+
+
+\textit{N.B per 3-5, altre risposte corrette sono possibili (se coerenti).}
+
+\parskip1ex
+{\hrulefill\scriptsize
+
+Si assumano noti i valori delle seguenti funzioni
+
+{\tt pbinom(x,n,p)}=$P(X\le x)$, per $X\sim B(n,p)$
+\hfill 
+{\tt qbinom($\alpha$,n,p)=x},  dove $P(X\le x)=\alpha$ per $X\sim B(n,p)$
+
+{\tt pnorm(z)}=$P(Z\le z)$, per $Z\sim N(0,1)$
+\hfill 
+{\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
+
+{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+\hfill
+{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+
+{\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
+\hfill
+{\tt qchisq($\alpha$,k)=q},  dove $P(Q\le q)=\alpha$ per $Q\sim \chi^2_k$
+\par
+}
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\
 \section{Z-test}
 \label{Z-test}
 \hfill\textbf{{\color{brown}\hyperref[distribuzione normale]{La distribuzione normale \faShare}}}
@@ -1632,6 +1691,31 @@ Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20$ 
 
 
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\subsection{Crescita media}
+
+In condizioni ottimali l'incremento proporzionale di una certa cultura in una fissata unità di tempo ha media $\mu_0=3.1$ e deviazione standard $\sigma=1.2$. Vogliamo progettare un test per decidere se la crecita di una data cultura sia sub-ottimale. Assumiamo che la distribuzione sia normale e che in condizioni sub-ottimali la  deviazione standard sia la stessa. (Queste assunzioni sono abbastanza irragionevoli, ma portiamo pazienza.)
+
+Domande:
+
+\begin{itemize}
+\item[1] Preleviamo $n=9$ campioni, e misuriamo la crescita in un'unità di tempo. E calcoliamo la media campionaria $\bar x$. Quanto dev'essere $x_\alpha$ per poter affermare che con significatività $\alpha=1\%$ che siamo in condizioni sub-ottimali quando $\bar x<x_\alpha$~?
+\item[2] Dato $x_\alpha$ comer sopra. Qual'è la probabilità di un errore del II tipo se l'effect size è $\delta=0.5$~?
+\end{itemize}
+
+Risposte:
+
+\begin{itemize}
+\item[1] Vogliamo $1\%=\Pr(\bar X\le x_\alpha)$ con $\bar X\sim N(\mu_0,\sigma/\sqrt{n})$.\\
+Quindi $x_\alpha=${\tt\ qnorm(0.01,3.1,0.4)\,=\,2.17}
+\item[2] $\beta=\Pr(\bar X\le x_\alpha)$ con $\bar X\sim N(\mu_0-\delta,\sigma/\sqrt{n})$. \\
+Quindi  $\beta=${\tt\ pnorm(2.17,2.6,0.4)\,=\,0.14}.
+
+\end{itemize}
+
+
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -1643,11 +1727,79 @@ Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=20$. Il p-v
 
 \hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_01.pdf}
 
-Numericamente $\Pr(\bar X\ge \bar x)$ si può calcolare il p-valore usando la funzione {\tt pnorm(x,m,s).} Nel nostro caso i valori sono \ {\tt x}$=\bar x$,  \ {\tt m}$=\mu_0$, \ e  \ {\tt s}$=\sigma/\sqrt{n}$.
+Numericamente $\Pr(\bar X\le \bar x)$ si può calcolare usando la funzione {\tt pnorm(x,m,s).} Nel nostro caso i valori sono \ {\tt x}$\,=\bar x$,  \ {\tt m}$\,=\mu_0$, \ e  \ {\tt s}$\,=\sigma/\sqrt{n}$.
 
-Nel caso di un test a due code, se $H_A$ fosse stata $\mu_0\neq\mu$, il p-valore diventa esattamente il doppio che per il test ad una coda (anche se numericamente puotrebbe differire a causa degli arrotondamenti). 
+Nel caso di un test a due code, se $H_A$ fosse stata $\mu_0\neq\mu$, il p-valore diventa esattamente il doppio che per il test ad una coda (qui sotto differisce numericamente a causa degli arrotondamenti). 
 
 \hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_02.pdf}
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\
+\subsection{Mean weight (domanda in formato esame)}
+
+Boys of a certain age are known to have a mean weight of $85$ pounds and standard deviation $10.6$ pounds. A complaint is made that the boys living in a municipal children's home are overfed. As one bit of evidence, $25$ boys (of the same age) are weighed and found to have a mean weight of $88.94$ pounds. Assume the same standard deviation as in the general the population (the unrealistic part of this example).
+
+
+\textbf{Domande}
+
+\begin{itemize}
+\item[1.] Qual è l'potesi nulla?
+
+\item[2.] Qual è l'potesi alternativa?
+
+\item[3.] Che test possiamo fare?
+
+\item[4.] Qual'è il p-valore ottenuto dai dati?
+
+\item[5.] Possiamo rigettare l'ipotesi nulla con una significatività del $\alpha=5\%$~?
+\end{itemize}
+
+\textbf{Risposte} Definiamo:\\
+$\mu_0=85$\\
+$\sigma=10.6$\\
+$n=25$\\
+$\bar x=88.94$
+\begin{itemize}
+\item[1.] $\mu=\mu_0$.
+\item[2.] $\mu>\mu_0$ 
+\item[3.] $z$-test
+\item[4.] il p-valore è {\tt 1-pnorm(z)} dove $z=\dfrac{\bar x-\mu_0}{\sigma/\sqrt{n}}$.\hfill {\tt (0.03)}
+
+Lo stesso risultato si ottienre con {\tt 1-pnorm($\bar x,\mu_0,\sigma/\sqrt{n}$)}, ma non è tra le possibilità elencate in calce.
+\item[5.] si, perché  p-valore $<\alpha$.
+\end{itemize}
+
+\parskip1ex
+{\hrulefill\scriptsize
+
+Si assumano noti i valori delle seguenti funzioni
+
+{\tt pbinom(x,n,p)}=$P(X\le x)$, per $X\sim B(n,p)$
+\hfill 
+{\tt qbinom($\alpha$,n,p)=x},  dove $P(X\le x)=\alpha$ per $X\sim B(n,p)$
+
+{\tt pnorm(z)}=$P(Z\le z)$, per $Z\sim N(0,1)$
+\hfill 
+{\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
+
+{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+\hfill
+{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+
+{\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
+\hfill
+{\tt qchisq($\alpha$,k)=q},  dove $P(Q\le q)=\alpha$ per $Q\sim \chi^2_k$
+\par
+}
+
+
+
+
+
 
 
 %%%%%%%%%%%%
