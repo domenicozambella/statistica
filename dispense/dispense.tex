@@ -1690,6 +1690,116 @@ Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20$ 
 
 
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\subsection{Esempio di domanda in formato esame}
+
+(Ripetuto da sopra.) Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma^2)$ con $\mu_0=75$ e $\sigma=5.5$. Assumiamo che tra i pazienti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale. 
+
+Un esperimento consiste nel misurare il valor medio $\bar x$ della pressione diastolica di un campione di $n=64$ pazienti in terapia.
+
+Domande
+
+\begin{itemize}
+\item[1.] Qual è l'ipotesi nulla?
+\item[2.] Qual è l'ipotesi alternativa?
+\item[3.] Quale test dobbiamo usare?
+\item[3.] Qual è il valore di soglia $x_\alpha$ per cui possiamo rifiutare l'ipotesi nulla con un livello di confidenza del $95\%$ (ovvero significatività del $5\%$)~?
+\item[4.] Qual'è la potenza del test per un effect size $\delta=2$~? 
+\end{itemize}
+
+Risposte
+
+\begin{itemize}
+\item[1.] $H_0$: $\mu=\mu_0$
+\item[2.] $H_A$: $\mu>\mu_0$
+\item[3.] Z-test
+\item[3.] $0.05=\Pr(\bar X\ge x_\alpha\ |\ H_0)$ dove $\bar X\sim N(\mu_0,\sigma^2/n)$.\\
+Quindi $x_\alpha\ =\ ${\tt qnorm(0.95, $\mu_0$, $\sigma/\sqrt{n}$)\hfill(76.95)}
+\item[4.] La potenza del test è $1-\Pr(\bar X\le x_\alpha\ |\ H_A)$ dove $\bar X\sim N(\mu_0+\delta,\sigma^2/n)$.\\
+Quindi la potenza è \ {\tt 1-pnorm($x_\alpha$, $\mu_0+\delta$, $\sigma/\sqrt{n}$)} \hfill{\tt(0.90)}
+\end{itemize}
+
+
+\parskip1ex
+{\hrulefill\scriptsize
+
+Si assumano noti i valori delle seguenti funzioni
+
+{\tt pbinom(x,n,p)}=$P(X\le x)$, per $X\sim B(n,p)$
+\hfill 
+{\tt qbinom($\alpha$,n,p)=x},  dove $P(X\le x)=\alpha$ per $X\sim B(n,p)$
+
+{\tt pnorm(x,$\mu$,$\sigma$)}=$P(X\le x)$, per $X\sim N(\mu,\sigma^2)$
+\hfill 
+{\tt qnorm($\alpha$,$\mu$,$\sigma$)=x},  dove $P(X\le x)=\alpha$ per $X\sim N(\mu,\sigma^2)$
+
+{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+\hfill
+{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+
+{\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
+\hfill
+{\tt qchisq($\alpha$,k)=q},  dove $P(Q\le q)=\alpha$ per $Q\sim \chi^2_k$
+\par
+}
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\subsection{Esempio di domanda in formato esame)}
+
+(Ripetuto da sopra.) Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma^2)$ con $\mu_0=75$ e $\sigma=5.5$. Assumiamo che tra i pazienti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale.  
+
+(Variazione.) Misuriamo la pressione media di un campione di $n=64$ pazienti e osserviamo la media campionaria $\bar x=77$.
+
+Domande
+
+\begin{itemize}
+\item[1.] Qual è l'ipotesi nulla?
+\item[2.] Qual è l'ipotesi alternativa?
+\item[3.] Quale test dobbiamo usare?
+\item[3.] Qual è il p-valore ottenuto dai dati~?
+\item[4.] Possiamo rigettare l'ipotesi nulla con una significatività del $1\%$~? 
+\end{itemize}
+
+Risposte
+
+\begin{itemize}
+\item[1.] $H_0$: $\mu=\mu_0$
+\item[2.] $H_A$: $\mu>\mu_0$
+\item[3.] Z-test
+\item[3.] $0.05=\Pr(\bar X\ge x_\alpha\ |\ H_0)$ dove $\bar X\sim N(\mu_0,\sigma^2/n)$.\\
+Quindi $x_\alpha\ =\ ${\tt qnorm(0.95, $\mu_0$, $\sigma/\sqrt{n}$)\hfill(76.95)}
+\item[4.] La potenza del test è $1-\Pr(\bar X\le x_\alpha\ |\ H_A)$ dove $\bar X\sim N(\mu_0+\delta,\sigma^2/n)$.\\
+Quindi la potenza è \ {\tt 1-pnorm($x_\alpha$, $\mu_0+\delta$, $\sigma/\sqrt{n}$)} \hfill{\tt(0.90)}
+\end{itemize}
+
+
+\parskip1ex
+{\hrulefill\scriptsize
+
+Si assumano noti i valori delle seguenti funzioni
+
+{\tt pbinom(x,n,p)}=$P(X\le x)$, per $X\sim B(n,p)$
+\hfill 
+{\tt qbinom($\alpha$,n,p)=x},  dove $P(X\le x)=\alpha$ per $X\sim B(n,p)$
+
+{\tt pnorm(x,$\mu$,$\sigma$)}=$P(X\le x)$, per $X\sim N(\mu,\sigma^2)$
+\hfill 
+{\tt qnorm($\alpha$,$\mu$,$\sigma$)=x},  dove $P(X\le x)=\alpha$ per $X\sim N(\mu,\sigma^2)$
+
+{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+\hfill
+{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+
+{\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
+\hfill
+{\tt qchisq($\alpha$,k)=q},  dove $P(Q\le q)=\alpha$ per $Q\sim \chi^2_k$
+\par
+}
+
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -1702,7 +1812,7 @@ Domande:
 
 \begin{itemize}
 \item[1] Preleviamo $n=9$ campioni, e misuriamo la crescita in un'unità di tempo. E calcoliamo la media campionaria $\bar x$. Quanto dev'essere $x_\alpha$ per poter affermare che con significatività $\alpha=1\%$ che siamo in condizioni sub-ottimali quando $\bar x<x_\alpha$~?
-\item[2] Dato $x_\alpha$ comer sopra. Qual'è la probabilità di un errore del II tipo se l'effect size è $\delta=0.5$~?
+\item[2] Dato $x_\alpha$ come sopra. Qual'è la probabilità di un errore del II tipo se l'effect size è $\delta=0.5$~?
 \end{itemize}
 
 Risposte:
