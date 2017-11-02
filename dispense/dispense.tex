@@ -790,6 +790,7 @@ N.B. È vacile progettare un test che minimizza una tra $\Pr(T_+|H_0)$ o $\Pr(T_
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{Il p-valore}
+\label{pvalore}
 
 
 
@@ -814,7 +815,7 @@ La seconda definizione suona più semplice ma bisogna precisare cosa si intende 
 
 Quando possibile si effettua una trasformazione di coordinate in modo tale da avere $w_0=0$. Questo semplifica l'espressione del p-valore che diventa 
 
-\ceq{}{=}{\Pr\big(W\le w\big) + \Pr\big(W\ge w\big)}.
+\ceq{}{=}{\Pr\big(W\le |w|\big) + \Pr\big(W\ge |w|\big)}.
 
 Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{per esempio \faShare}\ ) una tra possibilità quindi il p-valore si riduce a $\Pr\big(W\le w\big)$ o $\Pr\big(W\ge w\big)$.
 
@@ -883,18 +884,15 @@ Più in generale $X$ ha \emph{distribuzione normale\/} con media $\mu$ e varianz
 
 \ceq{\hfill\Pr(X\le x)}{=}{\frac 1 {\sqrt{2\pi\sigma^2}} \int_{-\infty}^x e^{-(t-\mu)^2/2\sigma^2} \, {\rm d}t}
 
-\medskip
+\bigskip
 
-Importante proprietà
-
-
-
-
-se $X_1,\dots,X_n$ sono variabili aleatorie indipendenti con distribuzione $N(\mu,\sigma^2)$ allora la variabile media compionaria
+Importante proprietà: se $X_1,\dots,X_n$ sono variabili aleatorie indipendenti con distribuzione $N(\mu,\sigma^2)$ allora la variabile media compionaria
 
 \ceq{\hfill \emph{$\bar X$}}{=}{\frac1n\sum_{i=1}^n X_i}
 
-ha distribuzione $N(\mu,\dfrac{\sigma^2}{n})$.
+ha distribuzione $N\Big(\mu,\dfrac{\sigma^2}{n}\Big)$. 
+
+La deviazione standard di $\bar X$ si chiama \emph{errore standard\/} \`e quindi $\sigma/\sqrt{n}$.
 
 
 
@@ -902,11 +900,10 @@ ha distribuzione $N(\mu,\dfrac{\sigma^2}{n})$.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{The Central Limit Theorem}
-\label{distribuzione normale}
 
-Let $X_1, X_2, ... , X_n$ be a random sample (i.e.\@ independent and identically distributed random variables) from any distribution with mean $\mu$ and variance $\sigma^2$ (both finite).
+Let $X_1,\dots, X_n$ be a random sample (i.e.\@ independent and identically distributed random variables) from \textit{any\/} distribution with mean $\mu$ and variance $\sigma^2$.
 
-then $\bar X$ has mean $\E(\bar X)=\mu$ and variance $\Var(\bar X)=\sigma^2/n$. Moreover, if the sample size $n$ is \textit{sufficiently large\/} then 
+Then $\bar X$ has mean $\E(\bar X)=\mu$ and variance $\Var(\bar X)=\sigma^2/n$. Moreover, if the sample size $n$ is \textit{sufficiently large\/} then 
 
 \ceq{\hfill \emph{$Z$}}{=}{\frac{\bar X - \mu}{\sigma/\sqrt{n}}}
 
@@ -1543,16 +1540,20 @@ Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia e
 \item[7.] Supponiamo di volere un test con la significatività del $1\%$ come dobbiamo sceglere la zona di rifiuto?
 \end{itemize}
 
-\textbf{Risposte}
+\textbf{Risposte} Definiamo: \ $n=1000$,\hfil
+$x=115$,\hfil
+$p_0=0.10$,\hfil
+$p_1=0.12$,\hfil
+$\alpha=0.01$\hfil
 
 \begin{itemize}
-\item[1.] $p=10\%$ dove $p$ è la prevalenza di mancini tra i figli di genitori mancini.
-\item[2.]  $p>10\%$ 
+\item[1.] $H_0$: \ $p=p_0$ dove $p$ è la prevalenza del mancinismo tra i figli di mancini.
+\item[2.] $H_A$: \ $p>p_0$ 
 \item[3.] Test binomiale a una coda.
-\item[4.]  $\tt 1 - pbinom(115,1000,0.1)$\hfill ($\tt 0.053$)
-\item[5.]  $\tt pbinom(115,1000,0.12)$\hfill ($\tt 0.033$)
-\item[6.]  $\tt 1- pbinom(115,1000,0.12)$\hfill ($\tt 0.67$)
-\item[7.]  rifiutiamo $H_0$ se più di $\tt qbinom(0.99,1000,0.1)$ mancini \hfill ($\tt 123$) 
+\item[4.] $\Pr(X> x)$ dove $X\sim B(n,p)$ ovvero {\tt 1-pbinom($x$,$n$,$p_0$)}\hfill {\tt(0.053)}
+\item[5.] $\beta=\Pr(X\le x)$ dove $X\sim B(n,p_1)$ ovvero {\tt pbinom($x$,$n$,$p_1$)}\hfill {\tt (0.033)}
+\item[6.]  La potenza è $1-\beta$\hfill {\tt (0.67)}
+\item[7.]  Rifiutiamo $H_0$ se più di {\tt qbinom($1-\alpha$,$n$,$p_0$)} mancini \hfill {\tt (123)}
 \end{itemize}
 
 \textit{N.B per 3-7, altre risposte corrette sono possibili (se coerenti).}
@@ -1705,8 +1706,8 @@ Domande
 \item[1.] Qual è l'ipotesi nulla?
 \item[2.] Qual è l'ipotesi alternativa?
 \item[3.] Quale test dobbiamo usare?
-\item[3.] Qual è il valore di soglia $x_\alpha$ per cui possiamo rifiutare l'ipotesi nulla con un livello di confidenza del $95\%$ (ovvero significatività del $5\%$)~?
-\item[4.] Qual'è la potenza del test per un effect size $\delta=2$~? 
+\item[4.] Qual è il valore di soglia $x_\alpha$ per cui possiamo rifiutare l'ipotesi nulla con un livello di confidenza del $95\%$ (ovvero significatività del $5\%$)~?
+\item[5.] Qual'è la potenza del test per un effect size $\delta=2$~? 
 \end{itemize}
 
 Risposte
@@ -1714,10 +1715,10 @@ Risposte
 \begin{itemize}
 \item[1.] $H_0$: $\mu=\mu_0$
 \item[2.] $H_A$: $\mu>\mu_0$
-\item[3.] Z-test
-\item[3.] $0.05=\Pr(\bar X\ge x_\alpha\ |\ H_0)$ dove $\bar X\sim N(\mu_0,\sigma^2/n)$.\\
+\item[3.] Z-test a una coda (coda superiore)
+\item[4.] $x_\alpha$ è tale che $0.05=\Pr(\bar X\ge x_\alpha\ |\ H_0)$ dove $\bar X\sim N(\mu_0,\sigma^2/n)$.\\
 Quindi $x_\alpha\ =\ ${\tt qnorm(0.95, $\mu_0$, $\sigma/\sqrt{n}$)\hfill(76.95)}
-\item[4.] La potenza del test è $1-\Pr(\bar X\le x_\alpha\ |\ H_A)$ dove $\bar X\sim N(\mu_0+\delta,\sigma^2/n)$.\\
+\item[5.] La potenza del test è $1-\Pr(\bar X\le x_\alpha\ |\ H_A)$ dove $\bar X\sim N(\mu_0+\delta,\sigma^2/n)$.\\
 Quindi la potenza è \ {\tt 1-pnorm($x_\alpha$, $\mu_0+\delta$, $\sigma/\sqrt{n}$)} \hfill{\tt(0.90)}
 \end{itemize}
 
@@ -1735,7 +1736,7 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$,$\mu$,$\sigma$)=x},  dove $P(X\le x)=\alpha$ per $X\sim N(\mu,\sigma^2)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
 \hfill
 {\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
 
@@ -1745,10 +1746,92 @@ Si assumano noti i valori delle seguenti funzioni
 \par
 }
 
+
+
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\subsection{Esempio di domanda in formato esame)}
+\hfill\rlap{.}\clearpage\
+\subsection{Prevalenza mancinismo 3 (domanda in formato esame)}
+
+Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia ereditaria. Eseguiamo il seguente esperimento. Selezioniamo un campione di $1000$ persone con almeno un genitore mancino e misuriamo la frequenza di mancini.
+
+\textbf{Domande}
+
+\begin{itemize}
+\item[1.] Qual è l'potesi nulla?
+
+\item[2.] Qual è l'potesi alternativa?
+
+\item[3.] Che test possiamo fare?
+
+\item[4.] Quale valore di soglia otteniamo se vogliamo rifiutare $H_0$ con una significatività del $5\%$~?
+\end{itemize}
+
+\textbf{Risposte} Definiamo:\\
+$p_0=10\%$\\
+$p=$  prevalenza di mancini tra i figli di genitori mancini\\
+$\sigma_0=\sqrt{n\, p_0(1-p_0)}$\\
+$n=1000$\\
+$x$ frequenza rilevata\\
+$z=\dfrac{x - \mu_0}{\sigma_0/\sqrt{n}}=\dfrac{x - \mu_0}{\sqrt{p_0(1-p_0)}}$\\
+
+\begin{itemize}
+\item[1.] $H_0$:\ $p=p_0$ 
+\item[2.] $H_A$:\ $p>p_0$ 
+\item[3.] Z-test a una coda (coda superiore)
+\item[4.] Il valore di soglia per $z$ è $z_\alpha$ tale che $\alpha=\Pr(Z>z_\alpha)$.\\
+Quindi $z_\alpha\ =\ ${\tt qnorm(1-$\alpha$)}\\
+Quindi il valore di soglia per la frequenza è $x_\alpha\ =\ z_\alpha\sqrt{p_0(1-p_0)} +\mu_0$.
+\end{itemize}
+
+\textit{N.B. avremmo potuto usare il test binomiale.}
+
+\parskip1ex
+{\hrulefill\scriptsize
+
+Si assumano noti i valori delle seguenti funzioni
+
+{\tt pbinom(x,n,p)}=$P(X\le x)$, per $X\sim B(n,p)$
+\hfill 
+{\tt qbinom($\alpha$,n,p)=x},  dove $P(X\le x)=\alpha$ per $X\sim B(n,p)$
+
+{\tt pnorm(z)}=$P(Z\le z)$, per $Z\sim N(0,1)$
+\hfill 
+{\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
+
+{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
+\hfill
+{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+
+{\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
+\hfill
+{\tt qchisq($\alpha$,k)=q},  dove $P(Q\le q)=\alpha$ per $Q\sim \chi^2_k$
+\par
+}
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\subsection{Una coda, p-valore.\hfill Z-test}
+\hfill\textbf{{\color{brown}\hyperref[pvalore]{Il p-valore \faShare}}}
+
+(Continua l'esempio pressione diastolica.) Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=20$. Il p-valore di questa misura è $\Pr(\bar X\ge 78)=1-\Pr(\bar X\le 78)$.
+
+\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_01.pdf}
+
+Numericamente $\Pr(\bar X\le \bar x)$ si può calcolare usando la funzione {\tt pnorm(x,m,s)} Nel nostro caso i valori sono \ {\tt x}$\,=\bar x$,  \ {\tt m}$\,=\mu_0$, \ e  \ {\tt s}$\,=\sigma/\sqrt{n}$
+
+Nel caso di un test a due code, se $H_A$ fosse stata $\mu_0\neq\mu$, il p-valore diventa esattamente il doppio che per il test ad una coda (qui sotto differisce numericamente a causa degli arrotondamenti). 
+
+\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_02.pdf}
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\subsection{Esempio di domanda in formato esame}
 
 (Ripetuto da sopra.) Si sospetta che una certa terapia faccia aumentare la pressione diastolica. Nella popolazione generale la pressione diastolica ha distribuzione $N(\mu_0,\sigma^2)$ con $\mu_0=75$ e $\sigma=5.5$. Assumiamo che tra i pazienti in terapia la pressione diastolica sia distribuita normalmente con media ignota $\mu$ e con la stessa deviazione standard della popolazione generale.  
 
@@ -1757,10 +1840,10 @@ Si assumano noti i valori delle seguenti funzioni
 Domande
 
 \begin{itemize}
-\item[1.] Qual è l'ipotesi nulla?
-\item[2.] Qual è l'ipotesi alternativa?
-\item[3.] Quale test dobbiamo usare?
-\item[3.] Qual è il p-valore ottenuto dai dati~?
+\item[1.] Qual è l'ipotesi nulla~?
+\item[2.] Qual è l'ipotesi alternativa~?
+\item[3.] Quale test dobbiamo usare~?
+\item[3.] Qual è il p-valore ottenuto dal valore di $\bar x$ misurato~?
 \item[4.] Possiamo rigettare l'ipotesi nulla con una significatività del $1\%$~? 
 \end{itemize}
 
@@ -1770,10 +1853,8 @@ Risposte
 \item[1.] $H_0$: $\mu=\mu_0$
 \item[2.] $H_A$: $\mu>\mu_0$
 \item[3.] Z-test
-\item[3.] $0.05=\Pr(\bar X\ge x_\alpha\ |\ H_0)$ dove $\bar X\sim N(\mu_0,\sigma^2/n)$.\\
-Quindi $x_\alpha\ =\ ${\tt qnorm(0.95, $\mu_0$, $\sigma/\sqrt{n}$)\hfill(76.95)}
-\item[4.] La potenza del test è $1-\Pr(\bar X\le x_\alpha\ |\ H_A)$ dove $\bar X\sim N(\mu_0+\delta,\sigma^2/n)$.\\
-Quindi la potenza è \ {\tt 1-pnorm($x_\alpha$, $\mu_0+\delta$, $\sigma/\sqrt{n}$)} \hfill{\tt(0.90)}
+\item[3.] p-valore\ =\ $\Pr(\bar X\ge \bar x\ |\ H_0)\ =\ 1-\Pr(\bar X\le \bar x\ |\ H_0)$ dove $\bar X\sim N(\mu_0,\sigma/\sqrt{n})$.\\ Quindi p-valore\ =\ {\tt 1-pnorm($\bar x$,\,$\mu_0$,\,$\sigma/\sqrt{n}$)}
+\item[4.] Si, se p-valore $< 0.01$
 \end{itemize}
 
 
@@ -1790,7 +1871,7 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$,$\mu$,$\sigma$)=x},  dove $P(X\le x)=\alpha$ per $X\sim N(\mu,\sigma^2)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
 \hfill
 {\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
 
@@ -1824,24 +1905,6 @@ Quindi $x_\alpha=${\tt\ qnorm(0.01,3.1,0.4)\,=\,2.17}
 Quindi  $\beta=${\tt\ pnorm(2.17,2.6,0.4)\,=\,0.14}.
 
 \end{itemize}
-
-
-
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\subsection{Una coda, p-valore.\hfill Z-test}
-
-
-Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=20$. Il p-valore di questa misura è $\Pr(\bar X\ge 78)=1-\Pr(\bar X\le 78)$.
-
-\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_01.pdf}
-
-Numericamente $\Pr(\bar X\le \bar x)$ si può calcolare usando la funzione {\tt pnorm(x,m,s).} Nel nostro caso i valori sono \ {\tt x}$\,=\bar x$,  \ {\tt m}$\,=\mu_0$, \ e  \ {\tt s}$\,=\sigma/\sqrt{n}$.
-
-Nel caso di un test a due code, se $H_A$ fosse stata $\mu_0\neq\mu$, il p-valore diventa esattamente il doppio che per il test ad una coda (qui sotto differisce numericamente a causa degli arrotondamenti). 
-
-\hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_02.pdf}
 
 
 
