@@ -1779,14 +1779,14 @@ $p=$  prevalenza del mancinismo tra i figli di genitori mancini\\
 $\sigma_0=\sqrt{n\, p_0(1-p_0)}$\\
 $n=1000$\\
 $x = $ frequenza relativa rilevata\\
-$z=\dfrac{x - \mu_0}{\sigma_0/\sqrt{n}}=\dfrac{x - \mu_0}{\sqrt{p_0(1-p_0)}}$\\
+$z=\dfrac{x - p_0}{\sigma_0/\sqrt{n}}=\dfrac{x - p_0}{\sqrt{p_0(1-p_0)}}$\\
 
 \begin{itemize}
 \item[1.] $H_0$: \ $p=p_0$ 
 \item[2.] $H_A$: \ $p>p_0$ 
 \item[3.] Z-test a una coda (superiore). Approssimiamo binomiale con normale.
 \item[4.] La soglia per $z$ è $z_\alpha$ tale che $\alpha=\Pr(Z>z_\alpha)$. Quindi $z_\alpha\ =\ ${\tt qnorm(1-$\alpha$)}\\
-La soglia per la frequenza è $x_\alpha\ =\ z_\alpha\sqrt{p_0(1-p_0)} +\mu_0$.
+La soglia per la frequenza è $x_\alpha\ =\ z_\alpha\sqrt{p_0(1-p_0)} +p_0$.
 \end{itemize}
 
 \textit{N.B. avremmo potuto usare il test binomiale.}
@@ -1943,7 +1943,7 @@ $\bar x=88.94$
 \begin{itemize}
 \item[1.] $\mu=\mu_0$.
 \item[2.] $\mu>\mu_0$ 
-\item[3.] $z$-test
+\item[3.] Z-test una coda (superiore)
 \item[4.] il p-valore è {\tt 1-pnorm(z)} dove $z=\dfrac{\bar x-\mu_0}{\sigma/\sqrt{n}}$.\hfill {\tt (0.03)}
 
 Lo stesso risultato si ottienre con {\tt 1-pnorm($\bar x,\mu_0,\sigma/\sqrt{n}$)}, ma non è tra le possibilità elencate in calce.
