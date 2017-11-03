@@ -900,6 +900,7 @@ La deviazione standard di $\bar X$ si chiama \emph{errore standard\/} \`e quindi
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\section{The Central Limit Theorem}
+\label{CLT}
 
 Let $X_1,\dots, X_n$ be a random sample (i.e.\@ independent and identically distributed random variables) from \textit{any\/} distribution with mean $\mu$ and variance $\sigma^2$.
 
@@ -1505,7 +1506,7 @@ Si noti che le regioni di rifiuto non sono le stesse. In effetti
 \ceq{}{=}{1.90}\qquad se $n=40$, \ $k=26$, \ $p=05$
 
 
-Se per entrambi i casi prendiamo la stessa regione di rifiuto misurata in punteggio $Z$, diciamo $(-\infty, -1.34]\ \cup\ [1.34, +\infty)]$, che corrisponde a $k=24$ o $25$,  avremmo ottenuto praticamente lo stesso $\alpha$. Infatti una volta standardizzate le due distribuzioni diventano estremamente simili. Lo scopo dela standardizzazione è rendere evidenti queste similitudini.  
+Se per entrambi i casi prendiamo la stessa regione di rifiuto misurata in punteggio $Z$, diciamo $(-\infty, -1.34]\ \cup\ [1.34, +\infty)$, che corrisponde a $k=24$ o $25$,  avremmo ottenuto praticamente lo stesso $\alpha$. Infatti una volta standardizzate le due distribuzioni diventano estremamente simili. Lo scopo dela standardizzazione è rendere evidenti queste similitudini.  
 
 
 \hfil\includegraphics[width=0.9\textwidth]{figure/B-test-standard2_01.pdf}
@@ -1522,7 +1523,7 @@ Se per entrambi i casi prendiamo la stessa regione di rifiuto misurata in punteg
 
 Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia ereditaria. Eseguiamo il seguente esperimento. Selezioniamo un campione di $1000$ persone con almeno un genitore mancino e misuriamo la frequenza di mancini. Concludiamo che la caratteristica \`e ereditaria se pi\`u di $115$ individui sono mancini.
 
-\textbf{Domande}
+\textbf{Domande.}
 
 \begin{itemize}
 \item[1.] Qual è l'potesi nulla?
@@ -1531,16 +1532,16 @@ Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia e
 
 \item[3.] Che test possiamo fare?
 
-\item[4.] Esprimere la significatività del test usando una delle funzioni di R riportate in calce.
+\item[4.] Qual è la significatività del test ? (Usare le funzioni di R in calce).
 
-\item[5.] Suppiamo che un leggero fattore ereditario renda la prevalenza del mancinismo tra i figli di un genitore mancino $\ge12\%$. Stimare la probabilità che questa dipendenza ereditaria non venga rilevata dal nostro test. 
+\item[5.] Supponiamo che un leggero fattore ereditario renda la prevalenza del mancinismo tra i figli di un genitore mancino $\ge12\%$. Stimare la probabilità che questa dipendenza ereditaria non venga rilevata dal test. 
 
 \item[6.] Qual è la potenza del test nel caso descritto sopra.
 
 \item[7.] Supponiamo di volere un test con la significatività del $1\%$ come dobbiamo sceglere la zona di rifiuto?
 \end{itemize}
 
-\textbf{Risposte} Definiamo: \ $n=1000$,\hfil
+\textbf{Risposte.} \ Definiamo: \ $n=1000$,\hfil
 $x=115$,\hfil
 $p_0=0.10$,\hfil
 $p_1=0.12$,\hfil
@@ -1571,7 +1572,7 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
 \hfill
 {\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
 
@@ -1598,18 +1599,20 @@ Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia e
 
 \item[3.] Che test possiamo fare?
 
-\item[4.] Qual'è il p-valore ottenuto dai dati?
+\item[4.] Qual è il p-valore ottenuto dai dati?
 
 \item[5.] Possiamo rigettare l'ipotesi nulla con una significatività del $\alpha=5\%$~?
 \end{itemize}
 
-\textbf{Risposte}
+\textbf{Risposte} \ Definiamo: \ $n=1000$,\hfil
+$x=112$,\hfil
+$p_0=0.10$\hfil
 
 \begin{itemize}
-\item[1.] $p=10\%$ dove $p$ è la prevalenza di mancini tra i figli di genitori mancini
-\item[2.]  $p>10\%$ 
+\item[1.] $p=p_0$ dove $p$ è la prevalenza di mancini tra i figli di genitori mancini
+\item[2.]  $p>p_0$ 
 \item[3.] Test binomiale a una coda
-\item[4.] il p-valore è \ {\tt 1 - pbinom(112,1000,0.1)}\hfill ({\tt 0.095})
+\item[4.] il p-valore è \ {\tt 1 - pbinom($x$,$n$,$p_0$)}\hfill ({\tt 0.095})
 \item[5.] no, perché $\alpha<$ p-valore.
 \end{itemize}
 
@@ -1629,7 +1632,7 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
 \hfill
 {\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
 
@@ -1753,6 +1756,8 @@ Si assumano noti i valori delle seguenti funzioni
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\
 \subsection{Prevalenza mancinismo 3 (domanda in formato esame)}
+\label{mancini3}
+\hfill\textbf{{\color{brown}\hyperref[CLT]{Il teorema del limite centrale \faShare}}}
 
 Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia ereditaria. Eseguiamo il seguente esperimento. Selezioniamo un campione di $1000$ persone con almeno un genitore mancino e misuriamo la frequenza di mancini.
 
@@ -1768,21 +1773,20 @@ Il $10\%$ è delle persone sono mancine. Ci chiediamo se la caratteristica sia e
 \item[4.] Quale valore di soglia otteniamo se vogliamo rifiutare $H_0$ con una significatività del $5\%$~?
 \end{itemize}
 
-\textbf{Risposte} Definiamo:\\
+\textbf{Risposte} \ Definiamo: 
 $p_0=10\%$\\
-$p=$  prevalenza di mancini tra i figli di genitori mancini\\
+$p=$  prevalenza del mancinismo tra i figli di genitori mancini\\
 $\sigma_0=\sqrt{n\, p_0(1-p_0)}$\\
 $n=1000$\\
-$x$ frequenza rilevata\\
+$x = $ frequenza relativa rilevata\\
 $z=\dfrac{x - \mu_0}{\sigma_0/\sqrt{n}}=\dfrac{x - \mu_0}{\sqrt{p_0(1-p_0)}}$\\
 
 \begin{itemize}
-\item[1.] $H_0$:\ $p=p_0$ 
-\item[2.] $H_A$:\ $p>p_0$ 
-\item[3.] Z-test a una coda (coda superiore)
-\item[4.] Il valore di soglia per $z$ è $z_\alpha$ tale che $\alpha=\Pr(Z>z_\alpha)$.\\
-Quindi $z_\alpha\ =\ ${\tt qnorm(1-$\alpha$)}\\
-Quindi il valore di soglia per la frequenza è $x_\alpha\ =\ z_\alpha\sqrt{p_0(1-p_0)} +\mu_0$.
+\item[1.] $H_0$: \ $p=p_0$ 
+\item[2.] $H_A$: \ $p>p_0$ 
+\item[3.] Z-test a una coda (superiore). Approssimiamo binomiale con normale.
+\item[4.] La soglia per $z$ è $z_\alpha$ tale che $\alpha=\Pr(Z>z_\alpha)$. Quindi $z_\alpha\ =\ ${\tt qnorm(1-$\alpha$)}\\
+La soglia per la frequenza è $x_\alpha\ =\ z_\alpha\sqrt{p_0(1-p_0)} +\mu_0$.
 \end{itemize}
 
 \textit{N.B. avremmo potuto usare il test binomiale.}
@@ -1827,7 +1831,6 @@ Nel caso di un test a due code, se $H_A$ fosse stata $\mu_0\neq\mu$, il p-valore
 
 \hfil\includegraphics[width=0.8\textwidth]{figure/Z-test-p-val_02.pdf}
 
-
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -1843,7 +1846,7 @@ Domande
 \item[1.] Qual è l'ipotesi nulla~?
 \item[2.] Qual è l'ipotesi alternativa~?
 \item[3.] Quale test dobbiamo usare~?
-\item[3.] Qual è il p-valore ottenuto dal valore di $\bar x$ misurato~?
+\item[3.] Qual è il p-valore ottenuto dalla misura $\bar x$ misurato~?
 \item[4.] Possiamo rigettare l'ipotesi nulla con una significatività del $1\%$~? 
 \end{itemize}
 
@@ -1852,7 +1855,7 @@ Risposte
 \begin{itemize}
 \item[1.] $H_0$: $\mu=\mu_0$
 \item[2.] $H_A$: $\mu>\mu_0$
-\item[3.] Z-test
+\item[3.] Z-test una coda (coda superiore)
 \item[3.] p-valore\ =\ $\Pr(\bar X\ge \bar x\ |\ H_0)\ =\ 1-\Pr(\bar X\le \bar x\ |\ H_0)$ dove $\bar X\sim N(\mu_0,\sigma/\sqrt{n})$.\\ Quindi p-valore\ =\ {\tt 1-pnorm($\bar x$,\,$\mu_0$,\,$\sigma/\sqrt{n}$)}
 \item[4.] Si, se p-valore $< 0.01$
 \end{itemize}
@@ -1880,6 +1883,7 @@ Si assumano noti i valori delle seguenti funzioni
 {\tt qchisq($\alpha$,k)=q},  dove $P(Q\le q)=\alpha$ per $Q\sim \chi^2_k$
 \par
 }
+
 
 
 %%%%%%%%%%%%
