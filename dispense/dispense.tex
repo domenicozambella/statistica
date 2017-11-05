@@ -817,7 +817,7 @@ Quando possibile si effettua una trasformazione di coordinate in modo tale da av
 
 \ceq{}{=}{\Pr\big(W\le |w|\big) + \Pr\big(W\ge |w|\big)}.
 
-Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{per esempio \faShare}\ ) una tra possibilità quindi il p-valore si riduce a $\Pr\big(W\le w\big)$ o $\Pr\big(W\ge w\big)$.
+Comunque, quando $H_A$ indica che il test è ad una coda, quindi il p-valore si riduce a $\Pr\big(W\le w\big)$ o $\Pr\big(W\ge w\big)$ a seconda se si tratta della coda superiore o i quella inferiore.
 
 
 
@@ -828,7 +828,7 @@ Comunque, quando $H_A$ permette un test ad una coda (\hyperref[Bernoulli_test]{p
 
 Un campione $\{X_1,\dots,X_n\}$ è un insieme di v.a.\@ indipendenti e identicamente distribuite. Il numero $n$ si chiama \emph{rango\/} (o \emph{dimensione\/}) del campione. 
 
-Una \emph{statistica\/} è una variabile aleatoria a valori in $\RR$ ottenuta come funzione delle variabili aleatorie di un campione. Una statistica che ha come valore atteso un certo parametro di una distribuzione (vedremo solo $\mu$  $\sigma$) s chiama uno  \emph{stimatore\/} di quel parametro.
+Una \emph{statistica\/} è una variabile aleatoria a valori in $\RR$ ottenuta come funzione delle variabili aleatorie di un campione. Una statistica che ha come valore atteso un certo parametro di una distribuzione (vedremo solo $\mu$ e $\sigma$) si chiama uno  \emph{stimatore\/} di quel parametro.
 
 Gli esempi più noti sono $\bar X$, la \emph{media campionaria\/} ed $S$, lo \emph{stimatore della deviazione standard\/} 
 
@@ -910,6 +910,41 @@ Then $\bar X$ has mean $\E(\bar X)=\mu$ and variance $\Var(\bar X)=\sigma^2/n$. 
 
 has \textit{approximately\/} distribution $N(0,1)$.
 
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{La distribuzione t di Student}
+\label{tStudent}
+
+
+Esempi: \hyperref[Z-test]{$Z$-test \faShare}
+
+Diremo che la v.a.\@ $X$ a valori reali ha \emph{distribuzione t di Student\/} con \emph{$\nu=n-1$ gradi di libertà\/} abbreviato con $X\sim t_{\nu}$, se
+
+\bigskip
+
+$\displaystyle\Pr(X\le x)\medrel{=}C_n \int_{-\infty}^x \bigg(1+\frac {t^2} {n-1}\bigg)^{-n/2} {\rm d}t$%\hfill \href{http://homepage.divms.uiowa.edu/~mbognar/applets/normal.html}{il grafico di $\displaystyle\bigg(1+\frac {x^2} {n-1}\bigg)^{-n/2}$ \faShare}
+
+dove $C_n$ è un opportuna costante che dipende da $n$.
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{La distribuzione t di Student}
+\label{tStudent}
+
+
+Siano $X_1,\dots, X_n$ un campione di v.a.\@ normali con valore atteso $\mu_0$ (supposto noto) e varianza $\sigma$ (supposta ignota). Posto
+
+\ceq{\hfill \emph{$\bar X$}}{=}{\frac1n\sum_{i=1}^n X_i}
+
+\ceq{\hfill  \emph{$S$}}{=}{\sqrt{\frac1{n-1}\sum_{i=1}^n (X_i-\bar X)^2}}
+
+Allora $T=\dfrac{\bar {X}-\mu_0}{S/\sqrt{n}}$ ha distribuzione $t_{n-1}$.
 
 
 
@@ -1991,7 +2026,7 @@ Ad un gruppo di persone vengono misurati 50 diversi parametri fisiologici (che a
 
 Risposta:\kern3ex $1-(0.98)^{50}=64\%$
 
-
+\begin{comment}
 \section{Inferenza Bayesiana}
 
 In un casinó si gioca a testa o croce ($1$ o $0$) con tre tipi di monete che hanno probabilità di successo $1/2$, $2/3$, e $1/3$. Il casinò sceglie la moneta e continua a giocare con la stessa moneta per tutto il giorno. Il giocatore non sa quale moneta sia scelta.
@@ -2111,5 +2146,5 @@ $\displaystyle\begin{array}{ccccccccc}
 \displaystyle\sum^n_{j=0}a_{n,j}&=& a_{n,0}&+&a_{n,1}&+&\dots&+&a_{n,n}\\
 \end{array}$
 
-
+\end{comment}
 \end{document}
