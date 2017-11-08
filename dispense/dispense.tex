@@ -921,14 +921,13 @@ has \textit{approximately\/} distribution $N(0,1)$.
 
 Esempi: \hyperref[Z-test]{$Z$-test \faShare}
 
-Diremo che la v.a.\@ $X$ a valori reali ha \emph{distribuzione t di Student\/} con \emph{$\nu=n-1$ gradi di libertà\/} abbreviato con $X\sim t_{\nu}$, se
+Diremo che la v.a.\@ $X$ a valori reali ha \emph{distribuzione t di Student\/} con \emph{$\nu=n-1$ gradi di libertà\/} abbreviato con $X\sim t(\nu)$, se
 
 \bigskip
 
 $\displaystyle\Pr(X\le x)\medrel{=}C_n \int_{-\infty}^x \bigg(1+\frac {t^2} {n-1}\bigg)^{-n/2} {\rm d}t$%\hfill \href{http://homepage.divms.uiowa.edu/~mbognar/applets/normal.html}{il grafico di $\displaystyle\bigg(1+\frac {x^2} {n-1}\bigg)^{-n/2}$ \faShare}
 
 dove $C_n$ è un opportuna costante che dipende da $n$.
-
 
 
 %%%%%%%%%%%%
@@ -944,9 +943,38 @@ Siano $X_1,\dots, X_n$ un campione di v.a.\@ normali con valore atteso $\mu_0$ (
 
 \ceq{\hfill  \emph{$S$}}{=}{\sqrt{\frac1{n-1}\sum_{i=1}^n (X_i-\bar X)^2}}
 
-Allora $T=\dfrac{\bar {X}-\mu_0}{S/\sqrt{n}}$ ha distribuzione $t_{n-1}$.
+Allora $T=\dfrac{\bar {X}-\mu_0}{S/\sqrt{n}}$ ha distribuzione $t(n-1)$.
 
 
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Intervallo di confidenza}
+\label{IC}
+
+\def\ceq#1#2#3{\parbox{20ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+
+\subsection{Intervallo di confidenza per normale con varianza nota}
+\label{IC_varianza_nota}
+
+Consideriamo v.a.\@ $X\sim N(\mu,\sigma^2)$ con $\sigma$ nota e $\mu$ ignota.  Sia $\bar X$ la media campionaria. Fissiamo un $\epsilon>0$.
+
+La probabilit\`a che $\bar X$ sia a distanza inferiore a $\epsilon$ da $\mu$ è
+
+\ceq{\hfill\Pr(\mu-\epsilon<\bar X<\mu+\epsilon)}{=}{\Pr(-\bar X-\epsilon<-\mu<-\bar X+\epsilon)}
+
+
+\ceq{}{=}{\Pr(\bar X-\epsilon<\mu<\bar X+\epsilon)}
+
+\ceq{}{=}{1-\alpha}\hfill (questa è una definizione di $\alpha$)
+
+Se in un esperimento misuriamo $\bar x$, diremo che $\mu=\bar x\pm\epsilon$ con confidenza $1-\alpha$, o che $(\bar x-\epsilon,\bar x+\epsilon)$ è un intervallo di confidenza di livello $1-\alpha$.
+
+L'interpretazione `e che se ripetiamo l'esperimento, con probabilità $1-\alpha$ ritroveremo un intervallo che contiene $\mu$.
+
+N.B. L'intervallo \`e la variabile alearoria, $\mu$ è un numero fissato, purché ignoto. 
 
 \chapter{Esempi ed esercizi}
 \label{ch2}
@@ -1607,9 +1635,9 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
+{\tt pt(t,$\nu$)} = $P(T\le t)$ per $T\sim t(\nu)$
 \hfill
-{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+{\tt qt($\alpha$,$\nu$)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(\nu)$
 
 {\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
 \hfill
@@ -1667,9 +1695,9 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
+{\tt pt(t,$\nu$)} = $P(T\le t)$ per $T\sim t(\nu)$
 \hfill
-{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+{\tt qt($\alpha$,$\nu$)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(\nu)$
 
 {\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
 \hfill
@@ -1774,9 +1802,9 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$,$\mu$,$\sigma$)=x},  dove $P(X\le x)=\alpha$ per $X\sim N(\mu,\sigma^2)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
+{\tt pt(t,$\nu$)} = $P(T\le t)$ per $T\sim t(\nu)$
 \hfill
-{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+{\tt qt($\alpha$,$\nu$)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(\nu)$
 
 {\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
 \hfill
@@ -1839,9 +1867,9 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
+{\tt pt(t,$\nu$)} = $P(T\le t)$ per $T\sim t(\nu)$
 \hfill
-{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+{\tt qt($\alpha$,$\nu$)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(\nu)$
 
 {\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
 \hfill
@@ -1909,9 +1937,9 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$,$\mu$,$\sigma$)=x},  dove $P(X\le x)=\alpha$ per $X\sim N(\mu,\sigma^2)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $T\sim t(n)$
+{\tt pt(t,$\nu$)} = $P(T\le t)$ per $T\sim t(\nu)$
 \hfill
-{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+{\tt qt($\alpha$,$\nu$)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(\nu)$
 
 {\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
 \hfill
@@ -1998,9 +2026,9 @@ Si assumano noti i valori delle seguenti funzioni
 \hfill 
 {\tt qnorm($\alpha$)=z},  dove $P(Z\le z)=\alpha$ per $Z\sim N(0,1)$
 
-{\tt pt(t,n)} = $P(T\le t)$ per $Z\sim t(n)$
+{\tt pt(t,$\nu$)} = $P(T\le t)$ per $T\sim t(\nu)$
 \hfill
-{\tt qt($\alpha$,n)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(n)$
+{\tt qt($\alpha$,$\nu$)=t}, dove $P(T\le t)=\alpha$ per $T\sim t(\nu)$
 
 {\tt pchisq(q,k)} = $P(Q\le q)$, per $Q\sim \chi^2_k$
 \hfill
@@ -2010,9 +2038,118 @@ Si assumano noti i valori delle seguenti funzioni
 
 
 
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\
+\section{T-test}
+\label{Z-test}
+\hfill\textbf{{\color{brown}\hyperref[tStudent]{La distribuzione t di Student \faShare}}}
+\subsection{Una popolazione}
+A professor wants to know if her introductory statistics class has a good grasp of basic math. Six students are chosen at random from the class and given a math proficiency test. The professor wants the class to be able to score above 70 on the test. The six students get scores of 62, 92, 75, 68, 83, and 95. Can the professor have 90\%  confidence that the mean score for the class on the test would be above 70?
+
+$\strut n=6$
+
+$\mu_0=70$
+
+$\bar x =\dfrac1n\big(62+92+75+68+83+95\big) =79.17$
+
+$s = \sqrt{\dfrac{\strut(62-\bar x)^2+(92-\bar x)^2+(75-\bar x)^2+(68-\bar x)^2+(83-\bar x)^2+(95-\bar x)^2}{n-1}}$
+
+$\strut\phantom{s} = 13.17$
+
+\begin{itemize}
+\item[1.] $H_0$ \ $\mu_0 = 70$
+
+\item[2.] $H_A$ \ $\mu>\mu_0$
+
+\item[3.] Il $t$-score è 
+$t = \dfrac{\bar x - \mu_0}{s/\sqrt{n}}=\dfrac{79.17-70}{13.17/\sqrt{6}} = 1.71$
+
+\item[4.] Il p-valore è $\Pr(T\ge t)$ dve $T\sim t(5)$. Ovvero {\tt pt($t$, $n-1$)}\hfill{\tt (0.074)}
+
+In R la funzione il risultato si ottiene direttamente con
+
+{\tt 
+x = c(62,92,75,68,83,95)\\
+t.test(x, alternative='greater', mu=70)}
+
+Quindi possiamo affermare con un livello di confidenza $\ge 90\%$ che il voto medio della classe in un ipotetico esame sarà del $>70$.  
+\end{itemize}
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\
+\subsection{Due popolazioni}
+Si sospetta che un certo medicinale modifichi la pressione diastolica.  Prendiamo due gruppi di $n_x=6$ e $n_y=5$ persone. Al primo gruppo somministriamo il medicinale al secondo un placebo. Assumiamo che in entrambi i casi la pressione diastolica sia distribuita normalmente con la stessa deviazione standard (ignota). Nel primo gruppo otteniamo i valori $x_1,\dots,x_6=62,92,75,68,83,95$ nel secondo gruppo $y_1,\dots,y_5=60,95,76,69,89$.
+
+\begin{itemize}
+\item[1.] $H_0$ \ $\mu_x = \mu_y$\hfill la media nelle due popolazioni è la stessa 
+
+\item[2.] $H_A$ \ $\mu_x\neq\mu_y$\hfill la media nelle due popolazioni è diversa 
+
+
+\item[3.] $T$-test per due popolazioni a due code
+
+\item[3.] Il $t$-score è 
+$t = \dfrac{\bar x - \bar y}{\sqrt{s^2_x/n_x+s^2_y/n_y}}$ dove 
+
+$\displaystyle\bar x = \frac1{n_x}\sum^6_{i=1}x_i$\hfil$\displaystyle\bar y = \frac1{n_y}\sum^6_{i=1}y_i$
+
+
+$\displaystyle s^2_x= \frac1{n_x-1}\sum^{n_x}_{i=1}(x_i-\bar x)^2$\hfil
+$\displaystyle s^2_y= \frac1{n_y-1}\sum^{n_y}_{i=1}(y_i-\bar y)^2$
 
 
 
+
+\item[4.] Il p-valore è $2\Pr(T\ge |t|)$ dove $T\sim t(n_x+n_y-2)$.\\ 
+Ovvero {\tt 2 * (1 - pt($|t|$, $n_x+n_y-2$))}
+
+In R la funzione il risultato si ottiene direttamente con
+
+{\tt 
+x = c(62,92,75,68,83,95)\\
+y = c(60,95,76,69,89)\\
+t.test(x, y, alternative='two', var.equal = TRUE)}
+\end{itemize}
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\
+\subsection{Dati accoppiati}
+
+Si sospetta che un certo medicinale modifichi la pressione diastolica.  Prendiamo un gruppo di $n=6$ persone. Somministriamo ad ogni individuo prima un placebo e successivamente il medicinale. Assumiamo che in entrambi i casi la pressione diastolica sia distribuita normalmente. Con il placebo otteniamo i valori $x_1,\dots,x_6=62,92,75,68,83,95$ con il medicinale otteniamo i valori $y_1,\dots,y_6=60,95,76,69,89,90$.
+
+
+
+\begin{itemize}
+\item[1.] $H_0$ \ $\mu = 0$
+
+\item[2.] $H_A$ \ $\mu\neq0$
+
+\item[3.] $T$-test per due campioni accoppiati a due code
+
+\item[3.] Il $t$-score è 
+$t = \dfrac{\bar z}{s/\sqrt{n}}$ dove $z_i=x_i-z_i$ e
+
+$\displaystyle\bar z = \frac1{n}\sum^n_{i=1}z_i$
+
+$\displaystyle s^2= \frac1{n}\sum^n_{i=1}z_i^2$
+
+\item[4.] Il p-valore è $2\Pr(T\ge |t|)$ dove $T\sim t(n-1)$.\\ 
+Ovvero {\tt 2 * (1 - pt($|t|$, $n-1$))}
+
+In R la funzione il risultato si ottiene direttamente con
+
+{\tt 
+x = c(62,92,75,68,83,95)\\
+y = c(60,95,76,69,89,90)\\
+t.test(x, y, alternative='two', paired=TRUE)}
+\end{itemize}
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
