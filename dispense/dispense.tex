@@ -957,13 +957,14 @@ Allora $T=\dfrac{\bar {X}-\mu_0}{S/\sqrt{n}}$ ha distribuzione $t(n-1)$.
 \subsection{Intervallo di confidenza: normale con varianza nota}
 \label{IC_varianza_nota}
 
+Esempio: \hyperref[ICTesempio1]{\faShare}
+
 Consideriamo v.a.\@ $X\sim N(\mu,\sigma^2)$ con $\sigma$ nota e $\mu$ ignota.  Sia $\bar X$ la media campionaria. Fissiamo un $\epsilon>0$ e calcoliamo la probabilità che $\bar X$ sia a distanza inferiore a $\epsilon$ da $\mu$
 
 \ceq{\hfill\Pr(\mu-\epsilon<\bar X<\mu+\epsilon)}{=}{\Pr(-\epsilon<\bar X-\mu<\epsilon)}
 
 \ceq{}{=}{\Pr\bigg(-\frac{\epsilon}{\sigma/\sqrt{n}}<Z<\frac{\epsilon}{\sigma/\sqrt{n}}\bigg)}
  
-
 \ceq{\mbox{Chiamiamo\ questa\ probabilit\`a}}{=}{1-\alpha}\hfill \emph{livello di confidenza}.
 
 Se $\sigma$ è assunta nota, possiamo calcolare $\alpha$ dato $\epsilon$. Viceversa possiamo calcolare $\epsilon$ dato $\alpha$. Notiamo che
@@ -978,8 +979,6 @@ L'interpretazione \`e la sequente: se ripetiamo l'esperimento, con probabilità 
 
 N.B. L'intervallo \`e la variabile alearoria, $\mu$ è un numero fissato, purché ignoto. 
 
-
-
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -987,8 +986,7 @@ N.B. L'intervallo \`e la variabile alearoria, $\mu$ è un numero fissato, purch�
 \hfill\rlap{.}\clearpage\subsection{Intervallo di confidenza: normale con varianza ignota}
 \label{IC_varianza_ignota}
 
-
-Esempi: \hyperref[ICTesempio1]{\faShare}
+Esempio: \hyperref[ICTesempio1]{\faShare}
 
 Consideriamo v.a.\@ $X\sim N(\mu,\sigma^2)$ con $\sigma$ e $\mu$ ignote.  Sia $\bar X$ la media campionaria  ed $S$ lo stimatore della deviazione standard. Fissiamo un $\epsilon>0$ e calcoliamo la probabilità che $\bar X$ sia a distanza inferiore a $\epsilon$ da $\mu$
 
@@ -996,20 +994,15 @@ Consideriamo v.a.\@ $X\sim N(\mu,\sigma^2)$ con $\sigma$ e $\mu$ ignote.  Sia $\
 
 \ceq{}{=}{\Pr\bigg(-\frac{\epsilon}{S/\sqrt{n}}<T<\frac{\epsilon}{S/\sqrt{n}}\bigg)}
 
-
 Sia $s$ è il valore osservato di $S$ e assumiamo che questa probabilità venga approssimato da
 
 \ceq{}{\simeq}{\Pr\bigg(-\frac{\epsilon}{s/\sqrt{n}}<T<\frac{\epsilon}{s/\sqrt{n}}\bigg).}
 
-
 \ceq{\mbox{Chiamiamo\ questa\ probabilit\`a}}{=}{1-\alpha}\hfill \emph{livello di confidenza}.
-
 
 Ora possiamo calcolare $\alpha$ dato $\epsilon$. E viceversa possiamo calcolare $\epsilon$ dato $\alpha$. 
 
 Se in un esperimento misuriamo $\bar x$, diremo che $\mu=\bar x\pm\epsilon$ con confidenza $1-\alpha$, o che $(\bar x-\epsilon,\bar x+\epsilon)$ è un intervallo di confidenza di livello $1-\alpha$.
-
-
 
 
 \chapter{Esempi ed esercizi}
@@ -2206,6 +2199,9 @@ t.test(x, y, alternative='two', paired=TRUE)}
 \label{ICTesempio1}
 \hfill\textbf{{\color{brown}\hyperref[IC_varianza_ignota]{Intervallo di confidenza: normale con varianza ignota \faShare}}}
 
+
+\hfill\textbf{{\color{brown}\hyperref[IC_varianza_nota]{varianza nota \faShare}}}
+
 Da una popolazione con distribuzione normale, media e varianza ignota, misuriamo i valori $x_1,\dots,x_6=62,92,75,68,83,95$. Si calcoli un intervallo di confidenza al $95\%$ per la media di popolazione.
 
 \ceq{\hfill\bar x}{=}{ \frac1{6}\sum^6_{i=1}x_i}\hfill {\tt (79.17)}
@@ -2224,7 +2220,7 @@ N.B. Se la deviazione standard della popolazione fosse stata nota, diciamo $\sig
 
 \ceq{\hfill\epsilon}{=}{\dfrac{z\,\sigma}{\sqrt{6}}}\hfill {\tt (16.35)}
 
-Come era da aspettarsi, a parità di confidenza, l'errore è più piccolo.
+Come era da aspettarsi, a parità di confidenza, l'errore è più grande.
 
 
 %%%%%%%%%%%%
