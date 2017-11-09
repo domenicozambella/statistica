@@ -918,9 +918,6 @@ has \textit{approximately\/} distribution $N(0,1)$.
 \hfill\rlap{.}\clearpage\section{La distribuzione t di Student}
 \label{tStudent}
 
-
-Esempi: \hyperref[Z-test]{$Z$-test \faShare}
-
 Diremo che la v.a.\@ $X$ a valori reali ha \emph{distribuzione t di Student\/} con \emph{$\nu=n-1$ gradi di libertà\/} abbreviato con $X\sim t(\nu)$, se
 
 \bigskip
@@ -936,6 +933,7 @@ dove $C_n$ è un opportuna costante che dipende da $n$.
 \hfill\rlap{.}\clearpage\section{La distribuzione t di Student}
 \label{tStudent}
 
+Esempi: \hyperref[T-test]{$T$-test \faShare}
 
 Siano $X_1,\dots, X_n$ un campione di v.a.\@ normali con valore atteso $\mu_0$ (supposto noto) e varianza $\sigma$ (supposta ignota). Posto
 
@@ -954,27 +952,65 @@ Allora $T=\dfrac{\bar {X}-\mu_0}{S/\sqrt{n}}$ ha distribuzione $t(n-1)$.
 \hfill\rlap{.}\clearpage\section{Intervallo di confidenza}
 \label{IC}
 
-\def\ceq#1#2#3{\parbox{20ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
+\def\ceq#1#2#3{\parbox{29ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
-\subsection{Intervallo di confidenza per normale con varianza nota}
+\subsection{Intervallo di confidenza: normale con varianza nota}
 \label{IC_varianza_nota}
 
-Consideriamo v.a.\@ $X\sim N(\mu,\sigma^2)$ con $\sigma$ nota e $\mu$ ignota.  Sia $\bar X$ la media campionaria. Fissiamo un $\epsilon>0$.
+Consideriamo v.a.\@ $X\sim N(\mu,\sigma^2)$ con $\sigma$ nota e $\mu$ ignota.  Sia $\bar X$ la media campionaria. Fissiamo un $\epsilon>0$ e calcoliamo la probabilità che $\bar X$ sia a distanza inferiore a $\epsilon$ da $\mu$
 
-La probabilit\`a che $\bar X$ sia a distanza inferiore a $\epsilon$ da $\mu$ è
+\ceq{\hfill\Pr(\mu-\epsilon<\bar X<\mu+\epsilon)}{=}{\Pr(-\epsilon<\bar X-\mu<\epsilon)}
+
+\ceq{}{=}{\Pr\bigg(-\frac{\epsilon}{\sigma/\sqrt{n}}<Z<\frac{\epsilon}{\sigma/\sqrt{n}}\bigg)}
+ 
+
+\ceq{\mbox{Chiamiamo\ questa\ probabilit\`a}}{=}{1-\alpha}\hfill \emph{livello di confidenza}.
+
+Se $\sigma$ è assunta nota, possiamo calcolare $\alpha$ dato $\epsilon$. Viceversa possiamo calcolare $\epsilon$ dato $\alpha$. Notiamo che
 
 \ceq{\hfill\Pr(\mu-\epsilon<\bar X<\mu+\epsilon)}{=}{\Pr(-\bar X-\epsilon<-\mu<-\bar X+\epsilon)}
 
-
 \ceq{}{=}{\Pr(\bar X-\epsilon<\mu<\bar X+\epsilon)}
-
-\ceq{}{=}{1-\alpha}\hfill (questa è una definizione di $\alpha$)
 
 Se in un esperimento misuriamo $\bar x$, diremo che $\mu=\bar x\pm\epsilon$ con confidenza $1-\alpha$, o che $(\bar x-\epsilon,\bar x+\epsilon)$ è un intervallo di confidenza di livello $1-\alpha$.
 
-L'interpretazione `e che se ripetiamo l'esperimento, con probabilità $1-\alpha$ ritroveremo un intervallo che contiene $\mu$.
+L'interpretazione \`e la sequente: se ripetiamo l'esperimento, con probabilità $1-\alpha$ ritroveremo un intervallo che contiene $\mu$.
 
 N.B. L'intervallo \`e la variabile alearoria, $\mu$ è un numero fissato, purché ignoto. 
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\subsection{Intervallo di confidenza: normale con varianza ignota}
+\label{IC_varianza_ignota}
+
+
+Esempi: \hyperref[ICTesempio1]{\faShare}
+
+Consideriamo v.a.\@ $X\sim N(\mu,\sigma^2)$ con $\sigma$ e $\mu$ ignote.  Sia $\bar X$ la media campionaria  ed $S$ lo stimatore della deviazione standard. Fissiamo un $\epsilon>0$ e calcoliamo la probabilità che $\bar X$ sia a distanza inferiore a $\epsilon$ da $\mu$
+
+\ceq{\hfill\Pr(\mu-\epsilon<\bar X<\mu+\epsilon)}{=}{\Pr(-\epsilon<\bar X-\mu<\epsilon)}
+
+\ceq{}{=}{\Pr\bigg(-\frac{\epsilon}{S/\sqrt{n}}<T<\frac{\epsilon}{S/\sqrt{n}}\bigg)}
+
+
+Sia $s$ è il valore osservato di $S$ e assumiamo che questa probabilità venga approssimato da
+
+\ceq{}{\simeq}{\Pr\bigg(-\frac{\epsilon}{s/\sqrt{n}}<T<\frac{\epsilon}{s/\sqrt{n}}\bigg).}
+
+
+\ceq{\mbox{Chiamiamo\ questa\ probabilit\`a}}{=}{1-\alpha}\hfill \emph{livello di confidenza}.
+
+
+Ora possiamo calcolare $\alpha$ dato $\epsilon$. E viceversa possiamo calcolare $\epsilon$ dato $\alpha$. 
+
+Se in un esperimento misuriamo $\bar x$, diremo che $\mu=\bar x\pm\epsilon$ con confidenza $1-\alpha$, o che $(\bar x-\epsilon,\bar x+\epsilon)$ è un intervallo di confidenza di livello $1-\alpha$.
+
+
+
 
 \chapter{Esempi ed esercizi}
 \label{ch2}
@@ -2043,7 +2079,7 @@ Si assumano noti i valori delle seguenti funzioni
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\
 \section{T-test}
-\label{Z-test}
+\label{T-test}
 \hfill\textbf{{\color{brown}\hyperref[tStudent]{La distribuzione t di Student \faShare}}}
 \subsection{Una popolazione}
 A professor wants to know if her introductory statistics class has a good grasp of basic math. Six students are chosen at random from the class and given a math proficiency test. The professor wants the class to be able to score above 70 on the test. The six students get scores of 62, 92, 75, 68, 83, and 95. Can the professor have 90\%  confidence that the mean score for the class on the test would be above 70?
@@ -2063,10 +2099,15 @@ $\strut\phantom{s} = 13.17$
 
 \item[2.] $H_A$ \ $\mu>\mu_0$
 
-\item[3.] Il $t$-score è 
+\item[3.] $T$-test due popolazioni (dati non accoppiati) coda superiore. 
+
+\item[4.] Il $t$-score è 
 $t = \dfrac{\bar x - \mu_0}{s/\sqrt{n}}=\dfrac{79.17-70}{13.17/\sqrt{6}} = 1.71$
 
-\item[4.] Il p-valore è $\Pr(T\ge t)$ dve $T\sim t(5)$. Ovvero {\tt pt($t$, $n-1$)}\hfill{\tt (0.074)}
+\item[5.] Il p-valore è $\Pr(T\ge t)$ dve $T\sim t(5)$. Ovvero {\tt pt($t$, $n-1$)}\hfill{\tt (0.074)}
+
+
+\hrulefill\hfill\hfill
 
 In R la funzione il risultato si ottiene direttamente con
 
@@ -2091,12 +2132,12 @@ Si sospetta che un certo medicinale modifichi la pressione diastolica.  Prendiam
 \item[2.] $H_A$ \ $\mu_x\neq\mu_y$\hfill la media nelle due popolazioni è diversa 
 
 
-\item[3.] $T$-test per due popolazioni a due code
+\item[3.] $T$-test a due code per due popolazioni con dati accoppiati
 
 \item[3.] Il $t$-score è 
 $t = \dfrac{\bar x - \bar y}{\sqrt{s^2_x/n_x+s^2_y/n_y}}$ dove 
 
-$\displaystyle\bar x = \frac1{n_x}\sum^6_{i=1}x_i$\hfil$\displaystyle\bar y = \frac1{n_y}\sum^6_{i=1}y_i$
+$\displaystyle\bar x = \frac1{n_x}\sum^{n_x}_{i=1}x_i$\hfil$\displaystyle\bar y = \frac1{n_y}\sum^{n_y}_{i=1}y_i$
 
 
 $\displaystyle s^2_x= \frac1{n_x-1}\sum^{n_x}_{i=1}(x_i-\bar x)^2$\hfil
@@ -2107,6 +2148,8 @@ $\displaystyle s^2_y= \frac1{n_y-1}\sum^{n_y}_{i=1}(y_i-\bar y)^2$
 
 \item[4.] Il p-valore è $2\Pr(T\ge |t|)$ dove $T\sim t(n_x+n_y-2)$.\\ 
 Ovvero {\tt 2 * (1 - pt($|t|$, $n_x+n_y-2$))}
+
+\hrulefill\hfill\hfill
 
 In R la funzione il risultato si ottiene direttamente con
 
@@ -2127,21 +2170,23 @@ Si sospetta che un certo medicinale modifichi la pressione diastolica.  Prendiam
 
 
 \begin{itemize}
-\item[1.] $H_0$ \ $\mu = 0$
+\item[1.] $H_0$ \ $\mu = 0$\hfill la media delle differenze è $0$
 
 \item[2.] $H_A$ \ $\mu\neq0$
 
 \item[3.] $T$-test per due campioni accoppiati a due code
 
 \item[3.] Il $t$-score è 
-$t = \dfrac{\bar z}{s/\sqrt{n}}$ dove $z_i=x_i-z_i$ e
+$t = \dfrac{\bar z}{s/\sqrt{n}}$ dove $z_i=x_i-y_i$ e
 
 $\displaystyle\bar z = \frac1{n}\sum^n_{i=1}z_i$
 
-$\displaystyle s^2= \frac1{n}\sum^n_{i=1}z_i^2$
+$\displaystyle s^2= \frac1{n-1}\sum^n_{i=1}(z_i-\bar z)^2$
 
 \item[4.] Il p-valore è $2\Pr(T\ge |t|)$ dove $T\sim t(n-1)$.\\ 
 Ovvero {\tt 2 * (1 - pt($|t|$, $n-1$))}
+
+\hrulefill\hfill\hfill
 
 In R la funzione il risultato si ottiene direttamente con
 
@@ -2151,6 +2196,37 @@ y = c(60,95,76,69,89,90)\\
 t.test(x, y, alternative='two', paired=TRUE)}
 \end{itemize}
 
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\
+\subsection{Esempio calcolo intervallo si confidenza}
+\label{ICTesempio1}
+\hfill\textbf{{\color{brown}\hyperref[IC_varianza_ignota]{Intervallo di confidenza: normale con varianza ignota \faShare}}}
+
+Da una popolazione con distribuzione normale, media e varianza ignota, misuriamo i valori $x_1,\dots,x_6=62,92,75,68,83,95$. Si calcoli un intervallo di confidenza al $95\%$ per la media di popolazione.
+
+\ceq{\hfill\bar x}{=}{ \frac1{6}\sum^6_{i=1}x_i}\hfill {\tt (79.17)}
+
+\ceq{\hfill s}{=}{ \sqrt{\frac1{5}\sum^{6}_{i=1}(x_i-\bar x)^2}}\hfill {\tt (13.17)}
+
+L'intervallo di confidenza è $\bar x\pm\epsilon$ dove $\epsilon$ è tale che 
+
+\ceq{\hfill 0.95}{=}{\Pr\bigg(-\frac{\epsilon}{s/\sqrt{n}}<T<\frac{\epsilon}{s/\sqrt{n}}\bigg)}
+
+Sia $t\ =\ ${\tt -qt(0.025,5) $\simeq$ 2.57} allora 
+
+\ceq{\hfill\epsilon}{=}{\dfrac{t\,s}{\sqrt{6}}}\hfill {\tt (13.82)}
+
+N.B. Se la deviazione standard della popolazione fosse stata nota, diciamo $\sigma=13.17$ allora posto $z\ =\ ${\tt -qnorm(0.25) $\simeq$ 0.67} avremmo ottenuto
+
+\ceq{\hfill\epsilon}{=}{\dfrac{z\,\sigma}{\sqrt{6}}}\hfill {\tt (16.35)}
+
+Come era da aspettarsi, a parità di confidenza, l'errore è più piccolo.
+
+
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -2158,11 +2234,12 @@ t.test(x, y, alternative='two', paired=TRUE)}
 \subsection{Placebo\hfill Esercizi}
 
 
-Ad un gruppo di persone vengono misurati 50 diversi parametri fisiologici (che assumiamo indipendenti) prima e dopo l'assunzione di un placebo. Per ognuno di questi parametri l'ipotesi nulla è che non ci sia differenza. Qual'è la probabilità che per almeno uno di questi parametri si ottenga p-valore $<0.02$~?
+Ad un gruppo di persone vengono misurati 100 diversi parametri fisiologici (che assumiamo indipendenti) prima e dopo l'assunzione di un placebo. Per ognuno di questi parametri l'ipotesi nulla è che non ci sia differenza. Qual'è la probabilità che per almeno uno di questi parametri si ottenga p-valore $<0.02$~?
 
 
-Risposta:\kern3ex $1-(0.98)^{50}=64\%$
+Risposta:\kern3ex $1-(0.98)^{100}=87\%$
 
+\hfill\rlap{.}\clearpage\
 \begin{comment}
 \section{Inferenza Bayesiana}
 
