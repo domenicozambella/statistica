@@ -85,13 +85,6 @@ diagrams={>=latex}
 \def\epsilon{\varepsilon}
 \def\ssf#1{\textsf{\small #1}}
 
-\titlecontents{section}
-[3.8em] % ie, 1.5em (chapter) + 2.3em
-{\vskip-1ex}
-{\contentslabel{1.5em}}
-{\hspace*{-2.3em}}
-{\titlerule*[1pc]{}\contentspage}
-
 
 \titleformat
 {\chapter} % command
@@ -171,13 +164,33 @@ diagrams={>=latex}
 \def\gr{\color{green}}
 \def\vl{\color{violet}}
 
+\titlecontents{section}
+[3.8em] % ie, 1.5em (chapter) + 2.3em
+{\vskip-1ex}
+{\contentslabel{2em}}
+{\hspace*{-2.3em}}
+{\titlerule*[1pc]{}\contentspage}
+
+
+\titlecontents{subsection}
+[6em] % ie, 1.5em (chapter) + 2.3em
+{\vskip-1ex}
+{\contentslabel{2.2em}}
+{\hspace*{-0.3em}}
+{\titlerule*[1pc]{}\contentspage}
 
 
 \begin{document}
 \setlength{\abovedisplayskip}{-1ex}
 \setlength{\belowdisplayskip}{0pt}
 
+\renewcommand{\contentsname}{Un bignami di probabilità e statistica
+\vskip0pt
+\normalsize È solo una bozza. L'anno prossimo andrà meglio. Per l'ultima versione:
+\vskip-20pt
+{\scriptsize\url{https://github.com/domenicozambella/statistica/raw/master/dispense/dispense.pdf}}}
 
+\tableofcontents
 
 \chapter{Teoria (il minimo sindacale)}
 \raggedbottom
@@ -945,16 +958,13 @@ Allora $T=\dfrac{\bar {X}-\mu_0}{S/\sqrt{n}}$ ha distribuzione $t(n-1)$.
 
 
 
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-%%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Intervallo di confidenza}
-\label{IC}
-
 \def\ceq#1#2#3{\parbox{29ex}{$\displaystyle #1$}\medrel{#2}$\displaystyle  #3$}
 
-\subsection{Intervallo di confidenza: normale con varianza nota}
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\hfill\rlap{.}\clearpage\section{Intervallo di confidenza, varianza nota}
 \label{IC_varianza_nota}
 
 Esempio: \hyperref[ICTesempio1]{\faShare}
@@ -983,7 +993,7 @@ N.B. L'intervallo \`e la variabile alearoria, $\mu$ è un numero fissato, purch�
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\subsection{Intervallo di confidenza: normale con varianza ignota}
+\hfill\rlap{.}\clearpage\section{Intervallo di confidenza, varianza ignota}
 \label{IC_varianza_ignota}
 
 Esempio: \hyperref[ICTesempio1]{\faShare}
@@ -1771,7 +1781,7 @@ Se $H_A$ è vera, $\bar X\sim N\bigg(\mu,\dfrac{\sigma^2}{n}\bigg)$ per qualche 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\subsection{Una coda, errore I e II tipo\hfill Z-test}
+\hfill\rlap{.}\clearpage\subsection{Una coda, errore I e II tipo}
 
 
 Qui rappresentiamo gli errori del I e II tipo per campioni di dimensione $n=20$ e $n= 40$ e con un $x_\alpha$ scelto in moto tale da avere $\alpha=5\%$. Per gli errori del II tipo prendiamo $\delta=5$.
@@ -1910,7 +1920,7 @@ Si assumano noti i valori delle seguenti funzioni
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\subsection{Una coda, p-valore.\hfill Z-test}
+\hfill\rlap{.}\clearpage\subsection{Una coda, p-valore}
 \hfill\textbf{{\color{brown}\hyperref[pvalore]{Il p-valore \faShare}}}
 
 (Continua l'esempio pressione diastolica.) Supponiamo di ottenere $\bar x=78.0$ da un campione di dimensione $n=20$. Il p-valore di questa misura è $\Pr(\bar X\ge 78)=1-\Pr(\bar X\le 78)$.
@@ -2195,7 +2205,7 @@ t.test(x, y, alternative='two', paired=TRUE)}
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 \hfill\rlap{.}\clearpage\
-\subsection{Esempio calcolo intervallo si confidenza}
+\section{Intervallo di confidenza}
 \label{ICTesempio1}
 \hfill\textbf{{\color{brown}\hyperref[IC_varianza_ignota]{Intervallo di confidenza: normale con varianza ignota \faShare}}}
 
@@ -2220,17 +2230,15 @@ N.B. Se la deviazione standard della popolazione fosse stata nota, diciamo $\sig
 
 \ceq{\hfill\epsilon}{=}{\dfrac{z\,\sigma}{\sqrt{6}}}\hfill {\tt (16.35)}
 
-Come era da aspettarsi, a parità di confidenza, l'errore è più grande.
-
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\clearpage\section{Esercizi vari}
-\subsection{Placebo\hfill Esercizi}
+%%%%%%\clearpage\section{Esercizi vari}
+\subsection{Placebo}
 
 
-Ad un gruppo di persone vengono misurati 100 diversi parametri fisiologici (che assumiamo indipendenti) prima e dopo l'assunzione di un placebo. Per ognuno di questi parametri l'ipotesi nulla è che non ci sia differenza. Qual'è la probabilità che per almeno uno di questi parametri si ottenga p-valore $<0.02$~?
+Ad un gruppo di persone vengono misurati 100 diversi parametri fisiologici (che assumiamo indipendenti) prima e dopo l'assunzione di un placebo. Per ognuno di questi parametri l'ipotesi nulla è che non ci sia differenza. Supponendo che il placebo non causi alcuna differenza, qual'è la probabilità che per almeno uno di questi parametri si ottenga p-valore $<0.02$~?
 
 
 Risposta:\kern3ex $1-(0.98)^{100}=87\%$
