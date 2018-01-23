@@ -187,12 +187,18 @@ diagrams={>=latex}
 \renewcommand{\contentsname}{Un bignami di probabilità e statistica
 \vskip0pt
 \normalsize È solo una bozza. L'anno prossimo andrà meglio. Per l'ultima versione:
-\vskip-20pt
-{\scriptsize\url{https://github.com/domenicozambella/statistica/raw/master/dispense/dispense.pdf}}}
+\vskip-10pt
+{\scriptsize\url{https://github.com/domenicozambella/statistica/raw/master/dispense/dispense.pdf}}
 
+\begin{flushright}\normalfont\itshape
+La matematica è utilissima.\\
+I matematici, invece, assolutamente inutili.\\
+D.Z.
+\end{flushright}}
+\vskip-5ex
 \tableofcontents
 
-\chapter{Teoria (il minimo sindacale)}
+\chapter{Teoria (il minimo sindacale)} 
 \raggedbottom
 
 Per esempi ed esercizi seguire i \hyperref[ch2]{link \faShare}
@@ -244,8 +250,7 @@ Conseguenze:
 
 {\color{brown}Esempi: \hyperref[Urna_biglie_diverse]{Urna con biglie di dimensioni diverse \faShare}}
 
-Sia $R$ un insieme quasiasi. Una \emph{variabile aleatoria\/} è una funzione $X:\Omega\to R$. Spesso si scrive \emph{$X\in R$\/} (una notazione che può dar luogo a malintesi) omettendo il riferimento ad $\Omega$.
-
+Sia $R$ un insieme quasiasi. Una \emph{variabile aleatoria\/} è una funzione $X:\Omega\to R$. Spesso si scrive \emph{$X\in R$\/} omettendo il riferimento ad $\Omega$ (è una notazione che può dar luogo a malintesi, in realtà $X(\omega)\in\Omega$.)
 Se $R$ è un insieme numerico (un sottoinsieme di $\NN$, $\ZZ$, $\QQ$, $\RR$, $\RR^2$, ecc.) diremo che $X$ è una \emph{variabile aleatoria numerica\/} o \emph{quantitativa}. Una variabile aleatoria non numerica è detta \emph{qualitativa\/} o \emph{categorica}.
 
 
@@ -330,8 +335,7 @@ Dato $A, \Phi\subseteq\Omega$ tali che $\Pr(\Phi)\neq 0$ definiamo
 
 \ceq{\hfill \emph{$\Pr(A\mathbin|\Phi)$}}{=}$\displaystyle\frac{\Pr(A\cap\Phi)}{\Pr(\Phi)\vphantom{\Big[}}$
 
-Questo si legge \emph{probabilità di $A$ dato $\Phi$}. Si verifica facilmente che $\Pr(\,\cdot\,|\Phi)$ soddisfa a tutte le propriet\`a di $\Pr(\,\cdot\,$) se rimpiazziamo $\Omega$ con $\Phi$.
-
+Questo si legge \emph{probabilità di $A$ dato $\Phi$}. Si verifica facilmente che $\Pr(\,\cdot\,|\Phi)$ soddisfa a tutte le propriet\`a di $\Pr(\,\cdot\,$) se rimpiazziamo $\Omega$ con $\Phi$ ed ogni sottoinsieme $A$ di $\Omega$ con $A\cap\Phi$.
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
