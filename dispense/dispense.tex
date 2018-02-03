@@ -190,12 +190,12 @@ diagrams={>=latex}
 \vskip-10pt
 {\scriptsize\url{https://github.com/domenicozambella/statistica/raw/master/dispense/dispense.pdf}}
 
-\begin{flushright}\normalfont\itshape
-La matematica è utilissima.\\
-I matematici, invece, assolutamente inutili.\\
-D.Z.
-\end{flushright}}
-\vskip-5ex
+% \begin{flushright}\normalfont\itshape
+% La matematica è di fondamentale importanza in ogni ambito scientifico.\\
+% I matematici, d'altro canto, sono assolutamente inutili.\\
+% \end{flushright}
+}
+
 \tableofcontents
 
 \chapter{Teoria (il minimo sindacale)} 
@@ -250,14 +250,15 @@ Conseguenze:
 
 {\color{brown}Esempi: \hyperref[Urna_biglie_diverse]{Urna con biglie di dimensioni diverse \faShare}}
 
-Sia $R$ un insieme quasiasi. Una \emph{variabile aleatoria\/} è una funzione $X:\Omega\to R$. Spesso si scrive \emph{$X\in R$\/} omettendo il riferimento ad $\Omega$ (è una notazione che può dar luogo a malintesi, in realtà $X(\omega)\in\Omega$.)
+Una \emph{variabile aleatoria\/} è una funzione $X:\Omega\to R$, dove $\Omega$ è uno spazio campionario ed $R$ un insieme qualsiasi. Spesso si scrive \emph{$X\in R$\/} omettendo il riferimento ad $\Omega$ (è una notazione che può dar luogo a malintesi, in realtà si intende $X(\omega)\in R$ per ogni $\omega\in\Omega$).
+
 Se $R$ è un insieme numerico (un sottoinsieme di $\NN$, $\ZZ$, $\QQ$, $\RR$, $\RR^2$, ecc.) diremo che $X$ è una \emph{variabile aleatoria numerica\/} o \emph{quantitativa}. Una variabile aleatoria non numerica è detta \emph{qualitativa\/} o \emph{categorica}.
 
 
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
-\hfill\rlap{.}\clearpage\section{Distribuzione di probabilità discrete e contnue}
+\hfill\rlap{.}\clearpage\section{Distribuzione di probabilità discrete e continue}
 
 Dato $x\in R$ e $A\subseteq R$ scriveremo
 
@@ -437,7 +438,7 @@ The cumulative distribution function is
 \hfill\rlap{.}\clearpage\section{Valore atteso}
 \label{ValoreAtteso}
 
-Il \emph{valore atteso\/} o \emph{media (di popolazione)\/} (in inglese \emph{expected value, population mean\/}) di una variabile aleatoria numerica discreta $X$ a valori in $R$ è
+Il \emph{valore atteso\/} o \emph{media (di popolazione)\/} (in inglese \emph{expected value}, \emph{population mean}, più raramente, \emph{average\/}) di una variabile aleatoria numerica discreta $X\in R$ è
 
 \ceq{\hfill\emph{$\mu\medrel{=} \E(X)$}}{=}{\sum_{x\in R} x\cdot \Pr(X=x)}
 
@@ -569,7 +570,7 @@ Per ogni variabile aleatoria numerica $X$ con valore atteso $\mu$ e varianza $\s
 
 \ceq{\hfill 75\%}{\le}{\Pr\Big(\mu - 2\sigma \le X\le\mu+2\sigma\Big) }
 
-Ovvero gran parte della massa di probailità è concentrata in un intorno di $\mu$ di raggio $\sigma$. Quindi più piccola è $\sigma$ più concentrata è a distribuzione di $X$.
+Ovvero gran parte della massa di probabilità è concentrata in un intorno di $\mu$ di raggio $\sigma$. Quindi più piccola è $\sigma$ più concentrata è a distribuzione di $X$.
 
 Per alcune particolari v.a.\@ valgono anche proprietà ancora più forti. (Per esempio, se $X$ ha distribuzione normale possiamo scrivere $95\%$ invece che $75\%$.)
 
