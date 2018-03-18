@@ -186,7 +186,7 @@ diagrams={>=latex}
 
 \renewcommand{\contentsname}{Un bignami di probabilità e statistica
 \vskip0pt
-\normalsize È solo una bozza. L'anno prossimo andrà meglio. Per l'ultima versione:
+\normalsize\normalfont Per l'ultima versione:
 \vskip-10pt
 {\scriptsize\url{https://github.com/domenicozambella/statistica/raw/master/dispense/dispense.pdf}}
 
@@ -714,7 +714,7 @@ is positive or negative respectively. Let \emph{$D$\/} be the event that the sub
 Introduciamo un po di terminologia.
 
 \begin{itemize}
-\item We call $\Pr(D)$ the \emph{prevalence\/} of the disease. Often it is very difficult to estimate: it strongly depends on the risk category the subject belongs to.
+\item We call $\Pr(D)$ the \emph{prevalence\/} of the disease. Often it is difficult to estimate: it strongly depends on the risk category the subject belongs to.
 \item The \emph{sensitivity\/} is the probability that the test is
 positive given that the subject actually has the disease, $\Pr(T_+ | D)$
 \item The \emph{specificity\/} is the probability that the test is
@@ -723,8 +723,6 @@ negative given that the subject does not have the disease, $\Pr(T_- | \neg D)$
 disease given that the test is positive, $\Pr(D | T_+)$
 \item The \emph{negative predictive value\/} is the probability that the subject does not have
 the disease given that the test is negative, $\Pr(\neg D | T_-)$
-\item The \emph{prevalence of the disease\/} is the marginal probability of disease, $\Pr(D)$
-
 \end{itemize}
 
 
@@ -1169,7 +1167,6 @@ In un locus possono occorrere due alleli $a$, $b$.
 \begin{citemize}
 \item specie dipoide
 \item accoppiamento casuale (random mating) nessuna selezione
-\item specie monoica (??)
 \item le generazioni non si sovrapongono
 \end{citemize}
 
