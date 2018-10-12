@@ -685,7 +685,7 @@ si dice ottenuta da $X$ per \emph{standardizzazione}. La variabile $Z$ ha media 
 \hphantom{Esempi:} \hyperref[HIV_test]{Diagnostic test: HIV \faShare}}
 
 
-Il fatto seguente di chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
+Il fatto seguente si chiama \emph{Teorema (o regola) di Bayes}: per ogni coppia di eventi $A$ e $B$ di probabilit\`a $\neq0$ 
 
 \ceq{\hfill \Pr(A|B)}{=}{\frac{\Pr(B|A)\cdot \Pr(A)}{\Pr(B)\vphantom{\Big[}}.}
 
@@ -1268,9 +1268,9 @@ $\Pr(A)=0.02$\hfill prevalenza nella popolazione generale
 
 $\Pr(F)=0.1$\hfill frazione di fumatori nella popolazione generale
 
-$\Pr(F|A)=0.2$\hfill prevalenza tra i fumatori
+$\Pr(F|A)=0.2$\hfill frazione di fumatori tra gli affetti
 
-$\Pr(A|F)=\dfrac{\Pr(F|A)\cdot \Pr(A)}{\Pr(F)}=\dfrac{0.2\cdot0.02}{0.1}=0.04$
+$\Pr(A|F)=\dfrac{\Pr(F|A)\cdot \Pr(A)}{\Pr(F)}=\dfrac{0.2\cdot0.02}{0.1}=0.04$\hfill prevalenza tra i fumatori
 %%%%%%%%%%%%
 %%%%%%%%%%%%
 %%%%%%%%%%%%
@@ -1411,7 +1411,7 @@ The {\color{violet}positive predictive value is 6\%} for this test. In this popu
 The low positive predictive value is due to low prevalence of disease and the
 somewhat modest specificity 
 
-Suppose it was known that the subject was an intravenous drug user and routinely had intercourse with HIV infected partners that the test was taken in South Africa where the prevalence is estimated to be around 20\%
+Suppose that the test was taken in South Africa where the prevalence is estimated to be around 20\%
 
 \begin{eqnarray*}
 \Pr(D ~|T_+)& = & 0.943\\
@@ -1655,7 +1655,7 @@ $\alpha=0.01$\hfil
 \item[1.] $H_0$: \ $p=p_0$ dove $p$ è la prevalenza del mancinismo tra i figli di mancini.
 \item[2.] $H_A$: \ $p>p_0$ 
 \item[3.] Test binomiale a una coda.
-\item[4.] $\Pr(X> x)$ dove $X\sim B(n,p)$ ovvero {\tt 1-pbinom($x$,$n$,$p_0$)}\hfill {\tt(0.053)}
+\item[4.] $\Pr(X> x)$ dove $X\sim B(n,p_0)$ ovvero {\tt 1-pbinom($x$,$n$,$p_0$)}\hfill {\tt(0.053)}
 \item[5.] $\beta=\Pr(X\le x)$ dove $X\sim B(n,p_1)$ ovvero {\tt pbinom($x$,$n$,$p_1$)}\hfill {\tt (0.033)}
 \item[6.]  La potenza è $1-\beta$\hfill {\tt (0.67)}
 \item[7.]  Rifiutiamo $H_0$ se più di {\tt qbinom($1-\alpha$,$n$,$p_0$)} mancini \hfill {\tt (123)}
